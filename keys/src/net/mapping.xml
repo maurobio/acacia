@@ -1,0 +1,79 @@
+<!DOCTYPE databases PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                           "http://castor.exolab.org/mapping.dtd">
+<mapping>
+
+
+  <class name="net.metadiversity.diversity.navigator.db.ub.collection.X_CollectingPerson"
+         identity="CollectionSpecimenID">
+    <description>Collecting Person</description>
+    <map-to table="CollectingPerson" xml="CollectingPerson" />
+    <field name="CollectionSpecimenID" type="integer" >
+      <sql name="CollectionSpecimenID" type="integer"/>
+      <xml node="attribute"/>
+    </field>
+    <field name="CollectorsName" type="string">
+      <sql name="CollectorsName" type="char" dirty="check" />
+      <xml node="text" />
+    </field>
+  </class>
+
+  <class name="net.metadiversity.diversity.navigator.db.ub.collection.X_CollectionSpecimen" 
+         identity="CollectionSpecimenID">
+    <description>Collecting Specimen</description>
+    <map-to table="CollectionSpecimen" xml="CollectionSpecimen" />
+    <field name="CollectionSpecimenID" type="integer" >
+      <sql name="CollectionSpecimenID" type="integer"/>
+      <xml node="attribute"/>
+    </field>
+  </class>
+
+
+
+  <!--  Mapping for ProductGroup  
+  <class name="myapp.ProductGroup"
+         identity="id">
+    <description>Product group</description>
+    <map-to table="prod_group" xml="group" />
+    <field name="id" type="integer" >
+      <sql name="id" type="integer"/>
+      <xml node="attribute"/>
+    </field>
+    <field name="name" type="string">
+      <sql name="name" type="char" dirty="check" />
+      <xml node="text" />
+    </field>
+  </class>
+-->
+
+  <!--  Mapping for Product  
+  <class name="myapp.Product"
+         identity="id">
+    <description>Product definition</description>
+    <map-to table="prod" xml="product" />
+    <field name="id" type="integer">
+      <sql name="id" type="integer" />
+      <xml name="id" node="attribute"/>
+    </field>
+    <field name="name" type="string">
+      <sql name="name" type="char" />
+      <xml name="name" node="element" />
+    </field>
+    <field name="price" type="float">
+      <sql name="price" type="numeric" />
+      <xml name="price" node="element" />
+    </field>
+-->
+    <!-- Product has reference to Category with
+         many-many relationship -->
+<!--
+    <field name="categories" type="myapp.Category" required="true"
+           collection="vector">
+      <sql name="category_id"
+           many-table="category_prod" many-key="prod_id" />
+      <xml name="category" node="element" />
+    </field>
+-->
+
+
+</mapping>
+

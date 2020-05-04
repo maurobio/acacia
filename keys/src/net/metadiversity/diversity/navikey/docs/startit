@@ -1,0 +1,4 @@
+setenv $MW_CLASSES $HOME/NaviKey/classes
+
+nohup java -mx32m -cp /usr/local/jsdk2.1/server.jar:/usr/local/jsdk2.1/servlet.jar:$MW_CLASSES:. com.sun.web.shell.Startup
+#nohup java -mx32m sun.servlet.http.HttpServer -p 8765 -v -d .

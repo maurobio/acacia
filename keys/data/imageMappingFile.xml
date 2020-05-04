@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemMapping>
+<map><from>Agrostis</from><to>Agrostis</to></map>
+<map><from>Andropogon</from><to>Andropogon</to></map>
+<!--
+
+<map><from>Anisopogon</from><to>anisopog</to></map>
+<map><from>Bambusa</from><to>bambusa</to></map>
+
+-->
+
+<map><from>Chloris</from><to>chloris</to></map>
+<map><from>Cynodon</from><to>cynodon</to></map>
+
+<!--
+<map><from>Echinochloa</from><to>echinoch</to></map>
+<map><from>Eleusine</from><to>eleusine</to></map>
+<map><from>Festuca</from><to>festuca</to></map>
+<map><from>Oryza</from><to>oryza</to></map>
+<map><from>Panicum</from><to>panicum</to></map>
+<map><from>Phragmites</from><to>phragmit</to></map>
+<map><from>Poa</from><to>poa</to></map>
+<map><from>Zea</from><to>zea</to></map>
+-->
+</ItemMapping>

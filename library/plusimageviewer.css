@@ -1,0 +1,36 @@
+.enlargecaption{
+position: absolute;
+border: 1px dotted navy;
+font: normal 11px Arial;
+}
+
+.enlargecaption a{
+display:block;
+background: lightblue; /*bg color of caption*/
+padding: 3px;
+text-decoration: none;
+color: black;
+}
+
+.enlargecaption a:hover{
+ background: lightyellow; /*bg color of caption when mouse rolls over it*/
+}
+
+.enlargebox{
+position: absolute;
+border:1px solid gray;
+display:none;
+}
+
+.enlargebox .title{
+background:gray;
+color:white;
+padding: 3px 2px;
+text-align: right;
+font:bold 14px Arial;
+}
+
+.enlargebox .title img{
+cursor:pointer;
+cursor:hand;
+}

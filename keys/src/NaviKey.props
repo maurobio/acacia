@@ -1,0 +1,30 @@
+*******************************************************************************
+***                     NaviKey Properties File                             ***
+***  This file may be modified to change usability settings, as specified   ***
+***     in the comment boxes.                                               ***
+*******************************************************************************
+
+###############################################################################
+###                     File Specifications                                 ###
+###  required, if running as standalone must be the names of specs, chars,  ###
+###            and items files in the web_readable path from html file      ###
+###            if running as servlet must specify same files                ###
+###            path to images must be specified if any are to be displayed  ###
+###                                                                         ###
+### form:  specsfile=<filename>                                             ###
+###        charsfile=<filename>                                             ###
+###        itemsfile=<filename>                                             ###
+###        imageDirectory=<path>                                            ###
+###                                                                         ###
+###############################################################################
+specsfile=specs
+charsfile=chars
+itemsfile=items
+imageDirectory=images
+#
+#
+#
+showLiasUnits=true
+#
+useGuiTabs=true
+#

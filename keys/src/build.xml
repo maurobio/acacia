@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<project default="navikey-distribute">
+
+<property name="fullpath" value="net/metadiversity/diversity"/>
+<property name="imagepath" value="net/metadiversity/diversity/navigator"/>
+<property name="dirs" value="${fullpath}/**/*" /> 
+
+<!-- ****************** -->
+<!-- Navikey distribute -->
+<!-- ****************** -->
+
+     	<property name="navikey-dist.dir" value="./navikey-dist" />
+	<property name="navikey.dir" value="${fullpath}/navikey" />
+
+	<property name="navikey-build.dir" value="${fullpath}/navikey" />
+<!--
+     	<property name="manifest" value="${source.dir}/manifest.mf"/>
+-->
+     	<property name="manifest" value="navikey-manifest.mf"/>
+     	<property name="version" value="0500"/>
+
+     	<mkdir dir="${navikey-dist.dir}" />
+
+        <target name="init">
+  		<tstamp>
+    		<format property="DATE" pattern="yyyyMMdd"/>
+    		<format property="DATE_DE" pattern="dd.MM.yyyy"/>
+    		<format property="DATE_TIME" pattern="yyyyMMdd_HHmmss"/>
+    		<format property="DATETIME_DE" pattern="dd.MM.yyyy HH:mm:ss"/>
+    		<format property="TIMESTAMP" pattern="yyyyMMddHHmmssSSS"/>
+    		<format property="BUILD" pattern="yyMMdd_HHmm"/>
+    	        </tstamp>
+        </target>
+
+
+        <target name="info" depends="init">
+            <echo level="info">
+	        Project: ${ant.project.name} (${basedir})
+	    	Build file: ${ant.file}
+	        Java: ${java.version} ${java.vendor}
+	        OS: ${os.name} ${os.version} ${os.arch}
+	       	${ant.version} (Java: ${ant.java.version})
+	       	Time: ${DATETIME_DE}
+	       	Build: ${BUILD}
+    	    </echo>
+        </target>
+
+     	<!-- Datei-Auswahlmuster fuer das Jar-File
+          Es werden alle classes und properties Dateien und alle Dateien,
+          die in einem resources-Verzeichnis liegen
+          beruecksichtigt. Verzeichnisse mit Namen test werden
+          ausgeschlossen. -->
+     	<patternset id="for_navikey_jar">
+          	<include name="${navikey.dir}/**/*.class" />
+          	<include name="${navikey.dir}/**/resources/*.*" />
+          	<include name="${navikey.dir}/**/*.properties" />
+          	<exclude name="${navikey.dir}/**/test/" />
+     	</patternset>
+
+     	<target name="navikey-distribute" depends="init,info">
+           	<jar jarfile="${navikey-dist.dir}/NaviKey_v${version}_${BUILD}.jar" manifest="${manifest}">
+           		<fileset dir=".">
+              			<patternset refid="for_navikey_jar" />
+           		</fileset>
+         	</jar>
+     	</target>
+
+<!-- ****************** -->
+<!-- ****************** -->
+
+
+</project>

@@ -1,0 +1,56 @@
+<!DOCTYPE databases PUBLIC "-//EXOLAB/Castor JDO Configuration DTD Version 1.0//EN"
+                           "http://castor.exolab.org/jdo-conf.dtd">
+
+
+<!-- working
+
+<database name="test" engine="postgresql" >
+  <driver class-name="org.postgresql.Driver" url="jdbc:postgresql://hongkong.didi.dn/test">
+    <param name="user" value="didi"/>
+    <param name="password" value="" />
+  </driver>
+  <mapping href="mapping.xml" />
+</database>
+
+-->
+
+<database name="test" engine="postgresql" >
+    <data-source class-name="org.postgresql.PostgresqlDataSource">
+        <params server-name="hongkong.didi.dn" port-number="5432" database-name="ubt-collection"
+           user="didi" password="" />
+    </data-source>
+  <mapping href="mapping.xml" />
+</database>
+<!--
+<database name="ubt-collection" engine="postgresql" >
+    <data-source class-name="org.postgresql.PostgresqlDataSource">
+        <params server-name="hongkong.didi.dn" port-number="5432" database-name="ub-collection"
+           user="didi" password="" />
+    </data-source>
+  <mapping href="mapping.xml" />
+</database>
+
+<database name="ubt-gazetteer" engine="postgresql" >
+    <data-source class-name="org.postgresql.PostgresqlDataSource">
+        <params server-name="hongkong.didi.dn" port-number="5432" database-name="ub-gazetteer"
+           user="didi" password="" />
+    </data-source>
+  <mapping href="mapping.xml" />
+</database>
+
+<database name="ubt-users" engine="postgresql" >
+    <data-source class-name="org.postgresql.PostgresqlDataSource">
+        <params server-name="hongkong.didi.dn" port-number="5432" database-name="ub-users"
+           user="didi" password="" />
+    </data-source>
+  <mapping href="mapping.xml" />
+</database>
+
+<database name="ubt-exsiccata" engine="postgresql" >
+    <data-source class-name="org.postgresql.PostgresqlDataSource">
+        <params server-name="hongkong.didi.dn" port-number="5432" database-name="ub-exsiccata"
+           user="didi" password="" />
+    </data-source>
+  <mapping href="mapping.xml" />
+</database>
+-->

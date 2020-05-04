@@ -1,0 +1,56 @@
+<html>
+<b><h1>NaviKey v. 5.x</h1></b> (<a href="http://www.gnu.org/licenses/licenses.html">GNU General Public License<a>)
+<p />
+2008-05-15
+<p />
+This software is based on an earlier version (NaviKey v. 2.3 by Michael Bartley and Noel Cross, Harvard University Herbarium, Boston, USA) and has been further developed in the frame of the <a href="http://www.biota-africa.de/">BIOTA Africa project</a> by Dieter Neubacher and Gerhard Rambold (University of Bayreuth, Germany). Email any comments about the program to navikey@uni-bayreuth.de.
+
+<p>NaviKey v. 5.0 is a tool for querying descriptive data and has been implemented as
+<ul>
+<li>a Java applet providing the contents of <a href="http://www.delta-intkey.com">DELTA</a> flat files;
+<li>a stand-alone Java application for accessing <a href="http://www.delta-intkey.com">DELTA</a> flat files or <a href="http://www.diversitycampus.net/Workbench/download.html"><i>DiversityDescription</i></a> PostgreSQL databases, respectively;
+<li>a module ("plug-in") of the <a href="http://www.diversitynavigator.net/"><i>Diversity Navigator</i></a> Java database client for accessing <a href="http://www.delta-intkey.com">DELTA</a> flat files or <a href="http://www.diversitycampus.net/Workbench/download.html"><i>DiversityDescription</i></a> PostgreSQL databases, respectively.<p />
+</ul>
+Regular version updates of the NaviKey applet and stand-alone NaviKey application are provided on the <a href="http://www.navikey.net">NaviKey Home side</a> (http://www.navikey.net)
+<p />
+The user interface contains four main panels:
+<ul>
+<li>top left     - Character panel: selection of the characters;
+<li>top right    - Character states or numeric data panel: preselection of states of the selected character; for selection of more than one character state press CTRL plus character state; to finish the query, use the &lt;Select&gt; button;
+<li>bottom left  - Query criteria panel: display of previous character state selections;
+<li>bottom right - Matching items panel: display of matching items (selecting any item will bring up a complete description of that item).
+</ul>
+<p />
+NaviKey checkbox matching options are:
+<ul>
+<li><b>Use "Best" algorithm</b><br>
+To be implemented.</li>
+<li><b>Use character dependencies</b><br>
+When checked, controlling character states make dependent characters - as defined in the database - inapplicable.</li>
+<li><b>Restrict view on used characters and character states of remaining items</b><br>
+When checked, NaviKey only displays those characters and states (in the two top main panels) that will reduce the number of item matches; characters or states which are not applicable to the remaining items (in the bottom right main panel) or apply to all of the items in the same form are no longer displayed. If a character is selected for which more than one state applies, multiple state selection may be performed using the &lt;Ctrl&gt; (or corresponding) button (see also "Enable multiple selection of character states"). In the case of numeric characters, the top right panel provides fields for input of numeric values. After inputing either a single measurement or a range of values, the selection of the &lt;Add&gt; button will finalize the query.</li>
+<li><b>Retain items unrecorded for the selected characters</b><br>
+
+Checking the box enables the "Direct identification" mode with the 
+undefined states included; i.e., NaviKey also displays those items (in the 
+bottom right panel), for which the selected character(s) have (so far) not 
+been specified in the database. When unchecked, it only displays the items 
+with at least one of the selected characters being specified. This 
+behaviour largely corresponds with the "analysis/data retrieval mode" in 
+CSIRO-DELTA Intkey and in the Identify module of <i>DiversityDescriptions</i>.
+
+</li>
+
+<li><b>Retain items matching at least one selected state of resp. characters</b><br>
+
+When checked, NaviKey selects those items matching by at least one 
+character state of the selected characters, otherwise only those items 
+matching directly the selected combination of character states.
+
+</li>
+<li><b>Use extreme interval validation</b><br>
+When checked, the whole range between the extreme values (if present in the item data set) is used in numerical queries, otherwise only the range between minimum and maximum values (if present in the item data set) is considered.</li>
+<li><b>Use overlapping interval validation</b><br>
+When checked, overlapping between queried and the specified numerical intervals is matching, otherwise not.</li>
+</ul>
+</html>

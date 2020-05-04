@@ -1,0 +1,83 @@
+*******************************************************************************
+***                     NaviKey Properties File                             ***
+***  This file may be modified to change usability settings, as specified   ***
+***     in the comment boxes.  Should it become corrupted, a replacement    ***
+***     is available at http://pnp.huh.harvard.edu/~mbartley/NaviKey.props  ***
+*******************************************************************************
+
+
+###############################################################################
+###               Stand-Alone Setting/Web Location                          ###
+###  required, must be set to either true or false, should be true if delta ###
+###            files are downloaded with applet, false if running http      ###
+###            servlet version of NaviKey                                   ###
+###                                                                         ###
+### form:  standalone=<value>                                               ###
+###                                                                         ###
+###############################################################################
+standalone=true
+
+
+###############################################################################
+###                Client/Server Requirements                               ###
+###  if standalone is false and NaviKey is running with its client/server   ###
+###     model, two additional fields are required.  servletURL specifies    ###
+###     where the java servlet can be found to serve the DELTA data, and    ###
+###     webpage specifies the base webpage where the client resides, and    ###
+###     is needed to serve resources like images                            ###
+###            must be specified to support images                          ###
+###                                                                         ###
+### form:  servletURL=<URL>                                                 ###
+###        webpage=<URL>                                                    ###
+###                                                                         ###
+###############################################################################
+servletURL=http://pnp.huh.harvard.edu:8765/servlet/mw.NaviKeyServlet
+webpage=http://pnp.huh.harvard.edu/~mbartley
+
+###############################################################################
+###                     File Specifications                                 ###
+###  required, if running as standalone must be the names of specs, chars,  ###
+###            and items files in the web_readable path from html file      ###
+###            if running as servlet must specify same files                ###
+###            path to images must be specified if any are to be displayed  ###
+###                                                                         ###
+### form:  specsfile=<filename>                                             ###
+###        charsfile=<filename>                                             ###
+###        itemsfile=<filename>                                             ###
+###        imageDirectory=<path>                                            ###
+###                                                                         ###
+###############################################################################
+specsfile=specs
+charsfile=chars
+itemsfile=items
+imageDirectory=images
+
+
+###############################################################################
+###                          Customizations                                 ###
+###  specification of colors for the parts of NaviKey;  available colors    ###
+###    are black, blue, cyan, darkGray, gray, green, lightGray, magenta,    ###
+###        orange, pink, red, white, yellow                                 ###
+###    available fields are naviKeyBackgroundColor, itemCharacterColor,     ###
+###        itemStateColor, itemSelectionsColor, itemListColor, buttonColor, ###
+###        itemDisplayColor, itemDisplayTextColor, itemDisplayBGColor,      ###
+###        itemDisplayFGColor, imageBGColor, imageFGColor                   ###
+###                                                                         ###
+### form:  <field>=<color>                                                  ###
+###                                                                         ###
+###############################################################################
+naviKeyBackgroundColor=black
+itemCharacterColor=cyan
+itemStateColor=magenta
+itemSelectionsColor=green
+itemListColor=yellow
+buttonColor=pink
+boxBGColor=white
+boxFGColor=black
+itemDisplayColor=black
+itemDisplayTextColor=white
+itemDisplayBGColor=black
+itemDisplayFGColor=green
+imageBGColor=black
+imageFGColor=white
+

@@ -1,0 +1,7 @@
+requirement:  '*CHARACTER LIST' must precede character set
+	      '*ITEM LIST' must precede item set
+	      Feature descriptions must start on a new line
+	     ex:  #1. striated .../
+		      .../
+		  #2. .../
+

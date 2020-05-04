@@ -1,0 +1,115 @@
+/* Version 2.0 Screen: Verdana+colors+relative size for browser size-zoom (compare print stylesheet, using Arial+black+11pt) */
+/* line 78 changed, originally: div.impressum {font-size:10px;text-align:center} */
+
+
+/* 
+ body {
+ margin-top:10px;margin-bottom:2em;margin-left:174px;
+ background:#FFFFFF;}*/
+ 
+body {
+ background-position:top left;
+ background-attachment:fixed;
+ background-repeat:repeat;
+ margin-top:10px;margin-bottom:2em;margin-left:40px;
+ background-image:url(Pictures/Lias_back.gif);
+ }
+
+body, table {
+ color:black;
+ font-family:Verdana,Helvetica,Arial,sans-serif;}
+
+/* Sizing is problematic: A size in pt is changed with text size setting in NS, but fixed in IE 
+  smaller etc: Problem with IE5. small in default rather large, but sizing ok, smaller in default ok but sizing awkward! (IE5:font-size:smaller=10/small=12/medium=13.5pt!) 
+  Relative size with %: OK in IE5 and NS, but table is not considered child of body. Using Body,Table works ok! 
+  but now IE6 screws things up, treats tables correctly as children of body, thus 83% will be applied mutliple times! Solution: see "body table" below 
+ */
+body, table {font-size:83%}
+body table  {font-size:100%}
+
+/* Link Pseudo styles. Note: Netsc.4.7 is buggy, underlines bookmarks ("a name=") as well -> "text-decoration:underline;" omitted in link/visited -> user default used Note: w3c rec css seems to uses  :link :visited :active, without the a (but a:hover)! */
+a:link {color:#333399;background:transparent;}
+a:visited {color:#333399;background:transparent;}
+a:active {color:#0000FF;background:transparent;}
+a:hover {color:#0000FF;background: #FFA}
+a.invis {text-decoration:none;color:#000000;background:transparent;} /* invisible link */
+
+h1, h2, h3, h4, h5, h6 { 
+ text-align:left;
+ background:transparent; /* w3c stylesheet: "WebTV has a bug with transparent" */
+ margin-top:1em;margin-bottom: 0.6em;
+ font-family:Arial,Helvetica,sans-serif; /* Arial, not Verdana! */
+ font-weight:bold;}
+h1 {font-size:160%;color:#336699;} /* OK, IE interprets size relative to body! */
+h2 {font-size:145%;color:#336699;}
+h3 {font-size:125%;color:#336699;}
+h4 {font-size:115%;color:#336699;}
+h5, h6 {font-size:100%;}
+
+pre, tt, code {font-family:"Courier New",Courier,monospace;}
+
+div, th, td, form, input, textarea, select {
+ font-family:Verdana,Arial,Helvetica,sans-serif;}
+p, ul, ol, li, dl, address, blockquote {
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ margin-top:0.7em;margin-bottom:0.7em;}
+
+/* List definitions: 
+   Note: p within ul/ol not allowed in xhtml, can use 2 x br or <li><p></p><p></p></li>! 
+   Option: .redbullet {list-style-image:url('bullet_red.gif');list-style-type:square}   list-style-type added for browsers not supporting the gif bullet style (bullet image is square) 
+   Option to remove bullets or numbers: li.continue {list-style:disc;list-style: none;}  Reason for double def: Mac NS has problem with 'none' 
+*/
+ul, ol {margin-left:0em;padding-left:1.5em;}
+ul.compact li, ol.compact li, ol.compact li p {
+  margin-top:0;margin-bottom:0;}
+ul.separated li, ol.separated li {
+  margin-top:0.7em;margin-bottom:0.7em;} /* currently = default, but default may be changed */
+
+dt {margin-top:0; margin-bottom:0;font-weight:bold} 
+dt.label {display: run-in;}
+dd, dd p {margin-top:0;margin-bottom:0.7em;}
+
+.title {text-align:center} /* normal headers are redefined to be left-aligned! */
+.hide {display:none}
+.compact {margin-top:0.1em;margin-bottom: 0.1em;}
+.justify {text-align:justify}
+.large {font-size:115%}
+.small {font-size:86%}
+.tiny {font-size:77%} /* never use sizes smaller 75%, esp. unreadable on Mac. 77% can still be read with IE: Text size=smaller */
+.largejustify {font-size:115%;text-align:justify}
+.smalljustify {font-size:86%;text-align:justify}
+.tinyjustify {font-size:77%;text-align:justify}
+/* Note: do not use "all", like all.hide etc., IE ignores this */
+
+p.copyright {font-size:85%}
+
+div.note, div.notice {margin-left:2em;}
+div.impressum {font-size:10px;} /* using fixed size, 9 is absolute min! */
+
+/* table formatting: */
+table caption {font-size:125%;font-weight:bold;font-family:Verdana,Arial,Helvetica,sans-serif;}
+th {font-weight:bold;}
+tr.header {color:black;background-color:lightgrey}   /* header row with a darker background color */
+tr.data1 {color:black;background-color:white}        /* data row, usually white background color */
+tr.data2 {color:black;background-color:whitesmoke}   /* data row with alternate background color  */
+tr.separator {color:black;background-color:lightgrey}/* separator row with a darker background color */
+
+sup {text-decoration:none;font-size:85%;}
+sub {text-decoration:none;font-size:85%;}
+span.smallcaps {font-variant:small-caps} /* IE 5.5 seems to ignore this */
+
+@media aural {  
+  h1,h2,h3 {stress:20;richness:90}
+  .hide {speak:none}
+  .tiny, p.copyright {volume:x-soft;speech-rate:x-fast}
+  dt {pause-before:20%}
+  pre, tt {speak-punctuation:code} 
+}
+
+
+/* LIAS */
+hr {
+  height:1px;color:#336699;width:700px;text-align:left;
+}
+
+body, p, div, h1, h2, h3, h4, ol, ul {width:700px;max-width:710px;}

@@ -1,0 +1,1729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document> 
+	<LookAt>
+		<latitude>-24</latitude>
+		<longitude>45</longitude>
+		<altitude>0</altitude>
+		<range>3600000</range>
+		<tilt>0</tilt>
+		<heading>0</heading>
+		<altitudeMode>relativeToGround</altitudeMode>
+	</LookAt>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Israel: No locality data available</description>
+		<Point>
+			<coordinates>34.809800,31.914100</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Benin: No locality data available</description>
+		<Point>
+			<coordinates>1.100000,10.216700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Benin: No locality data available</description>
+		<Point>
+			<coordinates>3.716670,10.816700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Guyana: Cottage Canal, between Main Road and coast,, Demerara - Mahaica</description>
+		<Point>
+			<coordinates>-57.333300,6.616700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Chinese Taipei: Hengchun</description>
+		<Point>
+			<coordinates>120.735000,22.003600</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Toliara, near Ampanihy, along road to Marolinta, 10 km S of town</description>
+		<Point>
+			<coordinates>44.716700,-24.766700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Antanimora</description>
+		<Point>
+			<coordinates>45.616700,-24.833300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Prov. Tulear : Ca. 4 km S of Tulear</description>
+		<Point>
+			<coordinates>43.716700,-23.366700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Toliara (Tulear) Province, c.5 Km north of Toliara, on the road to Morombe, just south of the Fiherenana River</description>
+		<Point>
+			<coordinates>43.650000,-23.316700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Beroroha</description>
+		<Point>
+			<coordinates>45.166700,-21.666700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Betsipotika</description>
+		<Point>
+			<coordinates>44.450000,-20.283300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Angola: Benguela, Ba?a Farta, a 24 km de Benguela</description>
+		<Point>
+			<coordinates>13.130000,-12.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Indonesia: Livestock research station at Lili on the Kupang to Soe road, about 25 km ENE of Kupang, West Timor.</description>
+		<Point>
+			<coordinates>123.850000,-10.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Timor-leste: Adjacent to Suai Airport, Desa Holbelis, 2.74 km from Suai on a bearing of 77 degrees, southern coast of E. Timor.</description>
+		<Point>
+			<coordinates>125.287000,-9.309400</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Chunya, 10 mi. E Chunya, Mbeya road. Middle of slope. Red clay loam, stony. Woodland heavily cut-over, of Brachystegia spiciformis et.</description>
+		<Point>
+			<coordinates>33.310000,-8.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Iringa Rural, Nyamakuyu Rapids Circuit. Riverine fringe with Combretum mossambicensis-Commiphora stolonifera-Premna senensis-Acacia albida-Cassia abbreviata-Kigelia aethiopic</description>
+		<Point>
+			<coordinates>34.520000,-7.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Rural, Mvumi.</description>
+		<Point>
+			<coordinates>35.510000,-6.210000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Rural, Great Bubu Swamp, below scarp. Alluvial soils supporting Acacia spirocarpa and many capparids.</description>
+		<Point>
+			<coordinates>35.190000,-6.030000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Urban, Dodoma.</description>
+		<Point>
+			<coordinates>35.450000,-6.110000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mpwapwa, 68 km before Dodoma, coming from Dar-es-Salaam. Rocky soil.</description>
+		<Point>
+			<coordinates>36.170000,-6.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mpwapwa, Between Kongwa and Mpwapwa in open bush savanna.</description>
+		<Point>
+			<coordinates>36.270000,-6.160000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Kiteto, Hill slope. Kibaya.</description>
+		<Point>
+			<coordinates>36.350000,-5.170000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kangata. Brachystegia-Albizzia-Commiphora bush association.</description>
+		<Point>
+			<coordinates>37.540000,-5.390000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kwa Mkono, dry area.</description>
+		<Point>
+			<coordinates>38.160000,-5.270000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Mombo-Korogwe road, in short grass savannah.</description>
+		<Point>
+			<coordinates>38.220000,-5.010000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kwa Mkono.</description>
+		<Point>
+			<coordinates>38.160000,-5.270000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Igunga, Usule-Kiraminu, Mkalama District.</description>
+		<Point>
+			<coordinates>34.380000,-4.070000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Kondoa, Mondo Kondoa.</description>
+		<Point>
+			<coordinates>35.550000,-4.580000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Same, Mkomazi Game Reserve, 6 km on Kisiwani-Mnazi road. Dense Acacia-Commiphora bushland on edge of riverine forest.</description>
+		<Point>
+			<coordinates>37.590000,-4.080000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Track to Lake Manka. Side of track in very dry sand.</description>
+		<Point>
+			<coordinates>38.050000,-4.440000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Umbasteppe: unter gegend Kikumbi-Mashewa.</description>
+		<Point>
+			<coordinates>38.390000,-4.440000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Chekerali, between Mombo-Makuyuni.</description>
+		<Point>
+			<coordinates>38.180000,-4.580000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Muheza, Daluni.</description>
+		<Point>
+			<coordinates>38.460000,-4.460000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, W Usambara: Steppe am Baumwald bei Mombo.</description>
+		<Point>
+			<coordinates>38.170000,-4.530000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Ngorongoro, Ngorongoro Conservation Area; Malanja Escarpment. Acacia/Commiphora woodland.</description>
+		<Point>
+			<coordinates>35.270000,-3.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Iramba, Yaida Valley, Yaida Escarpment, 2 mi. from the plain. Stoney hillside.</description>
+		<Point>
+			<coordinates>35.000000,-4.000000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mbulu, Iraku: Malimo, Grassteppe-Dungobusch.</description>
+		<Point>
+			<coordinates>35.330000,-3.550000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Karatu, Magadi-Umbulu, Kambi ya Nyoka.</description>
+		<Point>
+			<coordinates>35.360000,-3.180000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, 2 km from Mwanga along road to Usangi.</description>
+		<Point>
+			<coordinates>37.330000,-3.380000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, Lembeni.</description>
+		<Point>
+			<coordinates>37.370000,-3.470000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, Lembeni.</description>
+		<Point>
+			<coordinates>37.370000,-3.470000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Ngorongoro, Winterhochland: Engaruka-Kawinjiro.</description>
+		<Point>
+			<coordinates>35.560000,-2.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Longido, Ketumbane [Kitumbeine]. With Acacia sp. and Commiphora in a stony brown volcanic soil.</description>
+		<Point>
+			<coordinates>36.130000,-2.530000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: No locality data available</description>
+		<Point>
+			<coordinates>35.696400,-1.794900</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 2 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Senga 5A</description>
+		<Point>
+			<coordinates>29.616700,0.333000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 3 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 5 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 4 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Uganda: NK101 - Nkondo fm.</description>
+		<Point>
+			<coordinates>31.000000,1.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 102 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.250000,3.942000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 110 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.325000,3.850000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 116 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.334000,4.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>0.410000,5.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-0.390000,8.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-2.290000,9.020000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-0.010000,9.260000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-1.060000,10.540000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-1.060000,10.540000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Gongasso</description>
+		<Point>
+			<coordinates>-5.800000,11.533300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Kegniedife</description>
+		<Point>
+			<coordinates>-9.866670,13.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sokolo</description>
+		<Point>
+			<coordinates>-5.683330,13.716700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sokolo</description>
+		<Point>
+			<coordinates>-5.683330,13.716700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: 2 km E Station Sahel (c. Niono)</description>
+		<Point>
+			<coordinates>-5.941670,14.266700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sanga</description>
+		<Point>
+			<coordinates>-3.316670,14.466700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Baboye</description>
+		<Point>
+			<coordinates>-3.950000,14.266700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Konna</description>
+		<Point>
+			<coordinates>-3.883330,14.950000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sanga</description>
+		<Point>
+			<coordinates>-3.316670,14.466700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: Oursi</description>
+		<Point>
+			<coordinates>-0.450000,14.683300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: 12 km N. Gossi/T carte in Tillit</description>
+		<Point>
+			<coordinates>-1.275000,15.841700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Massi</description>
+		<Point>
+			<coordinates>-1.300000,15.183300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Mare Gossi</description>
+		<Point>
+			<coordinates>-1.316670,15.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Tombouctou</description>
+		<Point>
+			<coordinates>-3.016670,16.766700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Tassejdemt</description>
+		<Point>
+			<coordinates>1.083330,19.433300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Libyan Arab Jamahiriya: No locality data available</description>
+		<Point>
+			<coordinates>11.816700,25.486700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>India: Rajasthan, Bharatpur NP</description>
+		<Point>
+			<coordinates>77.524300,27.162500</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>United States: Arizona, UA Yuma Mesa Agricultural Center, Yuma, Block 24 North. .</description>
+		<Point>
+			<coordinates>-114.639000,32.614700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>United States: Arizona, UA Yuma Mesa Agricultural Center, Yuma, Block 24 North. Cultivated.</description>
+		<Point>
+			<coordinates>-114.639000,32.614700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Germany: Nordrhein-Westfalen, Aachen</description>
+		<Point>
+			<coordinates>6.077050,50.755600</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: Tcheboa</description>
+		<Point>
+			<coordinates>13.183300,9.016670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: ca. 10 km nord de Mora côté de la route</description>
+		<Point>
+			<coordinates>14.150000,11.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Philippines: Pasig</description>
+		<Point>
+			<coordinates>121.080000,14.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Israel: No locality data available</description>
+		<Point>
+			<coordinates>34.809800,31.914100</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Benin: No locality data available</description>
+		<Point>
+			<coordinates>1.100000,10.216700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Benin: No locality data available</description>
+		<Point>
+			<coordinates>3.716670,10.816700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Guyana: Cottage Canal, between Main Road and coast,, Demerara - Mahaica</description>
+		<Point>
+			<coordinates>-57.333300,6.616700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Chinese Taipei: Hengchun</description>
+		<Point>
+			<coordinates>120.735000,22.003600</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Toliara, near Ampanihy, along road to Marolinta, 10 km S of town</description>
+		<Point>
+			<coordinates>44.716700,-24.766700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Antanimora</description>
+		<Point>
+			<coordinates>45.616700,-24.833300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Prov. Tulear : Ca. 4 km S of Tulear</description>
+		<Point>
+			<coordinates>43.716700,-23.366700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Toliara (Tulear) Province, c.5 Km north of Toliara, on the road to Morombe, just south of the Fiherenana River</description>
+		<Point>
+			<coordinates>43.650000,-23.316700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Beroroha</description>
+		<Point>
+			<coordinates>45.166700,-21.666700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Betsipotika</description>
+		<Point>
+			<coordinates>44.450000,-20.283300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Angola: Benguela, Ba?a Farta, a 24 km de Benguela</description>
+		<Point>
+			<coordinates>13.130000,-12.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Indonesia: Livestock research station at Lili on the Kupang to Soe road, about 25 km ENE of Kupang, West Timor.</description>
+		<Point>
+			<coordinates>123.850000,-10.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Timor-leste: Adjacent to Suai Airport, Desa Holbelis, 2.74 km from Suai on a bearing of 77 degrees, southern coast of E. Timor.</description>
+		<Point>
+			<coordinates>125.287000,-9.309400</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Chunya, 10 mi. E Chunya, Mbeya road. Middle of slope. Red clay loam, stony. Woodland heavily cut-over, of Brachystegia spiciformis et.</description>
+		<Point>
+			<coordinates>33.310000,-8.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Iringa Rural, Nyamakuyu Rapids Circuit. Riverine fringe with Combretum mossambicensis-Commiphora stolonifera-Premna senensis-Acacia albida-Cassia abbreviata-Kigelia aethiopic</description>
+		<Point>
+			<coordinates>34.520000,-7.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Rural, Mvumi.</description>
+		<Point>
+			<coordinates>35.510000,-6.210000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Rural, Great Bubu Swamp, below scarp. Alluvial soils supporting Acacia spirocarpa and many capparids.</description>
+		<Point>
+			<coordinates>35.190000,-6.030000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma Urban, Dodoma.</description>
+		<Point>
+			<coordinates>35.450000,-6.110000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mpwapwa, 68 km before Dodoma, coming from Dar-es-Salaam. Rocky soil.</description>
+		<Point>
+			<coordinates>36.170000,-6.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mpwapwa, Between Kongwa and Mpwapwa in open bush savanna.</description>
+		<Point>
+			<coordinates>36.270000,-6.160000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Kiteto, Hill slope. Kibaya.</description>
+		<Point>
+			<coordinates>36.350000,-5.170000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kangata. Brachystegia-Albizzia-Commiphora bush association.</description>
+		<Point>
+			<coordinates>37.540000,-5.390000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kwa Mkono, dry area.</description>
+		<Point>
+			<coordinates>38.160000,-5.270000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Mombo-Korogwe road, in short grass savannah.</description>
+		<Point>
+			<coordinates>38.220000,-5.010000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Handeni, Kwa Mkono.</description>
+		<Point>
+			<coordinates>38.160000,-5.270000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Igunga, Usule-Kiraminu, Mkalama District.</description>
+		<Point>
+			<coordinates>34.380000,-4.070000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Kondoa, Mondo Kondoa.</description>
+		<Point>
+			<coordinates>35.550000,-4.580000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Same, Mkomazi Game Reserve, 6 km on Kisiwani-Mnazi road. Dense Acacia-Commiphora bushland on edge of riverine forest.</description>
+		<Point>
+			<coordinates>37.590000,-4.080000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Track to Lake Manka. Side of track in very dry sand.</description>
+		<Point>
+			<coordinates>38.050000,-4.440000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Umbasteppe: unter gegend Kikumbi-Mashewa.</description>
+		<Point>
+			<coordinates>38.390000,-4.440000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, Chekerali, between Mombo-Makuyuni.</description>
+		<Point>
+			<coordinates>38.180000,-4.580000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Muheza, Daluni.</description>
+		<Point>
+			<coordinates>38.460000,-4.460000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Korogwe, W Usambara: Steppe am Baumwald bei Mombo.</description>
+		<Point>
+			<coordinates>38.170000,-4.530000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Ngorongoro, Ngorongoro Conservation Area; Malanja Escarpment. Acacia/Commiphora woodland.</description>
+		<Point>
+			<coordinates>35.270000,-3.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Iramba, Yaida Valley, Yaida Escarpment, 2 mi. from the plain. Stoney hillside.</description>
+		<Point>
+			<coordinates>35.000000,-4.000000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mbulu, Iraku: Malimo, Grassteppe-Dungobusch.</description>
+		<Point>
+			<coordinates>35.330000,-3.550000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Karatu, Magadi-Umbulu, Kambi ya Nyoka.</description>
+		<Point>
+			<coordinates>35.360000,-3.180000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, 2 km from Mwanga along road to Usangi.</description>
+		<Point>
+			<coordinates>37.330000,-3.380000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, Lembeni.</description>
+		<Point>
+			<coordinates>37.370000,-3.470000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mwanga, Lembeni.</description>
+		<Point>
+			<coordinates>37.370000,-3.470000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Ngorongoro, Winterhochland: Engaruka-Kawinjiro.</description>
+		<Point>
+			<coordinates>35.560000,-2.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Longido, Ketumbane [Kitumbeine]. With Acacia sp. and Commiphora in a stony brown volcanic soil.</description>
+		<Point>
+			<coordinates>36.130000,-2.530000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: No locality data available</description>
+		<Point>
+			<coordinates>35.696400,-1.794900</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 2 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Senga 5A</description>
+		<Point>
+			<coordinates>29.616700,0.333000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 3 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 5 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Congo, The Democratic Republic: Kanyatsi 4 - Lusso Beds</description>
+		<Point>
+			<coordinates>29.550000,0.133000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Uganda: NK101 - Nkondo fm.</description>
+		<Point>
+			<coordinates>31.000000,1.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 102 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.250000,3.942000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 110 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.325000,3.850000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Kenya: East Turkana - Area 116 - Upper Burgi</description>
+		<Point>
+			<coordinates>36.334000,4.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>0.410000,5.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-0.390000,8.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-2.290000,9.020000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-0.010000,9.260000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-1.060000,10.540000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-1.060000,10.540000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Gongasso</description>
+		<Point>
+			<coordinates>-5.800000,11.533300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Kegniedife</description>
+		<Point>
+			<coordinates>-9.866670,13.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sokolo</description>
+		<Point>
+			<coordinates>-5.683330,13.716700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sokolo</description>
+		<Point>
+			<coordinates>-5.683330,13.716700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: 2 km E Station Sahel (c. Niono)</description>
+		<Point>
+			<coordinates>-5.941670,14.266700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sanga</description>
+		<Point>
+			<coordinates>-3.316670,14.466700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Baboye</description>
+		<Point>
+			<coordinates>-3.950000,14.266700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Konna</description>
+		<Point>
+			<coordinates>-3.883330,14.950000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Sanga</description>
+		<Point>
+			<coordinates>-3.316670,14.466700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: Oursi</description>
+		<Point>
+			<coordinates>-0.450000,14.683300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: 12 km N. Gossi/T carte in Tillit</description>
+		<Point>
+			<coordinates>-1.275000,15.841700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Massi</description>
+		<Point>
+			<coordinates>-1.300000,15.183300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Mare Gossi</description>
+		<Point>
+			<coordinates>-1.316670,15.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Tombouctou</description>
+		<Point>
+			<coordinates>-3.016670,16.766700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Mali: Tassejdemt</description>
+		<Point>
+			<coordinates>1.083330,19.433300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Libyan Arab Jamahiriya: No locality data available</description>
+		<Point>
+			<coordinates>11.816700,25.486700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>India: Rajasthan, Bharatpur NP</description>
+		<Point>
+			<coordinates>77.524300,27.162500</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>United States: Arizona, UA Yuma Mesa Agricultural Center, Yuma, Block 24 North. .</description>
+		<Point>
+			<coordinates>-114.639000,32.614700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>United States: Arizona, UA Yuma Mesa Agricultural Center, Yuma, Block 24 North. Cultivated.</description>
+		<Point>
+			<coordinates>-114.639000,32.614700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Germany: Nordrhein-Westfalen, Aachen</description>
+		<Point>
+			<coordinates>6.077050,50.755600</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: Tcheboa</description>
+		<Point>
+			<coordinates>13.183300,9.016670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: ca. 10 km nord de Mora côté de la route</description>
+		<Point>
+			<coordinates>14.150000,11.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Philippines: Pasig</description>
+		<Point>
+			<coordinates>121.080000,14.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Australia: No locality data available</description>
+		<Point>
+			<coordinates>144.600000,-22.600000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: No locality data available</description>
+		<Point>
+			<coordinates>-0.521970,14.854700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>38.546100,3.804900</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>38.262800,3.938300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: Gamu-Gofa, No locality data available</description>
+		<Point>
+			<coordinates>37.496200,5.504800</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Madagascar: Toliara, SW madagascar, c. 5 km north of Toliara, on the road to Morombe, just south of the Fiherenana River.</description>
+		<Point>
+			<coordinates>43.650000,-23.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Lindi, T8. Selous Game Reserve; Tundu Hills; Brachystegia Woodland Slopes</description>
+		<Point>
+			<coordinates>38.420000,-8.830000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Mbeya, Swamp/woodland</description>
+		<Point>
+			<coordinates>33.080000,-7.830000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Iringa, Kidatu; E. part of Ruaha national Park; near Msembe</description>
+		<Point>
+			<coordinates>34.920000,-7.720000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Morogoro, Between Mbuyuni (Ruaha) and Malolo at Ruaha river; flat Baobab woodland</description>
+		<Point>
+			<coordinates>36.500000,-7.420000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma, Msalato Girls Secondary School</description>
+		<Point>
+			<coordinates>35.750000,-6.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Morogoro, Mkata, ca 40 km West of Morogoro; grassland</description>
+		<Point>
+			<coordinates>37.350000,-6.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dar es Salaam, Kunduchi near Dar es Salaam; shrub in grassland</description>
+		<Point>
+			<coordinates>39.220000,-6.700000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dar es Salaam, Kunduchi Village, 10 miles NE of Dar es Salaam; Bushed grassland</description>
+		<Point>
+			<coordinates>39.220000,-6.700000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dar es Salaam, Dar - Morogoro road, 20 km west with regular crown.</description>
+		<Point>
+			<coordinates>39.120000,-6.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dar es Salaam, University College Dar es Salaam</description>
+		<Point>
+			<coordinates>39.200000,-6.770000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma, Tarangire National Park; Chubi Ranger post; Acacia - Commiphora grassland.</description>
+		<Point>
+			<coordinates>36.070000,-4.630000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: Namentenga;Tougouri;between Tougouri and Taparko</description>
+		<Point>
+			<coordinates>13.371500,-0.470655</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: Namentenga;Tougouri;between Tougouri and Taparko</description>
+		<Point>
+			<coordinates>13.371600,-0.470709</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: Namentenga;Tougouri;between Tougouri and Taparko</description>
+		<Point>
+			<coordinates>13.371500,-0.470655</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ecuador: Esmeraldas, Parte alta de la ciudad de Esmeraldas. Casa de retiro Santa Cruz. Bosque seco Tropical.</description>
+		<Point>
+			<coordinates>-79.630000,0.930000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Somalia: District Balcad, Balcad Nature Reserve, Waldsäume</description>
+		<Point>
+			<coordinates>45.416700,2.366670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Somalia: Near Afgoi University Agricultural Faculty Site.</description>
+		<Point>
+			<coordinates>45.133300,2.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Benin: Aguidi</description>
+		<Point>
+			<coordinates>2.683330,6.766670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>36.530000,7.400000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-2.046670,8.055000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-2.046670,8.055000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cote D'ivoire: No locality data available</description>
+		<Point>
+			<coordinates>-3.400000,9.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cote D'ivoire: No locality data available</description>
+		<Point>
+			<coordinates>-3.400000,9.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cote D'ivoire: No locality data available</description>
+		<Point>
+			<coordinates>-3.400000,9.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cote D'ivoire: No locality data available</description>
+		<Point>
+			<coordinates>-3.400000,9.360000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: Tcheboa</description>
+		<Point>
+			<coordinates>13.183300,9.016670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.350000,9.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.550000,9.290000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.350000,9.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.350000,9.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.510000,9.410000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.170000,9.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.280000,9.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.280000,9.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Nigeria: No locality data available</description>
+		<Point>
+			<coordinates>12.166700,10.583300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>13.340000,10.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>13.340000,10.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>13.340000,10.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>13.340000,10.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>13.340000,10.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: 30 km nord de Waza</description>
+		<Point>
+			<coordinates>14.333300,10.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: Maroua</description>
+		<Point>
+			<coordinates>14.110000,10.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Nigeria: Kano, Wudil District: Approximately 50 km SE of the city of Kano, Northern Nigeria.</description>
+		<Point>
+			<coordinates>8.850000,11.670000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Nigeria: No locality data available</description>
+		<Point>
+			<coordinates>9.050000,11.866700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: No locality data available</description>
+		<Point>
+			<coordinates>-1.476390,12.982200</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: No locality data available</description>
+		<Point>
+			<coordinates>-1.476390,12.982200</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Niger: Tabla</description>
+		<Point>
+			<coordinates>3.016670,13.766700</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>37.470000,14.160000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>: Leeward Islands, NE corner of La Grande Saline. Low vegetation along saline lake and base of scrubby hills near sea level.</description>
+		<Point>
+			<coordinates>-62.820000,17.890000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>: Jamaica, Lucea</description>
+		<Point>
+			<coordinates>-78.170000,18.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Morogoro, No locality data available</description>
+		<Point>
+			<coordinates>36.590000,-6.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Morogoro, No locality data available</description>
+		<Point>
+			<coordinates>36.590000,-6.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Coast, Chalinze</description>
+		<Point>
+			<coordinates>38.510000,-5.110000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Arusha, Sale Division Samunge Village</description>
+		<Point>
+			<coordinates>35.300000,-3.140000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Arusha, Sale Division Samunge</description>
+		<Point>
+			<coordinates>35.300000,-3.140000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Arusha, Ngorongoro District sale division Kisangiro</description>
+		<Point>
+			<coordinates>35.450000,-2.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Arusha, No locality data available</description>
+		<Point>
+			<coordinates>35.360000,-2.400000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Arusha, Ngorongoro CA Laetoli Area</description>
+		<Point>
+			<coordinates>35.300000,-3.140000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Coast, Ikwiriri</description>
+		<Point>
+			<coordinates>38.570000,-7.580000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Kilimanjaro, 2 km from Mwanga Village along the road to Usangi</description>
+		<Point>
+			<coordinates>37.500000,-3.700000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: 18 km Ouest de Maroua, le long de Mayo Tchanaga, près de Bankara Alikoura</description>
+		<Point>
+			<coordinates>12.450000,5.150000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: Lagdo</description>
+		<Point>
+			<coordinates>13.733300,9.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: P.N. de Waza, ca. 40 km nord d'Anané</description>
+		<Point>
+			<coordinates>14.333300,10.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Cameroon: kalamaloué route principale</description>
+		<Point>
+			<coordinates>14.983300,12.133300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: MOROGORO, Morogoro Region, Gairo Division, Majawanga village, 6.6 km North West of Gairo.</description>
+		<Point>
+			<coordinates>36.010000,-6.165000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Morogoro, Morogoro Region, Gairo Division, Majawanga village. In 'Madali Village Forest', -degraded Miombo woodland 7 km from Majawanga village, 13.6 km North West of Gai</description>
+		<Point>
+			<coordinates>36.832000,-6.066000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: BOULGOU, Some km SE of Tenkodogo. Border of seasonally moist stream with aquatic plants.</description>
+		<Point>
+			<coordinates>-0.366000,11.733000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: BOULGOU, On cultivated soils.</description>
+		<Point>
+			<coordinates>-0.283000,11.633000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Senegal: THIES, Reserve Bandia. Dakar-Mbour, km. 70.</description>
+		<Point>
+			<coordinates>-16.966000,14.583000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: OUDALAN, Some km SW of Gorom Gorom. Marat Marat. App. 5 km SW of Gorom Gorom. Border of small, seasonal river.</description>
+		<Point>
+			<coordinates>-0.300000,14.416000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Burkina Faso: SENO, Road Dori - Gorom Gorom, app. km 30. Seasonally inundated Mitragyna inermis swamp.</description>
+		<Point>
+			<coordinates>-0.083000,14.233000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Senegal: SAINT-LOUIS, Parc du Djoudj. Halophytic vegetation bordering pond.</description>
+		<Point>
+			<coordinates>-16.266000,16.366000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma, No locality data available</description>
+		<Point>
+			<coordinates>35.738200,-6.174900</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Tanzania, United Republic Of: Dodoma, No locality data available</description>
+		<Point>
+			<coordinates>35.738200,-6.174900</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1">
+		<name>Acacia nilotica</name>
+		<description>Ghana: No locality data available</description>
+		<Point>
+			<coordinates>-0.140000,5.370000</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

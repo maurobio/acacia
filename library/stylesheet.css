@@ -1,0 +1,397 @@
+/*
+#=================================================================================#
+#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
+#                 Copyright 2008-2012 Mauro J. Cavalcanti                         #
+#                           maurobio@gmail.com                                    #
+#                                                                                 #
+#   This program is free software: you can redistribute it and/or modify          #
+#   it under the terms of the GNU General Public License as published by          #
+#   the Free Software Foundation, either version 3 of the License, or             #
+#   (at your option) any later version.                                           #
+#                                                                                 #
+#   This program is distributed in the hope that it will be useful,               #
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
+#   GNU General Public License for more details.                                  #
+#                                                                                 #
+#   You should have received a copy of the GNU General Public License             #
+#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
+#=================================================================================#
+*/
+
+body
+{
+	font: 9pt Arial,Verdana,Sans;
+	link: #000066; alink: #000066; vlink: #000066;
+	style: color: #000066;
+	text-decoration: none;
+}
+
+table.gridtable 
+{
+	font-family: verdana,arial,sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+table.gridtable th 
+{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+table.gridtable td 
+{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+table.header 
+{
+	border: 1px solid green;
+	padding: 1px; 
+	border-spacing: 1px;
+	font: 9pt Arial,Verdana,Sans;
+	background-color: lightgreen;
+}
+
+table.header td 
+{
+	font: 18pt Arial,Verdana,Sans;
+	color: darkgreen;
+}
+
+table.menu 
+{
+	border: 1px solid blue;
+	padding: 1px; 
+	border-spacing: 1px;
+	font: 9pt Arial,Verdana,Sans;
+	background-color: lightblue;
+}
+
+table.browser
+{
+	border: #CCCCCC 1px solid;
+	border-collapse: collapse;
+	padding: 1px; border-spacing: 1px;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+table.browser th
+{
+	border: #FFFFFF 2px solid;
+	padding: 2px;
+	background: #d4d4d4;
+	font: 9pt Arial,Verdana,Sans; 
+	font-weight: bold;
+}
+
+table.browser td
+{
+	border: #FFFFFF 2px solid;
+	padding: 2px;
+	text-align: left;
+}
+
+table.report
+{
+	border: 0px;
+	padding: 1px;
+	text-align: left; 
+	font: 9pt Arial,Verdana,Sans;
+}
+
+table.report th
+{
+	background: #d4d4d4;
+}
+
+a.footer
+{
+	font-size: 9px; 
+	color: #B0B0B0; 
+	font-family: Verdana, Arial;
+}
+
+hr 
+{
+	border: none;
+	background-color: #ccc;
+	color: #ccc;
+	height: 1px;
+}
+
+a
+{
+	text-decoration: none;
+	color: #000066;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: #000066;
+}
+
+input, textarea
+{
+	background: #FFFFFF;
+	border: 1px #97B9E6 solid;
+	color: #000000;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+select
+{
+	background-color: #FFFFFF;
+	border: 1px #97B9E6 solid;
+	color: #000000;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+input.pme-add, input.pme-cancel, input.pme-change, input.pme-clear, input.pme-copy, input.pme-delete,
+input.pme-first, input.pme-goto, input.pme-hide, input.pme-last, input.pme-more,
+input.pme-navigation-0, input.pme-navigation-1, input.pme-next, input.pme-prev,
+input.pme-query, input.pme-save, input.pme-search, input.pme-view
+{
+	background: #efefef;
+	border: 1px #dcdcdc solid;
+	color: #000066;
+	font: 9pt Arial,Verdana,Sans; text-align: center;
+}
+
+tr.pme-filter, tr.pme-sortinfo, select.pme-filter, select.pme-filter-right-align,
+.pme-clear, .pme-hide, .pme-search
+{
+	background: #e6e6e6;
+	border: 1px #dcdcdc solid;
+	color: #000066;
+	font: 9pt Arial,Verdana,Sans; text-align: center;
+}
+
+input.pme-filter,
+input.pme-filter-right-align
+{
+	background: #FFFFFF;
+	border: 1px #dcdcdc solid;
+	color: #000066;
+	font: 9pt Arial,Verdana,Sans; text-align: center;
+}
+
+input.pme-input-0,
+input.pme-input-1
+{
+	background: #FFFFFF;
+	border: 1px #dcdcdc solid;
+	color: #000000; font: 9pt Arial,Verdana,Sans;
+}
+
+textarea.pme-input-0,
+textarea.pme-input-1
+{
+	background: #FFFFFF;
+	border: 1px #dcdcdc solid;
+	color: #000000;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+select.pme-input-0,
+select.pme-input-1
+{
+	background: #fcfcfc;
+	border: 1px #dcdcdc solid;
+	color: #000000;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+table.pme-navigation
+{
+	background: #FFFFFF;
+	border: 0px;
+	padding: 1px; cellpadding: 0px;
+	border-spacing: 1px;
+	font: 9pt Arial,Verdana,Sans;
+}
+
+tr.pme-navigation
+{
+	background: #FFFFFF;
+	border: 0px;
+	padding: 1px; cellpadding: 1px;
+	border-spacing: 0px;
+	cellpadding: 0;
+}
+
+td.pme-cell-0
+{
+	background: #f5f5f5;
+	border-collapse: collapse;
+	font: 9pt Arial,Verdana,Sans; text-align: left;
+}
+
+td.pme-cell-1
+{
+	background: #fafafa;
+	border-collapse: collapse;
+	font: 9pt Arial,Verdana,Sans; text-align: left;
+}
+
+td.pme-key-0, td.pme-key-1
+{
+	background: #dcdcdc;
+	border-collapse: collapse;
+	font: 9pt Arial,Verdana,Sans; font-weight: bold; text-align: left;
+}
+
+td.pme-value-0-right-align, td.pme-value-0,
+td.pme-value-1-right-align, td.pme-value-1
+{
+	background: #f4f4f4;
+	border-collapse: collapse;
+	font: 9pt Arial,Verdana,Sans; text-align: left;
+}
+
+td.pme-help-0-right-align, td.pme-help-0,
+td.pme-help-1-right-align, td.pme-help-1
+{
+	background: #e8e8e8;
+	border-collapse: collapse;
+	font: Arial 10pt; text-align: left;
+}
+
+a.pme-navigation-0, a.pme-navigation-1,
+a.pme-navigation-0:hover, a.pme-navigation-1:hover,
+td.pme-navigation-0, td.pme-navigation-1
+{
+	background: #e6e6e6;
+	border-collapse: collapse;
+	font: 9pt Arial,Verdana,Sans; text-align: center;
+}
+
+td.pme-buttons
+{
+ background: #FFFFFF;
+ border: 1px #FFFFFF solid;
+ color: #000066;
+ font: 9pt Arial,Verdana,Sans; text-align: left;
+}
+
+td.pme-message
+{
+	text-align: center;
+	font: 8pt Arial,Verdana,Sans;
+}
+
+td.pme-stats
+{
+	text-align: right;
+	font: 8pt Arial,Verdana,Sans;
+}
+
+.smallmap 
+{
+    width: 512px;
+    height: 256px;
+    border: 1px solid black;
+}
+
+.largemap 
+{
+	width: 600px;
+	height: 400px;
+	border: 1px solid black;
+}
+
+#tags 
+{
+    display: none;
+}
+
+#docs p
+ {
+    margin-bottom: 0.5em;
+}
+
+/* mobile specific */
+@media only screen and (max-width: 600px) {
+    body 
+	{
+        height           : 100%;
+        margin           : 0;
+        padding          : 0;
+        width            : 100%;
+    }
+	
+    #map 
+	{
+        background : #7391ad;
+        width      : 100%;
+    }
+	
+    #map 
+	{
+        border : 0;
+        height : 250px;
+    }
+	
+    #title 
+	{
+        font-size   : 1.3em;
+        line-height : 2em;
+        text-indent : 1em;
+        margin      : 0;
+        padding     : 0;
+    }
+	
+    #docs 
+	{
+        bottom     : 0;
+        padding    : 1em;
+    }
+	
+    #shortdesc 
+	{
+        color      : #aaa;
+        font-size  : 0.8em;
+        padding    : 1em;
+        text-align : right;
+    }
+	
+    #tags 
+	{
+        display : none;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 600px) {
+    #shortdesc 
+	{
+       float: right;
+       width: 25%;
+    }
+	
+    #map 
+	{
+        width: 70%;
+    }
+	
+    #docs 
+	{
+        font-size: 12px;
+    }
+}
+
+body 
+{
+    -webkit-text-size-adjust: none;
+}

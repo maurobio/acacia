@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document> 
+	<LookAt>
+		<latitude>-24</latitude>
+		<longitude>45</longitude>
+		<altitude>0</altitude>
+		<range>3600000</range>
+		<tilt>0</tilt>
+		<heading>0</heading>
+		<altitudeMode>relativeToGround</altitudeMode>
+	</LookAt>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Arusha, Ngorongoro Conservation Area along road to Sengereti</description>
+		<Point>
+			<coordinates>35.416700,-3.133300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>India: Rajasthan, Sariska TR</description>
+		<Point>
+			<coordinates>76.412300,27.364400</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>India: Rajasthan, Sariska TR</description>
+		<Point>
+			<coordinates>76.412300,27.364400</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Mauritania: No locality data available</description>
+		<Point>
+			<coordinates>-16.216400,19.575000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>India: Rajasthan, Sariska TR</description>
+		<Point>
+			<coordinates>76.412300,27.364400</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: No locality data available</description>
+		<Point>
+			<coordinates>13.050000,13.550000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Mali: No locality data available</description>
+		<Point>
+			<coordinates>-4.500000,16.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Mali: No locality data available</description>
+		<Point>
+			<coordinates>-3.583300,16.583300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Somalia: No locality data available</description>
+		<Point>
+			<coordinates>48.312200,5.321600</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Cameroon: P.N. de Waza</description>
+		<Point>
+			<coordinates>14.333300,10.350000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Uganda: NK34 - Nkondo fm.</description>
+		<Point>
+			<coordinates>31.000000,1.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Musoma Urban, Musoma</description>
+		<Point>
+			<coordinates>33.480000,-1.300000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Longido, Longido Hill, Rocky hill</description>
+		<Point>
+			<coordinates>36.420000,-2.410000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Arusha, Loliondo</description>
+		<Point>
+			<coordinates>35.360000,-2.400000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Serengeti, Serengeti National Park; Terminalia - Combretum ridge in Acacia woodland</description>
+		<Point>
+			<coordinates>34.500000,-2.200000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Same, Nyumba Mungu Lake, Pangani River; Riverine</description>
+		<Point>
+			<coordinates>37.280000,-3.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Serengeti, High bank of Grumeti River, 8km east of Kirawira. Acacia woodland</description>
+		<Point>
+			<coordinates>34.130000,-2.100000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Same, Mkomazi Game Reserve, Ngurunga; bushland - poor soil</description>
+		<Point>
+			<coordinates>37.550000,-3.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Moshi Rural, Moshi District (or ? in Kenya): Himo R.-Taveta road</description>
+		<Point>
+			<coordinates>37.350000,-3.240000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Same, Nyumba Mungu Lake, Pangani River; Riverine</description>
+		<Point>
+			<coordinates>37.280000,-3.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Rombo, Moshi/Teita Districts: Lake Chala</description>
+		<Point>
+			<coordinates>37.380000,-3.190000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Moshi Rural, Himo near Moshi. Roadside tree</description>
+		<Point>
+			<coordinates>37.330000,-3.230000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Monduli, Esilalei, 10 mi. from Mto wa Mbu on way to Makuyuni. Bushland.</description>
+		<Point>
+			<coordinates>36.140000,-3.240000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Monduli, Makuyuni on the way to Mto wa Mbu. Acacia woodland</description>
+		<Point>
+			<coordinates>36.060000,-3.330000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Monduli, Manyara Ranch near Makuyuni River</description>
+		<Point>
+			<coordinates>35.520000,-3.220000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Ngorongoro, Ngorongoro Conservation Area; Esere way to Kakesio; wooded bushland</description>
+		<Point>
+			<coordinates>35.020000,-3.190000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Babati, Mapea West of Magugu; bushalnd</description>
+		<Point>
+			<coordinates>35.470000,-4.000000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Monduli, Grassland; Esilalei, 10miles from Mto wa Mbu on the way to Makuyuni</description>
+		<Point>
+			<coordinates>32.460000,-3.280000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Korogwe, Korogwe - Same road, ca 2km past the turnoff to Mkomazi. Dry Acacia - Commiphora thornbush</description>
+		<Point>
+			<coordinates>38.040000,-4.380000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Tanga, Handeni</description>
+		<Point>
+			<coordinates>38.500000,-5.000000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Same, Between Gonja and Kisiwani, S Pare Mts.</description>
+		<Point>
+			<coordinates>38.000000,-4.120000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Same, Same to Mkomazi Game Reserve; bushland</description>
+		<Point>
+			<coordinates>38.060000,-4.400000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kondoa, Kondoa track to Kelema, near Suruke village. Hillside grassland; shallow sandy soil</description>
+		<Point>
+			<coordinates>35.460000,-4.570000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Hanang, 1km along Basuto Lake to Lambi road; open bushland</description>
+		<Point>
+			<coordinates>35.050000,-4.220000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Singida Rural, Semi-mbuga ca. 2 km W of Singida Township.</description>
+		<Point>
+			<coordinates>34.440000,-4.490000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Muheza, Tongoni. Pangani road. Coastal savannah.</description>
+		<Point>
+			<coordinates>39.040000,-5.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Handeni, Kwa Mkono. Near top of hill under a rock face.</description>
+		<Point>
+			<coordinates>38.160000,-5.270000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Korogwe, Segera, 20km SSE of Korogwe. At edge of area that is sometimes flooded</description>
+		<Point>
+			<coordinates>38.330000,-5.180000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Manyoni, Singida to Dodoma road at the bottom of salanda Hills. Acacia and Commiphora dry bushland</description>
+		<Point>
+			<coordinates>34.590000,-5.430000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Tabora Urban, Tabora. Secondary deciduous woodland.</description>
+		<Point>
+			<coordinates>32.480000,-5.010000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Bagamoyo, 75 mi. from Dar es Salaam on Morogoro road.</description>
+		<Point>
+			<coordinates>38.110000,-6.380000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Rural, Lower slopes of Mindu ca 10km West of Morogoro, woodland</description>
+		<Point>
+			<coordinates>37.350000,-6.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Rural, Dakawa plain, Acacia woodland (Sokoine Monument); woodland</description>
+		<Point>
+			<coordinates>37.400000,-6.300000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Urban, Sokoine University Campus; wooded grassland</description>
+		<Point>
+			<coordinates>37.500000,-6.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Rural, Mkata, Black clay soil</description>
+		<Point>
+			<coordinates>37.210000,-6.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Urban, Sokoine University of Agriculture, Main Campus. Red soil on slope open savanna, woodland with trees, bushes and grass</description>
+		<Point>
+			<coordinates>37.500000,-6.560000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilosa, Ukaguru</description>
+		<Point>
+			<coordinates>37.100000,-6.200000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Mvomero, 48 km North of Morogoro on dry season road to Turiani. Acacia flooded woodland</description>
+		<Point>
+			<coordinates>37.500000,-6.290000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro Rural, Mkata, ca 40km west of Morogoro. Grassland</description>
+		<Point>
+			<coordinates>37.210000,-6.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Mpwapwa, Berege village in Mpwapwa; bushland</description>
+		<Point>
+			<coordinates>36.170000,-6.300000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Dodoma Rural, Ikowa Dam, ca 60 km East of Dodoma. In decideous woodland</description>
+		<Point>
+			<coordinates>36.140000,-6.120000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilosa, Mpwapwa/Kilosa Districts: Chakwale</description>
+		<Point>
+			<coordinates>36.580000,-6.040000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Dodoma Rural, 27 km on Dodoma-Morogoro road. Deciduous woodland.</description>
+		<Point>
+			<coordinates>35.580000,-6.060000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilolo, 15 m from right side of road, 23.2 km from Ruaha Mbuyuni bridge, on main road to Iringa (3-4 km from Mtandika Village). On red brown sandy soil, with some quart</description>
+		<Point>
+			<coordinates>36.260000,-7.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilolo, Great Ruaha Gorge, 48km west of Mikumi on Tanzam Highway. Rocky slopping sides of gorge, with herbs and dense bushland dominated by baobabs</description>
+		<Point>
+			<coordinates>36.410000,-7.330000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilolo, Mtera; Acacia - Commiphora woodland. On sandy soil</description>
+		<Point>
+			<coordinates>35.430000,-7.080000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Iringa Rural, Mtera rest house, Hill top</description>
+		<Point>
+			<coordinates>35.570000,-7.230000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Iringa Rural, Mtera rest house, Hill top</description>
+		<Point>
+			<coordinates>35.570000,-7.230000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Iringa Rural, Ruaha National Park; at park boundary on road to Idodi. Combretum - Commiphora woodland</description>
+		<Point>
+			<coordinates>35.110000,-7.470000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Iringa Rural, East part of Ruaha National park; In Combretum bushland near the road to Trekomboga</description>
+		<Point>
+			<coordinates>34.550000,-7.430000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Liwale, Selous Game Reserve, Kingupira. Wooded grassland with Sclerocarya, Cassia, Albizia</description>
+		<Point>
+			<coordinates>38.300000,-8.300000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Njombe, 30 m from right side of road, 4.2 km from Wangingombe post office, on road to Makumbako. Exposed windy area. Lower lying drainage area, growing on grey clay loa</description>
+		<Point>
+			<coordinates>34.380000,-8.520000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Njombe, 3.5 mi. before Wangingombe, on left side of road from Makambako. On grey brown clay loam, with Commiphora sp. and Azanza garckeana.</description>
+		<Point>
+			<coordinates>34.380000,-8.520000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Nachingwea, Pterocarpus - Combretum woodland, red sandy loam on ridge</description>
+		<Point>
+			<coordinates>38.460000,-10.230000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Nachingwea, Nachingwea; same tree as BA 1228. Pterocarpus - Combretum woodland</description>
+		<Point>
+			<coordinates>38.460000,-10.230000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Nachingwea, Ruponda (south province); Combretum woodland, red brown sandy clay</description>
+		<Point>
+			<coordinates>38.430000,-10.150000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Angola: Namibe, Dois Irm?os, a 23km para Vila Arriaga, apeadeiro do C.F.</description>
+		<Point>
+			<coordinates>12.410000,-14.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Angola: Cunene, Humbe, em frente a Forte Ro?adas, margens do Rio Cunene.</description>
+		<Point>
+			<coordinates>14.590000,-16.450000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Angola: Namibe, Ao km 37 de Onc?cua (Vila de Aviz), estrada do Rio Cunene.</description>
+		<Point>
+			<coordinates>13.280000,-16.340000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Rwanda: No locality data available</description>
+		<Point>
+			<coordinates>30.450000,-1.520000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Rwanda: No locality data available</description>
+		<Point>
+			<coordinates>30.260000,-1.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Rwanda: No locality data available</description>
+		<Point>
+			<coordinates>30.260000,-1.050000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Somalia: District Afmadow, ca. 6km NNO Bilis Qouqaane in Richtung Afmadow</description>
+		<Point>
+			<coordinates>41.750000,0.333333</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Somalia: District Brava, ca. 12km S Qunyo Barrow, Cara Cadde, D?nengebiet</description>
+		<Point>
+			<coordinates>43.400000,0.666667</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Somalia: Bilcil, 4 km south of Qunyo Barrow</description>
+		<Point>
+			<coordinates>43.400000,0.666667</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>37.916700,6.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.420000,8.490000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.166700,8.466670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.166700,8.466670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.166700,8.466670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.166700,8.466670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>39.166700,8.466670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.000000,8.916670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.000000,8.916670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.100000,8.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: along road from Addis Ababa to Awash, c. 225 km from Addis Ababa.</description>
+		<Point>
+			<coordinates>40.000000,8.916670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.000000,8.916670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.100000,8.590000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.530000,9.310000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.240000,9.340000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.550000,9.290000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.550000,9.290000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.560000,9.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: rocky foothills just S of Dire Dawa, along the Harar road.</description>
+		<Point>
+			<coordinates>41.883300,9.516670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.560000,9.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.530000,9.310000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>41.240000,9.340000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.150000,9.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.416700,9.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.633300,9.283330</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.416700,9.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.310000,9.140000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.416700,9.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.416700,9.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.150000,9.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.310000,9.140000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.416700,9.166670</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>42.633300,9.283330</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Nigeria: No locality data available</description>
+		<Point>
+			<coordinates>12.833300,11.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Cameroon: Waza National Park</description>
+		<Point>
+			<coordinates>14.350000,11.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Ethiopia: No locality data available</description>
+		<Point>
+			<coordinates>40.050000,11.130000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Cameroon: No locality data available</description>
+		<Point>
+			<coordinates>14.466700,12.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: No locality data available</description>
+		<Point>
+			<coordinates>2.100000,13.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: No locality data available</description>
+		<Point>
+			<coordinates>2.250000,13.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: No locality data available</description>
+		<Point>
+			<coordinates>2.250000,13.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: No locality data available</description>
+		<Point>
+			<coordinates>2.100000,13.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Niger: Bosso.</description>
+		<Point>
+			<coordinates>13.050000,13.550000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Mali: Tombouctou;32 km SW of Gargando.</description>
+		<Point>
+			<coordinates>-4.500000,16.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Mali: Tombouctou;7 km N of Goundam, east of lake Tele.</description>
+		<Point>
+			<coordinates>-3.583300,16.583300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: MOROGORO, Morogoro Region, Gairo Division, Bushland/grazing area, 8.5 km North West of Gairo.</description>
+		<Point>
+			<coordinates>36.006000,-6.108000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Chinese Taipei: TBG(?????)</description>
+		<Point>
+			<coordinates>121.500000,25.033300</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Lindi, Ruponda (south province); Combretum woodland, red brown sandy clay</description>
+		<Point>
+			<coordinates>38.720000,-10.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro, Mikumi National Park; Makuluwili N.E.; Acacia woodland</description>
+		<Point>
+			<coordinates>37.080000,-7.250000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Dodoma, Berege village in Mpwapwa; bushland</description>
+		<Point>
+			<coordinates>36.280000,-6.500000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro, Mkata, Black clay soil</description>
+		<Point>
+			<coordinates>37.350000,-6.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro, Lower slopes of Mindu ca 10km West of Morogoro, woodland</description>
+		<Point>
+			<coordinates>37.580000,-6.830000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Morogoro, Mkata, ca 40km west of Morogoro. Grassland</description>
+		<Point>
+			<coordinates>37.350000,-6.750000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Dodoma, Kondoa track to Kelema, near Suruke village. Hillside grassland; shallow sandy soil</description>
+		<Point>
+			<coordinates>35.770000,-4.950000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Manyara, 1km along Basuto Lake to Lambi road; open bushland</description>
+		<Point>
+			<coordinates>35.080000,-4.370000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Manyara, Mapea West of Magugu; bushalnd</description>
+		<Point>
+			<coordinates>35.780000,-4.000000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Arusha, Ngorongoro Conservation Area; Gurusi River, West of Enduleni. Riverine vegetation, in Acacia drepanolobium woodland dominated by Balanites and Acacia spp.</description>
+		<Point>
+			<coordinates>35.220000,-3.210000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Arusha, Ngorongoro Conservation Area; Esere way to Kakesio; wooded bushland</description>
+		<Point>
+			<coordinates>35.030000,-3.320000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Kilimanjaro, Mkomazi Game Reserve, Ngurunga; bushland - poor soil</description>
+		<Point>
+			<coordinates>37.920000,-3.830000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Mara, High bank of Grumeti River, 8km east of Kirawira. Acacia woodland</description>
+		<Point>
+			<coordinates>34.220000,-2.170000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Mara, Serengeti National Park; Terminalia - Combretum ridge in Acacia woodland</description>
+		<Point>
+			<coordinates>34.830000,-2.330000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Tanzania: Arusha, Longido Hill, Rocky hill</description>
+		<Point>
+			<coordinates>36.700000,-2.680000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Kenya: Rift Valley, Acacia - Commiphora bushland on lava slopes. Common (also a narrow belt some 12 miles west of Magadi) 9km north of Magadi and also further up the road to 70km n</description>
+		<Point>
+			<coordinates>36.280000,-1.800000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Kenya: Eastern, Acacia - Commiphora bushland with Delonix elata. Isiolo - Garba Tula Road</description>
+		<Point>
+			<coordinates>38.050000,0.430000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Congo: Plaine du Lac Albert/Mahagi-Port. Savane arboree.</description>
+		<Point>
+			<coordinates>30.980000,2.300000</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>Acacia senegal</name>
+		<description>Somalia: Suria Malableh, 16km SE of Berbera. On tilted strata of gypseous hill separated by gully from tilted limestone hill, overgrazed and eroded</description>
+		<Point>
+			<coordinates>45.020000,10.430000</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

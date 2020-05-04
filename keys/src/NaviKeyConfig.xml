@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : NaviKeyConfig.xml
+    Created on : April 26, 2008, 00:00
+    Author     : Dieter Neubacher
+    Description: NaviKey configuration file        
+-->
+
+<Config>
+    <!--
+        Description: 
+    -->
+    <Standalone>true</Standalone>
+    <!--
+        Description: To be set true in all(!) cases. 
+    -->
+    <ServletURL></ServletURL>
+    <!--
+        Description: #######
+    -->
+    <Display>
+        <!-- 
+            Description: Displays the units of numerical characters.
+
+            Possible values: 
+
+                true or false 
+        -->
+        <ShowUnits>true</ShowUnits>
+        <!-- 
+            Description: Displays the Identification, Option, and Imprint pages of the GUI as tab sheets. 
+
+            Possible values: 
+
+                true or false 
+        -->
+        <UseGuiTabs>true</UseGuiTabs>
+        <!-- 
+            Description: Defines to colors of the lines in the context menues, indicating the presence or absence of a mapping file entry for a local or remote URI (e. g. image or web page). 
+
+        -->
+
+        <PopUpMenu>
+            <URILocalAvailableColor>#B0D0B0</URILocalAvailableColor>
+            <URIRemoteAvailableColor>#B0B0D0</URIRemoteAvailableColor>
+            <URINotAvailableColor>#D0B0B0</URINotAvailableColor>
+        </PopUpMenu>
+
+        <RemoveCharsComments>false</RemoveCharsComments>
+        <!-- 
+            Description: Removes comments or notes (in angular brackets) in the character definitions. 
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <RemoveCharsStatesComments>false</RemoveCharsStatesComments>
+        <!-- 
+            Description: Removes comments or notes (in angular brackets) in the character state definitions. 
+
+            Possible values: 
+
+                true or false 
+        -->
+        <RemoveItemsComments>false</RemoveItemsComments>
+        <!-- 
+            Description: Removes comments or notes (in angular brackets) in the item definitions. 
+
+            Possible values: 
+
+                true or false 
+
+        -->
+    </Display>
+    <!--
+        Description: 
+    -->
+    <MatchingOptions>
+        <!-- 
+            Description: Use "BEST" algorithm
+            
+                         To be implemented.
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <UseBestAlgorithm>false</UseBestAlgorithm>
+        <!-- 
+            Description: Use character dependencies
+            
+                         When checked, controlling character states make dependent characters - as defined in the DELTA specification file (or database) - inapplicable.
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <UseCharacterDependencies>true</UseCharacterDependencies>
+        <!-- 
+            Description: Restrict view on used characters and character states of remaining items.
+            		 When checked, NaviKey only displays those characters and states 
+                         (in the two top main panels) that will reduce the number of item matches; 
+                         characters or states which are not applicable to the remaining 
+                         items (in the bottom right main panel) or apply to all of the items 
+                         in the same form are no longer displayed. If a character is selected, 
+                         for which more than one state applies, multiple state selection may be 
+                         performed using the <Ctrl> (or corresponding) button 
+                         (see also "Enable multiple selection of character states"). 
+                         In the case of numeric characters, the top right panel provides fields 
+                         for input of numeric values. After the input of either a single measurement 
+                         or a range of values, the selection of the <Add> button will finalize the query.
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <RestrictViewOnUsedCharactersAndCharacterStatesOfRemainingItems>true</RestrictViewOnUsedCharactersAndCharacterStatesOfRemainingItems>
+        <!-- 
+            Description: Retain items unrecorded for the selected characters.
+                         Checking the box enables the "Direct identification" mode with the undefined 
+                         states included; i.e., NaviKey also displays those items (in the bottom right panel), 
+                         for which the selected character(s) have (so far) not been specified in the database. 
+                         When unchecked, it only displays the items with at least one of the selected 
+                         characters being specified. This behaviour largely corresponds with the 
+                         "analysis/data retrieval mode" in CSIRO-DELTA Intkey and in the Identify module 
+                         of DiversityDescriptions
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <RetainItemsUnrecordedForTheSelectedCharacters>false</RetainItemsUnrecordedForTheSelectedCharacters>
+        <!-- 
+            Description: Retain items matching at least one selected state of resp. characters.
+			 When checked, NaviKey selects those items matching by at least one character 
+                         state of the selected characters, otherwise only those items matching directly 
+                         the selected combination of character states.            
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <RetainItemsMatchingAtLeastOneSelectedState>true</RetainItemsMatchingAtLeastOneSelectedState>
+        <!-- 
+            Description: Use extreme interval validation.
+			 When checked, NaviKey selects those items matching by at least one character state of the selected characters, otherwise only those items matching directly the selected combination of character states.
+
+            Possible values: 
+
+                true or false 
+
+        -->
+        <UseExtremeIntervalValidation>true</UseExtremeIntervalValidation>
+        <!-- 
+            Description: Use overlapping interval validation.
+			 When checked, the whole range between the extreme values (if present in the item data set) is used in numerical queries, otherwise only the range between minimum and maximum values (if present in the item data set) is considered.
+                         
+            Possible values: 
+
+                true or false 
+
+        -->
+        <UseOverlappingIntervalValidation>true</UseOverlappingIntervalValidation>
+        
+    </MatchingOptions>
+    <!--
+        Description: data and specification files in DELTA standard format
+    -->
+    <DataFiles>
+        <!--
+            Description: DELTA specification file
+        -->
+        <SpecsFileName>DeltaSampleData/specs</SpecsFileName>
+        <!--
+            Description: DELTA character definition file
+        -->
+        <CharsFileName>DeltaSampleData/chars</CharsFileName>
+        <!--
+            Description: DELTA items definition file
+        -->
+        <ItemsFileName>DeltaSampleData/items</ItemsFileName>
+        <!--
+            Description: DELTA taxon images definition file. (Images - if available - are displayed on a separate tab sheet after doubleclicking the item name in the lower right panel.)
+        -->
+        <TimagesFileName>DeltaSampleData/timages</TimagesFileName>
+        <!--
+            Description: Absolute or relative (local) path to the directory containing the image files.
+        -->
+        <ImageDirectory>DeltaSampleData/images</ImageDirectory>
+    </DataFiles>
+
+
+    <!--
+        Description: 
+    -->
+    <ItemURIs>
+        <!--
+            Description:  ============================================
+
+            For the RegexPattern please see:
+
+		http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html		
+        -->
+
+        <GuiString>DELTA HTML</GuiString>
+        <!--
+            Description: 
+        -->
+        <URI>http://www.navikey.net/DeltaSampleData/delta/www/[###]</URI>
+        <!--
+            Description: 
+        -->
+        <UseMappingFile>true</UseMappingFile>
+        <MappingFile>DeltaSampleData/deltaToHtmlMapping.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s|_|A-Z)]*</RegexPattern>
+
+
+        <!--
+            Description: ============ Setup for all images ===========
+        -->
+
+        <GuiString>Images from reliable sources</GuiString> 
+        <!--
+            Description: Thumbnails of images are displayed in a separate browser window opening the a context menue by clicking the item name within the respective panel.)
+            A query is sent to the target URI, while [###] is replaced by the selected item name. 
+        -->
+        <URI>http://www.navikey.net/DeltaSampleData/delta/html/[###].html</URI>
+        <!--
+            Description:
+        -->
+        <UseMappingFile>true</UseMappingFile>
+        <MappingFile>DeltaSampleData/imageMappingFile.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s(|_|A-Z)]*</RegexPattern>
+
+        <!--
+            Description: ============ Wikimedia Commons Images ===========================
+        -->
+        <GuiString>Wikimedia Commons</GuiString>
+        <!--
+            Description:
+
+            A query is sent to Wikimedia Commons, while [###] is replaced by the selected item name.
+        -->
+        <URI>http://commons.wikimedia.org/wiki/[###]</URI>
+        <!--
+            Description:
+        -->
+        <UseMappingFile>false</UseMappingFile>
+        <MappingFile>WikimediaImagesMapping.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s(|_|A-Z)]*</RegexPattern>
+
+
+        <!--
+            Description: ============ Yahoo Image Search  ===========================
+        -->
+        <GuiString>Yahoo Images</GuiString>
+        <!--
+            Description:
+
+            A query is sent to Yahoo Image Search, while [###] is replaced by the selected item name.
+        -->
+        <URI>http://images.search.yahoo.com/search/images?q=%22[###]%22</URI>
+
+        <UseMappingFile>false</UseMappingFile>
+        <MappingFile>YahooImagesMapping.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s(|_|A-Z)]*</RegexPattern>
+
+        <!--
+            Description: ============ Google Image Search  ===========================
+        -->
+        
+        <GuiString>Google Images</GuiString>
+        <!--
+            Description: 
+            
+            A query is sent to Google Image Search, while [###] is replaced by the selected item name.
+            
+            -->
+        <URI>http://images.google.com/images?q=%22[###]%22</URI>
+
+        <UseMappingFile>false</UseMappingFile>
+        <MappingFile>GoogleImagesMapping.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s(|_|A-Z)]*</RegexPattern>
+
+        <!--
+            Description: ============ Google Search ===========================
+        -->
+        
+        <GuiString>Google Search</GuiString>
+        <!--
+            Description: 
+            
+            A query is sent to Google Search, while [###] is replaced by the selected item name.
+        -->
+        <URI>http://www.google.com/search?q=%22[###]%22</URI>
+
+        <UseMappingFile>false</UseMappingFile>
+        <MappingFile>GoogleSearchMapping.xml</MappingFile>
+        <RegexPattern>[A-Z][^(\s(|_|A-Z)]*</RegexPattern>
+    </ItemURIs>
+</Config>
