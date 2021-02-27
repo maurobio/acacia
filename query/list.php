@@ -244,7 +244,7 @@
 			echo "<h2>Accepted Names plus Synonyms</h2>\n";
 			echo "<ul>\n";
 			$sql1 = "SELECT * FROM taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP";
-			$query1 = mysqli_query($sql1, $link) or die("Error: MySQL query failed");
+			$query1 = mysqli_query($link, $sql1) or die("Error: MySQL query failed");
 			while($row1 = mysqli_fetch_array($query1)) {
 				if ($row1['T_STATUS'] == "Provisional") {
 					echo "?";
@@ -274,7 +274,7 @@
 
 				$id = $row1['T_NO'];
 				$sql2 = "SELECT * FROM synonyms WHERE T_NO = '$id'";
-				$query2 = mysqli_query($sql2, $link) or die("Error: MySQL query failed");
+				$query2 = mysqli_query($link, $sql2) or die("Error: MySQL query failed");
 				while($row2 = mysqli_fetch_array($query2)) {
 					echo "<ul>\n";
 					$ssubgen = " ";
