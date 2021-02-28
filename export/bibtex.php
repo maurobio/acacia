@@ -24,8 +24,8 @@
 <?php
 	include("../config.php");
   
-	mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
 	  
 	$sort = $_GET['sort'];
 	$filter = $_GET['filter'];
@@ -51,7 +51,7 @@
 	if (isset($sort)) {
 		$sql = $sql." ORDER BY ".$sort;
 	}
-	$result = mysqli_query($sql) or die('Query failed!');
+	$result = mysqli_query($link, $sql) or die('Query failed!');
 	
 	while($row = mysqli_fetch_array($result)) {
 		$entry = $row['B_TYPE'];

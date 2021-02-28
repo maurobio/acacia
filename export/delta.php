@@ -24,17 +24,17 @@
 <?php
 	include("../config.php");
 
-	mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed"); 
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
 	$title = mysqli_result($query, 0, 'M_TITLE');
 	
 	// DELTA chars
 	$filename = "../keys/data/chars";
 	$out = fopen($filename, 'w');
 	$sql = "SELECT * FROM descriptors ORDER BY D_NO, D_STATE_NO";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "*SHOW: ".$title." - character list. ".date("d M Y, g:i a")."\n");
 	fwrite($out, "*CHARACTER LIST\n");
 	$grpCheck = '';
@@ -67,7 +67,7 @@
 	$filename = "../keys/data/items";
 	$out = fopen($filename, 'w');
 	$sql = "SELECT * FROM taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "*SHOW: ".$title." - item descriptions. ".date("d M Y, g:i a")."\n");
 	fwrite($out, "*ITEM DESCRIPTIONS\n\n");
 	while($row = mysqli_fetch_array($query)) {
@@ -75,14 +75,14 @@
 		fwrite($out, "# ".$row['T_GENUS']." ".$row['T_SPECIES']." <".$row['T_S_AUTHOR'].">/"."\n");
 		$sql = "SELECT T_NO, D_NO, D_STATE_NO FROM descriptors WHERE T_NO='$t_no'";
 		$sql = $sql." ORDER BY T_NO, D_NO, D_STATE_NO";
-		$query_a = mysqli_query($sql) or die("Error: MySQL query failed");
+		$query_a = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 		$grpCheck = '';
 		$grpEval = '';
 		while ($res_a = mysqli_fetch_array($query_a)) {
 			$d_no = $res_a['D_NO'];
 			$sql = "SELECT T_NO, D_NO, D_STATE_NO FROM descriptors WHERE T_NO='$t_no' AND D_NO='$d_no'";
 			$sql = $sql." ORDER BY T_NO, D_NO, D_STATE_NO";
-			$query_b = mysqli_query($sql) or die("Error: MySQL query failed");
+			$query_b = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 			$nstates = mysqli_num_rows($query_b);
 			if ($nstates == 1) {
 				fwrite($out, $res_a['D_NO'].",".$res_a['D_STATE_NO']." ");
@@ -114,30 +114,30 @@
 	$filename = "../keys/data/specs";
 	$out = fopen($filename, 'w');
 	$sql = "SELECT * FROM descriptors ORDER BY D_NO, D_STATE_NO";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "*SHOW: ".$title." - specifications. ".date("d M Y, g:i a")."\n\n");
 
 	// Number of characters
 	$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	$nchar = mysqli_num_rows($query);
 	fwrite($out, "*NUMBER OF CHARACTERS ".$nchar."\n"); 
 
 	// Maximum number of states
 	$sql = "SELECT DISTINCT D_CHARACTER, COUNT(D_STATE_NO) FROM descriptors GROUP BY D_CHARACTER ORDER BY COUNT(D_STATE_NO)";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	$maxchar = mysqli_result($query, 2, 1);
 	fwrite($out, "*MAXIMUM NUMBER OF STATES ".$maxchar."\n");
 
 	// Number of items
 	$sql = "SELECT * FROM taxa";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	$ntax = mysqli_num_rows($query);
 	fwrite($out, "*MAXIMUM NUMBER OF ITEMS ".$ntax."\n");
 
 	// Character types
 	$sql = "SELECT DISTINCT D_NO, D_CHARACTER, D_CHAR_TYPE FROM descriptors";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "*CHARACTER TYPES ");
 	while($row = mysqli_fetch_array($query)) {
 		fwrite($out, $row['D_NO'].",".$row['D_CHAR_TYPE']." ");
@@ -146,7 +146,7 @@
 
 	// Number of states
 	$sql = "SELECT DISTINCT D_NO, COUNT(D_STATE_NO) FROM descriptors GROUP BY D_NO";
-	$query = mysqli_query($sql) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "*NUMBERS OF STATES ");
 	while($row = mysqli_fetch_array($query)) {
 		fwrite($out, $row[0].",".$row[1]." ");

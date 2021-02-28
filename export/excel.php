@@ -32,8 +32,8 @@
 		if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
 	}
 
-	mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
   
 	$table = $_GET['table'];
 	$sort = $_GET['sort'];
@@ -60,8 +60,8 @@
 		$sql = $sql." ORDER BY ".$sort;
 	}
 	$flag = false;
-	$result = mysqli_query($sql) or die('Query failed!');
-	while(false !== ($row = mysqli_fetch_assoc($result))) {
+	$result = mysqli_query($link, $sql) or die('Query failed!');
+	while($row = mysqli_fetch_assoc($result)) {
 		if(!$flag) {
 			// display field/column names as first row
 			echo implode("\t", array_keys($row)) . "\r\n";

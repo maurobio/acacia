@@ -24,8 +24,8 @@
 <?php
 	include("../config.php");
 	
-	mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
 
 	$filter = $_GET['filter'];
 	$filename = $_GET['filename'];
@@ -49,7 +49,7 @@
 	fprintf($out, "<Document>");
 		
 	$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-	$result = mysqli_query($query) or die('Query failed!');
+	$result = mysqli_query($link, $query) or die('Query failed!');
 	$row = mysqli_fetch_array($result);
 	
 	// Include a default map view using the following lines
@@ -72,7 +72,7 @@
 	if (isset($filter)) {
 		$sql = $sql." AND ".$filter;
 	}
-	$result = mysqli_query($query) or die('Query failed!');
+	$result = mysqli_query($link, $query) or die('Query failed!');
 
 	// Iterate over all placemarks (rows)
 	while ($row = mysqli_fetch_object($result)) {
