@@ -33,8 +33,7 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //protected function BarChart($width, $height) {
-		protected function __constructor($width, $height) {
+        protected function BarChart($width, $height) {
             parent::Chart($width, $height);
 
             // Initialize the bounds

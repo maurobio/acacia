@@ -30,8 +30,7 @@
          *
          * @param    resource    GD image resource
          */
-        //public function Primitive($img) {
-		public function __construct($img) {
+        public function Primitive($img) {
             $this->img = $img;
         }
         

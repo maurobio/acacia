@@ -1,38 +1,35 @@
-<!-- 
-#=================================================================================#
-#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
-#                           maurobio@gmail.com                                    #
-#                                                                                 #
-#   This program is free software: you can redistribute it and/or modify          #
-#   it under the terms of the GNU General Public License as published by          #
-#   the Free Software Foundation, either version 3 of the License, or             #
-#   (at your option) any later version.                                           #
-#                                                                                 #
-#   This program is distributed in the hope that it will be useful,               #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
-#   GNU General Public License for more details.                                  #
-#                                                                                 #
-#   You should have received a copy of the GNU General Public License             #
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
-#=================================================================================#
--->
+<?php
+/*================================================================================*
+*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                           maurobio@gmail.com                                    *
+*                                                                                 *
+*   This program is free software: you can redistribute it and/or modify          *
+*   it under the terms of the GNU General Public License as published by          *
+*   the Free Software Foundation, either version 3 of the License, or             *
+*   (at your option) any later version.                                           *
+*                                                                                 *
+*   This program is distributed in the hope that it will be useful,               *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
+*   GNU General Public License for more details.                                  *
+*                                                                                 *
+*   You should have received a copy of the GNU General Public License             *
+*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
+*=================================================================================*/?>
 
 <?php include("../config.php"); ?>
 <?php include("../library/functions.php"); ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-		"http://www.w3.org/TR/html4/loose.dtd">
 		
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
 ?>
 		
 <html>
@@ -130,33 +127,33 @@
 		$sql = $sql." AND T_SUBSP='$infra'";
 	}
 
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	mysqli_select_db($link, $config['dbname']);
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	mysql_select_db($config['dbname']);
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 
-	$nrows = mysqli_num_rows($query);
+	$nrows = mysql_num_rows($query);
 	if ($nrows == 0) {
 		// Synonimic indexing
 		$sql =  "SELECT * FROM synonyms WHERE S_GENUS='$genus' AND S_SPECIES='$species'";
 		if (!empty($infra)) {
 			$sql = $sql." AND S_SUBSP='$infra'";
 		}
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$result = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$result = mysql_num_rows($query);
 		if ($result == 0) {
 			echo "<h3>No results found for '".$genus." ".$species." ".$infra."'</h3>\n";
 			echo "<p><form><input type=button value=\"Back\" onClick=\"window.close()\"></form></p>\n";
 			exit();
 		}
 		else {
-			$row = mysqli_fetch_array($query);
+			$row = mysql_fetch_array($query);
 			$id = $row['T_NO'];
 			$sql = "SELECT * FROM taxa WHERE T_NO='$id'";
-			$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+			$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 		}
 	}
 
-	$row = mysqli_fetch_array($query);
+	$row = mysql_fetch_array($query);
 	$id = $row['T_NO'];
 	
 	// Bibliographic citations array
@@ -164,11 +161,7 @@
 	$index = 0;
 
 	// Accepted Name & Higher Taxon 
-	if (isset($infra)) {
-		echo "<h2>Search results for: <i>".$genus." ".$species." ".$infra."</i></h2>\n";
-	} else {
-		echo "<h2>Search results for: <i>".$genus." ".$species."</i></h2>\n";
-	}
+	echo "<h2>Search results for: <i>".$genus." ".$species." ".$infra."</i></h2>\n";
 	echo "<table class=\"report\" width=\"100%\">\n";
 	echo "<tr><th><font size=+1>Taxonomy and Nomenclature</font></th></tr>\n";
 	echo "</table>\n";
@@ -188,12 +181,12 @@
 
 	// Synonyms
 	$sql = "SELECT * FROM synonyms WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-	$num = mysqli_num_rows($query);
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+	$num = mysql_num_rows($query);
 	echo "<h4>Synonyms</h4>\n";
 	echo "<ul>\n";
 	if ($num > 0) {
-		while($res = mysqli_fetch_array($query)) {
+		while($res = mysql_fetch_array($query)) {
 			echo "<i>".$res['S_GENUS']." ".$res['S_SPECIES']."</i> ";
 			if (strlen($row['S_SUBSP']) > 0) {
 				echo strtolower($row['S_RANK'])." <i>". $row['S_SUBSP']."</i> ".$row['S_SP_AUTHOR'];
@@ -216,8 +209,8 @@
 
 	// Taxonomy
 	$sql = "SELECT T_KINGDOM, T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY FROM highertaxa WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-	$value = mysqli_fetch_array($query);
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+	$value = mysql_fetch_array($query);
 	$kingdom = $value[0];
 	echo "<h4>Classification</h4>\n";
 	echo "<ul>\n";
@@ -239,12 +232,12 @@
 		// Vernacular Names
 		$sql = "SELECT * FROM commonnames WHERE T_NO='$id'";
 		$sql = $sql." ORDER BY V_NAME";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Vernacular names</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				echo $res['V_NAME']." (".$res['V_LANGUAGE'].", ".$res['V_COUNTRY'].") ";
 				echo "<a name=cite-".$res['B_NO'].">[<a href=#note-".$res['B_NO'].">".$res['B_NO']."</a>]; ";
 				$biblio[$index] = $res['B_NO'];
@@ -265,12 +258,12 @@
 		echo "<tr><th><font size=+1>Conservation</font></th></tr>\n";
 		echo "</table>\n";
 		$sql = "SELECT * FROM status WHERE T_NO='$id'";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Conservation status</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				switch ($res['C_STATUS']) {
 					case 'Not Evaluated':
 						$img_status = "status_iucn3.1_NE.png";
@@ -300,7 +293,7 @@
 						$img_status = "status_iucn3.1_EX.png";
 						break;
 				}
-				echo $res['C_STATUS']."<img border=0 src='../images/".$img_status."' />&nbsp;";
+				echo $res['C_STATUS']."<img border=0 src='images/".$img_status."' />&nbsp;";
 				switch ($res['C_TREND']) {
 					case 'Decreasing':
 						$img_trend = "down.png";
@@ -315,7 +308,7 @@
 						$img_trend = "unknown.png";
 						break;
 				}
-				echo $res['C_TREND']."<img border=0 src='../images/".$img_trend."' /> ";
+				echo $res['C_TREND']."<img border=0 src='images/".$img_trend."' /> ";
 				echo "<a name=cite-".$res['B_NO'].">[<a href=#note-".$res['B_NO'].">".$res['B_NO']."</a>]\n";
 				$biblio[$index] = $res['B_NO'];
 				$index += 1;		
@@ -340,12 +333,12 @@
 		$subEval = '';
 		$sql = "SELECT * FROM descriptors WHERE T_NO='$id'";
 		$sql = $sql." ORDER BY D_CHARACTER, D_STATE";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Descriptors</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				$grpCheck = $res['D_CHARACTER'];
 				if ($grpEval != $grpCheck) {
 					$grpEval = $grpCheck;
@@ -375,16 +368,16 @@
 		echo "</table>\n";
 		
 		$sql = "SELECT DISTINCT(G_TAXID) FROM genome WHERE T_NO='$id'";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num_rows = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num_rows = mysql_num_rows($query);
 		if ($num_rows > 0) {
-			$taxId = mysqli_result($query, 0, 'G_TAXID');
+			$taxId = mysql_result($query, 0, 'G_TAXID');
 			$sql = "SELECT COUNT(*) FROM genome WHERE G_SEQ_TYPE='Nucleotide'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$nucNum = mysqli_result($query, 0, 'COUNT(*)');
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$nucNum = mysql_result($query, 0, 'COUNT(*)');
 			$sql = "SELECT COUNT(*) FROM genome WHERE G_SEQ_TYPE='Protein'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$protNum = mysqli_result($query, 0, 'COUNT(*)');
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$protNum = mysql_result($query, 0, 'COUNT(*)');
 		}
 
 		echo "<h4>Genomics from NCBI</h4>\n";
@@ -411,12 +404,12 @@
 		echo "</table>\n";
 		$sql = "SELECT * FROM uses WHERE T_NO='$id'";
 		$sql = $sql." ORDER BY U_NAME";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Uses</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				echo $res['U_NAME'];
 				echo "<a name=cite-".$res['B_NO']."> [<a href=#note-".$res['B_NO'].">".$res['B_NO']."</a>]; \n";
 				$biblio[$index] = $res['B_NO'];
@@ -437,12 +430,12 @@
 	echo "</table>\n";
 
 	$sql = "SELECT * FROM notes WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-	$num = mysqli_num_rows($query);
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+	$num = mysql_num_rows($query);
 	echo "<h4>Notes</h4>\n";
 	echo "<ul>\n";
 	if ($num > 0) {
-		while($res = mysqli_fetch_array($query)) {
+		while($res = mysql_fetch_array($query)) {
 			echo $res['N_NOTE'];
 			echo "<a name=cite-".$res['B_NO']."> [<a href=#note-".$res['B_NO'].">".$res['B_NO']."</a>]; \n";
 			$biblio[$index] = $res['B_NO'];
@@ -464,12 +457,12 @@
 		$grpCheck = '';
 		$grpEval = '';
 		$sql = "SELECT DISTINCT T_NO, P_CONTINENT, P_COUNTRY, P_I_STATUS, B_NO FROM distribution WHERE T_NO='$id' ORDER BY P_CONTINENT, P_COUNTRY";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Geographical records</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				$grpCheck = $res['P_CONTINENT'];
 				if ($grpEval != $grpCheck) {
 					$grpEval = $grpCheck;
@@ -496,7 +489,7 @@
 			echo "<ul>\n";
 			
 			$fn = "../maps/species.kml";
-			writeToKml($fn, $id, $link);
+			writeToKml($fn, $id);
 			
 			echo "<div id=\"map\" class=\"smallmap\"></div>\n";
 			echo "<script src=\"../maps/lib/OpenLayers.js\"></script>";
@@ -624,12 +617,12 @@
 		$subCheck = '';	
 		$subEval = '';
 		$sql = "SELECT * FROM habitats WHERE T_NO='$id'";
-		$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
-		$num = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
+		$num = mysql_num_rows($query);
 		echo "<h4>Habitats</h4>\n";
 		echo "<ul>\n";
 		if ($num > 0) {
-			while($res = mysqli_fetch_array($query)) {
+			while($res = mysql_fetch_array($query)) {
 				$grpCheck = $res['H_PLACE'];
 				if ($grpEval != $grpCheck) {
 					$grpEval = $grpCheck;
@@ -657,13 +650,13 @@
 	echo "<tr><th><font size=+1>Media</font></th></tr>\n";
 	echo "</table>\n";
 	$sql = "SELECT * FROM resources WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 	echo "<h4>Media</h4>\n";
 	echo "<ul>\n";
 	
 	$images = 0;
 	echo "<h4>Images</h4>\n";
-	while($res = mysqli_fetch_array($query)) {
+	while($res = mysql_fetch_array($query)) {
 		if (ucfirst($res['R_TYPE']) == "Photo" or ucfirst($res['R_TYPE']) == "Illustration") {
 			$refUrl = "<a href='".$res['R_RESOURCE']."'>";
 			echo $refUrl."<img src='".$res['R_RESOURCE']."' title='".$res['R_CAPTION']."' alt='".$res['R_CAPTION']."' style='width:150px' data-plusimage='".$res['R_RESOURCE']."' data-plussize='600,450'></a>\n";
@@ -675,10 +668,10 @@
 	}
 	
 	$sql = "SELECT * FROM resources WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 	$sounds = 0;
 	echo "<h4>Sounds</h4>\n";
-	while($res = mysqli_fetch_array($query)) {
+	while($res = mysql_fetch_array($query)) {
 		if (ucfirst($res['R_TYPE']) == "Audio") {
 			echo "<embed src='".$res['R_RESOURCE']."' autostart=\"false\" loop=\"false\" height=109 width=145>
 				<noembed>Sorry, your browser doesn't support the embedding of multimedia.</noembed>
@@ -691,10 +684,10 @@
 	}	
 	
 	$sql = "SELECT * FROM resources WHERE T_NO='$id'";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 	$movies = 0;
 	echo "<h4>Movies</h4>\n";
-	while($res = mysqli_fetch_array($query)) {
+	while($res = mysql_fetch_array($query)) {
 		if (ucfirst($res['R_TYPE']) == "Video") {
 			if (stripos($res['R_RESOURCE'], "youtube")) {
 				echo "<embed width=145 height=109 src='".$res['R_RESOURCE']."'type=\"application/x-shockwave-flash\"></embed><br>\n";
@@ -720,10 +713,10 @@
 	echo "</table>\n";
 	$biblio = array_unique($biblio);
 	$sql = "SELECT * FROM bibliography ORDER BY B_NO";
-	$query = mysqli_query($link, $sql) or die("Query error: ".mysqli_errno().": ".mysqli_error());
+	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 	$refs = 0;
 	echo "<dl>\n";
-	while($res = mysqli_fetch_array($query)) {
+	while($res = mysql_fetch_array($query)) {
 		if (in_array($res['B_NO'], $biblio)) {
 			echo "<dd><a href=#cite-".$res['B_NO'].">^</a><a name=note-".$res['B_NO'].">".$res['B_NO']."</a>. ";
 			echo $res['B_AUTHOR']." (".$res['B_YEAR'].$res['B_SEQUENCE'].") ";
@@ -761,8 +754,8 @@
 	echo "<p align=\"right\">\n";
     echo "<a href=\"#top\">return to top</a>\n";
 	
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 <hr>
 <p align="center">

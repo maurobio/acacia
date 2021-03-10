@@ -1,42 +1,38 @@
-<!-- 
-#=================================================================================#
-#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
-#                           maurobio@gmail.com                                    #
-#                                                                                 #
-#   This program is free software: you can redistribute it and/or modify          #
-#   it under the terms of the GNU General Public License as published by          #
-#   the Free Software Foundation, either version 3 of the License, or             #
-#   (at your option) any later version.                                           #
-#                                                                                 #
-#   This program is distributed in the hope that it will be useful,               #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
-#   GNU General Public License for more details.                                  #
-#                                                                                 #
-#   You should have received a copy of the GNU General Public License             #
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
-#=================================================================================#
--->
+<?php
+/*================================================================================*
+*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                           maurobio@gmail.com                                    *
+*                                                                                 *
+*   This program is free software: you can redistribute it and/or modify          *
+*   it under the terms of the GNU General Public License as published by          *
+*   the Free Software Foundation, either version 3 of the License, or             *
+*   (at your option) any later version.                                           *
+*                                                                                 *
+*   This program is distributed in the hope that it will be useful,               *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
+*   GNU General Public License for more details.                                  *
+*                                                                                 *
+*   You should have received a copy of the GNU General Public License             *
+*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
+*=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-		"http://www.w3.org/TR/html4/loose.dtd">
 		
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysql_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	$environ = mysqli_result($query, 0, 'M_ENVIRONMENT');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	$environ = mysql_result($query, 0, 'M_ENVIRONMENT');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
 ?>
 		
 <html>
@@ -102,7 +98,7 @@
 	$field = $_GET['field'];
 	$filter = $_GET['filter'];
 	
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	mysql_select_db($config['dbname']);
   
 	// Create temporary table
@@ -120,11 +116,11 @@
 		B_NO int(10) NOT NULL,
 		PRIMARY KEY (T_NO)
 		)"; 
-	$result = mysqli_query($link, $sql) or die("Error creating temporary table");
+	$result = mysql_query($sql, $link) or die("Error creating temporary table");
 	
 	// Clear temporary table if it already exists
 	$sql = "TRUNCATE _taxa";
-	$result = mysqli_query($link, $sql);
+	$result = mysql_query($sql, $link);
 	
 	// Insert selected records into temporary table
 	$sql = "INSERT IGNORE INTO _taxa SELECT 
@@ -149,10 +145,10 @@
 	else {
 		$sql = $sql." FROM taxa,".$class." WHERE ".$class.".T_NO=taxa.T_NO AND LOWER(".$class.".".$field.") LIKE '%".strtolower($filter)."%'";
 	}
-	$result = mysqli_query($link, $sql) or die("Error: ". mysqli_error());
+	$result = mysql_query($sql, $link) or die("Error: ". mysql_error());
 	
-	$query = mysqli_query("SELECT * FROM _taxa", $link) or die("Error: ". mysqli_error());
-	$nrows = mysqli_num_rows($query);
+	$query = mysql_query("SELECT * FROM _taxa", $link) or die("Error: ". mysql_error());
+	$nrows = mysql_num_rows($query);
 	if ($nrows == 0) {
 		echo "<h3>No results found for '".$filter."'</h3>";
 		echo "<p><form><input type=button value=\"Back\" OnClick=\"window.close()\"></form></p>";
@@ -236,9 +232,9 @@
 
 	// Find out number of records in the table, in order to break the pages.
 	$query2 = " SELECT * FROM _taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP";
-	$result2 = mysqli_query($query2);
-	echo mysqli_error();
-	$nume = mysqli_num_rows($result2);
+	$result2 = mysql_query($query2);
+	echo mysql_error();
+	$nume = mysql_num_rows($result2);
 
 	// Print table headers
 	$bgcolor = "#f1f1f1";
@@ -253,11 +249,11 @@
 
 	// Executing the query with variables $eu and $limit set at the top of the page
 	$query1 = "SELECT * FROM _taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP LIMIT $eu, $limit";
-	$result1 = mysqli_query($query1);
-	echo mysqli_error();
+	$result1 = mysql_query($query1);
+	echo mysql_error();
 
 	// Display the returned records inside the table rows
-	while($noticia = mysqli_fetch_array($result1)) {
+	while($noticia = mysql_fetch_array($result1)) {
 		if ($bgcolor == "#f1f1f1") {
 			$bgcolor = "#ffffff";
 		}

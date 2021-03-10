@@ -1,41 +1,38 @@
-<!--
-#=================================================================================#
-#  Acacia - A Generic Conceptual Schema for Taxonomic Databases                   #
-#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
-#                           maurobio@gmail.com                                    #
-#                                                                                 #
-#   This program is free software: you can redistribute it and/or modify          #
-#   it under the terms of the GNU General Public License as published by          #
-#   the Free Software Foundation, either version 3 of the License, or             #
-#   (at your option) any later version.                                           #
-#                                                                                 #
-#   This program is distributed in the hope that it will be useful,               #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
-#   GNU General Public License for more details.                                  #
-#                                                                                 #
-#   You should have received a copy of the GNU General Public License             #
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
-#=================================================================================#
--->
+<?php
+/*================================================================================*
+*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                           maurobio@gmail.com                                    *
+*                                                                                 *
+*   This program is free software: you can redistribute it and/or modify          *
+*   it under the terms of the GNU General Public License as published by          *
+*   the Free Software Foundation, either version 3 of the License, or             *
+*   (at your option) any later version.                                           *
+*                                                                                 *
+*   This program is distributed in the hope that it will be useful,               *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
+*   GNU General Public License for more details.                                  *
+*                                                                                 *
+*   You should have received a copy of the GNU General Public License             *
+*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
+*=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <?php
 	$t_no = $_GET['t_no'];
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM highertaxa WHERE T_NO=$t_no";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$num_rows = mysqli_num_rows($query);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$num_rows = mysql_num_rows($query);
 	if ($num_rows > 0) {
-		$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
-		$division = mysqli_result($query, 0, 'T_PHYLUM');
-		$class = mysqli_result($query, 0, 'T_CLASS');
-		$order = mysqli_result($query, 0, 'T_ORDER');
-		$family = mysqli_result($query, 0, 'T_FAMILY');
+		$kingdom = mysql_result($query, 0, 'T_KINGDOM');
+		$division = mysql_result($query, 0, 'T_PHYLUM');
+		$class = mysql_result($query, 0, 'T_CLASS');
+		$order = mysql_result($query, 0, 'T_ORDER');
+		$family = mysql_result($query, 0, 'T_FAMILY');
 	}
 	else {
 		$kingdom = "";
@@ -64,8 +61,8 @@
     <p><b>Kingdom: </b><select name="kingdom" size="1">
 	<?php
 		$sql = "SELECT DISTINCT T_KINGDOM FROM highertaxa ORDER BY T_KINGDOM";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		while($row = mysqil_fetch_array($query)) {
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		while($row = mysql_fetch_array($query)) {
 			$selected = "";
 			$catName = $row['T_KINGDOM'];
 			if ($catName == $division) {
@@ -78,8 +75,8 @@
 	<p><b>Phylum/Division: </b><select name="division" size="1">
     <?php
 		$sql = "SELECT DISTINCT T_PHYLUM FROM highertaxa ORDER BY T_PHYLUM";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		while($row = mysqli_fetch_array($query)) {
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		while($row = mysql_fetch_array($query)) {
 			$selected = "";
 			$catName = $row['T_PHYLUM'];
 			if ($catName == $division) {
@@ -92,8 +89,8 @@
 	<p><b>Class: </b><select name="class" size="1">
 	<?php
 		$sql = "SELECT DISTINCT T_CLASS FROM highertaxa ORDER BY T_CLASS";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		while($row = mysqli_fetch_array($query)) {
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		while($row = mysql_fetch_array($query)) {
 			$selected = "";
 			$catName = $row['T_CLASS'];
 			if ($catName == $class) {
@@ -106,8 +103,8 @@
 	<p><b>Order: </b><select name="order" size="1">
 	<?php
 		$sql = "SELECT DISTINCT T_ORDER FROM highertaxa ORDER BY T_ORDER";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		while($row = mysqli_fetch_array($query)) {
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		while($row = mysql_fetch_array($query)) {
 			$selected = "";
 			$catName = $row['T_ORDER'];
 			if ($catName == $order) {
@@ -120,8 +117,8 @@
 	<p><b>Family: </b><select name="family" size="1">
 	<?php
 		$sql = "SELECT DISTINCT T_FAMILY FROM highertaxa ORDER BY T_FAMILY";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		while($row = mysqli_fetch_array($query)) {
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		while($row = mysql_fetch_array($query)) {
 			$selected = "";
 			$catName = $row['T_FAMILY'];
 			if ($catName == $family) {
@@ -140,8 +137,8 @@
 </center>
 
 <?php
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 </body>

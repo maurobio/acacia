@@ -24,7 +24,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Metadata table</title>
+	<title>Pointers table</title>
 	<link rel="stylesheet" href="../library/stylesheet.css" type="text/css">
 </head>
 <body>
@@ -76,28 +76,28 @@
 		?>
 		| <a href="highertaxa.php" title="Higher taxon membership">Higher Taxa</a>
 		| <a href="notes.php" title="Structured notes">Notes</a>
-		| <a href="pointers.php" title="Literature pointers">Pointers</a>
+		| Pointers
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
 		| <a href="resources.php" title="Media resources">Resources</a>
 		<?php
 			if ($config['common']) {
-				echo "| <a href=\"uses.php\" title=\"Uses data\">Uses</a>";
+				echo "| <a href=\"uses.php\" title=\Uses data\">Uses</a>";
 				echo "| <a href=\"commonnames.php\" title=\"Vernacular names\">Vernacular Names</a>";
 			}
 			if ($config['status']) {
 				echo "| <a href=\"status.php\" title=\"Conservation status\">Conservation</a>";
-			}
+			}	
 		?>
 		| <a href="bibliography.php" title="Edit bibliographic references">Bibliography</a>
-		| Metadata
+		| <a href="metadata.php" title="Database configuration">Metadata</a>
 		]
 		</td>
 	</tr>	
 </table>
 
 <center>
-<h3>Editor - Metadata table</h3>
+<h3>Editor - Pointers table</h3>
 </center>
 <?php
 
@@ -122,16 +122,16 @@ $opts['hn'] = $config['host'];
 $opts['un'] = $config['user'];
 $opts['pw'] = $config['pwd'];
 $opts['db'] = $config['dbname'];
-$opts['tb'] = 'metadata';
+$opts['tb'] = 'pointers';
 
 // Name of field which is the unique key
-$opts['key'] = 'M_ID';
+$opts['key'] = 'ID';
 
 // Type of key field (int/real/string/date etc.)
 $opts['key_type'] = 'int';
 
 // Sorting field(s)
-$opts['sort_field'] = array('M_ID');
+$opts['sort_field'] = array('T_NO');
 
 // Number of records to display on the screen
 // Value of -1 lists all records in a table
@@ -222,104 +222,57 @@ appear in generated list. Here are some most used field options documented.
   This is useful for giving more meaning to column values. Multiple
   descriptions fields are also possible. Check documentation for this.
 */
-
-$opts['fdd']['M_ID'] = array(
-  'name'     => 'Database identifier',
+$opts['fdd']['ID'] = array(
+  'name'     => 'ID',
   'select'   => 'T',
   'options'  => 'AVCPDR', // auto increment
   'maxlen'   => 10,
   'default'  => '0',
   'sort'     => true
 );
-$opts['fdd']['M_ACRONYM'] = array(
-  'name'     => 'Database short name',
+$opts['fdd']['T_NO'] = array(
+  'name'     => 'Taxon name',
   'select'   => 'T',
-  'maxlen'   => 50,
+  'maxlen'   => 10,
   'sort'     => true
 );
-$opts['fdd']['M_TITLE'] = array(
-  'name'     => 'Database title',
-  'select'   => 'T',
-  'maxlen'   => 150,
-  'sort'     => true
-);
-$opts['fdd']['M_DESCRIPTION'] = array(
-  'name'     => 'Database description',
-  'select'   => 'T',
-  'maxlen'   => 65535,
-  'textarea' => array(
-    'rows' => 5,
-    'cols' => 50),
-  'sort'     => true
-);
-$opts['fdd']['M_SCOPE'] = array(
-  'name'     => 'Database geographical scope',
+$opts['fdd']['L_TYPE'] = array(
+  'name'     => 'Type of pointer',
   'select'   => 'T',
   'maxlen'   => 20,
   'sort'     => true
 );
-$opts['fdd']['M_ENVIRONMENT'] = array(
-  'name'     => 'Database environmental scope',
+$opts['fdd']['B_NO'] = array(
+  'name'     => 'Reference',
   'select'   => 'T',
-  'maxlen'   => 20,
-  'sort'     => true
-);
-//$opts['fdd']['M_COVERAGE'] = array(
-//  'name'     => 'Taxonomic coverage',
-//  'select'   => 'T',
-//  'maxlen'   => 255,
-//  'sort'     => true
-//);
-$opts['fdd']['M_AUTHOR'] = array(
-  'name'     => 'Database author',
-  'select'   => 'T',
-  'maxlen'   => 255,
-  'sort'     => true
-);
-$opts['fdd']['M_VERSION'] = array(
-  'name'     => 'Database version',
-  'select'   => 'T',
-  'maxlen'   => 255,
-  'sort'     => true
-);
-$opts['fdd']['M_DATE'] = array(
-  'name'     => 'Release date',
-  'select'   => 'T',
-  'maxlen'   => 50,
-  //'default'  => '0000-00-00',
-  //'sql'      => 'DATE_FORMAT("M_DATE", "%M %D, %Y")',
-  'sort'     => true
-);
-$opts['fdd']['M_PUBLISHER'] = array(
-  'name'     => 'Database publisher',
-  'select'   => 'T',
-  'maxlen'   => 255,
-  'sort'     => true
-);
-$opts['fdd']['M_URL'] = array(
-  'name'     => 'Database website',
-  'select'   => 'T',
-  'maxlen'   => 78,
-  'sort'     => true
-);
-$opts['fdd']['M_LOGO'] = array(
-  'name'     => 'Database logotype',
-  'select'   => 'T',
-  'maxlen'   => 78,
+  'maxlen'   => 10,
   'sort'     => true
 );
 
-$opts['fdd']['M_SCOPE']['values'] = array('Global', 'Regional', 'Local');
-$opts['fdd']['M_ENVIRONMENT']['values'] = array('Marine', 'Brackish', 'Freshwater', 'Terrestrial', 'Unknown');
-$opts['fdd']['M_ACRONYM']['js']['required'] = true;
-$opts['fdd']['M_ACRONYM']['js']['hint'] = 'Short name is required.';
-$opts['fdd']['M_TITLE']['js']['required'] = true;
-$opts['fdd']['M_TITLE']['js']['hint'] = 'Title is required.';
-$opts['fdd']['M_LOGO']['URL'] = '$link';
-$opts['fdd']['M_LOGO']['URLtarget'] = '_blank'; 
-$opts['fdd']['M_URL']['URL'] = '$link';
-$opts['fdd']['M_URL']['URLtarget'] = '_blank'; 
-//$opts['fdd']['M_URL']['URLdisp'] = 'Launch Page';
+$opts['fdd']['T_NO']['values']['table'] = 'taxa'; 
+$opts['fdd']['T_NO']['values']['column'] = 'T_NO';
+$opts['fdd']['T_NO']['values']['description']['columns'][0] = 'T_GENUS'; 
+$opts['fdd']['T_NO']['values']['description']['columns'][1] = 'T_SPECIES'; 
+if ($config['subsp']) {
+	$opts['fdd']['T_NO']['values']['description']['columns'][2] = 'T_SUBSP';
+}
+$opts['fdd']['T_NO']['values']['description']['divs'][0] = ' ';
+$opts['fdd']['T_NO']['values']['description']['divs'][1] = ' ';
+$opts['fdd']['T_NO']['values']['orderby'] = 'T_GENUS, T_SPECIES, T_SUBSP';
+$opts['fdd']['L_TYPE']['values'] = array('Description', 'Illustration', 'Map');
+$opts['fdd']['B_NO']['js']['required'] = true;
+$opts['fdd']['B_NO']['values']['table'] = 'bibliography'; 
+$opts['fdd']['B_NO']['values']['column'] = 'B_NO';
+$opts['fdd']['B_NO']['values']['description']['columns'][0] = 'B_AUTHOR'; 
+$opts['fdd']['B_NO']['values']['description']['columns'][1] = 'B_YEAR'; 
+$opts['fdd']['B_NO']['values']['description']['columns'][2] = 'B_SEQUENCE';
+$opts['fdd']['B_NO']['values']['description']['columns'][3] = 'B_TITLE';
+$opts['fdd']['B_NO']['values']['description']['columns'][4] = 'B_DETAIL';
+$opts['fdd']['B_NO']['values']['description']['divs'][0] = ' ';
+$opts['fdd']['B_NO']['values']['description']['divs'][1] = '. ';
+$opts['fdd']['B_NO']['values']['description']['divs'][2] = ' ';
+$opts['fdd']['B_NO']['values']['description']['divs'][3] = '. ';
+$opts['fdd']['B_NO']['values']['orderby'] = 'B_AUTHOR, B_YEAR, B_SEQUENCE';
 
 // Now important call to phpMyEdit
 require_once 'phpMyEdit.class.php';
@@ -327,7 +280,7 @@ new phpMyEdit($opts);
 
 ?>
 <p>
-Download as: <a href="../export/excel.php?table=metadata">Excel</a> | <a href="../export/csv.php?table=metadata">CSV</a>
+Download as: <a href="../export/excel.php?table=pointers&sort=T_NO">Excel</a> | <a href="../export/csv.php?table=pointers&sort=T_NO">CSV</a>
 </p>
 <hr>
 <p align="center">

@@ -51,8 +51,7 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //protected function Chart($width, $height) {
-		protected function __constructor($width, $height) {
+        protected function Chart($width, $height) {
             // Initialize the configuration
             $this->config = new ChartConfig();
             

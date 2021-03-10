@@ -1,37 +1,33 @@
-<!--
-#=================================================================================#
-#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
-#                           maurobio@gmail.com                                    #
-#                                                                                 #
-#   This program is free software: you can redistribute it and/or modify          #
-#   it under the terms of the GNU General Public License as published by          #
-#   the Free Software Foundation, either version 3 of the License, or             #
-#   (at your option) any later version.                                           #
-#                                                                                 #
-#   This program is distributed in the hope that it will be useful,               #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
-#   GNU General Public License for more details.                                  #
-#                                                                                 #
-#   You should have received a copy of the GNU General Public License             #
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
-#=================================================================================#
--->
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php
+/*================================================================================*
+*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                           maurobio@gmail.com                                    *
+*                                                                                 *
+*   This program is free software: you can redistribute it and/or modify          *
+*   it under the terms of the GNU General Public License as published by          *
+*   the Free Software Foundation, either version 3 of the License, or             *
+*   (at your option) any later version.                                           *
+*                                                                                 *
+*   This program is distributed in the hope that it will be useful,               *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
+*   GNU General Public License for more details.                                  *
+*                                                                                 *
+*   You should have received a copy of the GNU General Public License             *
+*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
+*=================================================================================*/?>
 
 <?php
 	include("../config.php");
-	include("../library/functions.php");
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -93,10 +89,10 @@
     <p><select multiple="multiple" size="6" name="searchname">
 	<?php
 		$sql = "SELECT CONCAT(taxa.T_GENUS, ' ', taxa.T_SPECIES, ' ', taxa.T_SUBSP) AS species, COUNT(*) FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO GROUP BY species ORDER BY species";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$num_rows = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$num_rows = mysql_num_rows($query);
 		if ($num_rows > 0) {
-			while($row = mysqli_fetch_array($query)) {
+			while($row = mysql_fetch_array($query)) {
 				echo "<option value=\"name\">".$row['species'];
 				if ($row['COUNT(*)'] > 1) {
 					echo " (".$row['COUNT(*)']." records) ";
@@ -123,8 +119,8 @@ Hold down the Ctrl (Linux/Windows) or Command (Mac) key to select multiple speci
 </center>
 
 <?php
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <hr>

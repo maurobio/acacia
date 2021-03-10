@@ -1,25 +1,23 @@
-<!--
-#=================================================================================#
-#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
-#                           maurobio@gmail.com                                    #
-#                                                                                 #
-#   This program is free software: you can redistribute it and/or modify          #
-#   it under the terms of the GNU General Public License as published by          #
-#   the Free Software Foundation, either version 3 of the License, or             #
-#   (at your option) any later version.                                           #
-#                                                                                 #
-#   This program is distributed in the hope that it will be useful,               #
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
-#   GNU General Public License for more details.                                  #
-#                                                                                 #
-#   You should have received a copy of the GNU General Public License             #
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
-#=================================================================================#
--->
+<?php
+/*================================================================================*
+*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                           maurobio@gmail.com                                    *
+*                                                                                 *
+*   This program is free software: you can redistribute it and/or modify          *
+*   it under the terms of the GNU General Public License as published by          *
+*   the Free Software Foundation, either version 3 of the License, or             *
+*   (at your option) any later version.                                           *
+*                                                                                 *
+*   This program is distributed in the hope that it will be useful,               *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
+*   GNU General Public License for more details.                                  *
+*                                                                                 *
+*   You should have received a copy of the GNU General Public License             *
+*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
+*=================================================================================*/?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <?php
 	// Original PHP code by Chirp Internet: www.chirp.com.au
 	// Please acknowledge use of this code by including this header.
@@ -32,13 +30,13 @@
 		if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
 	}
 
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']);
+	mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	mysql_select_db($config['dbname']);
   
 	$table = $_GET['table'];
 	$sort = $_GET['sort'];
-	$filter = $_GET['filter'];
-    $filename = $_GET['filename'];
+	/*$filter = $_GET['filter'];
+    $filename = $_GET['filename'];*/
 
 	if (!isset($filename)) {
 		// file name for download
@@ -60,8 +58,8 @@
 		$sql = $sql." ORDER BY ".$sort;
 	}
 	$flag = false;
-	$result = mysqli_query($link, $sql) or die('Query failed!');
-	while($row = mysqli_fetch_assoc($result)) {
+	$result = mysql_query($sql) or die('Query failed!');
+	while($row = mysql_fetch_assoc($result)) {
 		if(!$flag) {
 			// display field/column names as first row
 			echo implode("\t", array_keys($row)) . "\r\n";
@@ -71,5 +69,5 @@
 		echo implode("\t", array_values($row)) . "\r\n";
 	}
 	fclose($out);
-	mysqli_free_result($result);
+	mysql_free_result($result);
 ?>

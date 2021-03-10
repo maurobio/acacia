@@ -39,8 +39,7 @@
          * Constructor of XYSeriesDataSet.
          *
          */
-        //public function XYSeriesDataSet() {
-		public function __construct() {
+        public function XYSeriesDataSet() {
             $this->titleList = array();
             $this->serieList = array();
         }

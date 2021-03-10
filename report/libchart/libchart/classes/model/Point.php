@@ -33,8 +33,7 @@
          * @param integer x coordinate (label)
          * @param integer y coordinate (value)
          */
-        //public function Point($x, $y) {
-		public function __construct($x, $y) {
+        public function Point($x, $y) {
             $this->x = $x;
             $this->y = $y;
         }

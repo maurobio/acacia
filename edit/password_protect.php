@@ -52,7 +52,7 @@ $LOGIN_INFORMATION = array(
 // Add login/password pairs below, like described above
 // NOTE: all rows except last must have comma "," at the end of line
 $LOGIN_INFORMATION = array(
-  'admin' => 'copepoda'
+  'admin' => 'acacia'
 );
 
 // request login? true - show login and password boxes, false - password box only
@@ -108,17 +108,16 @@ function showLoginPasswordProtect($error_msg) {
 
 <?php
 	include("../config.php");
-	include("../library/functions.php");
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	mysqli_free_result($query);
-	mysqli_close($link);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <?php
