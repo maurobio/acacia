@@ -259,6 +259,14 @@ if ($config['subphy']) {
       'sort'     => true
 	);
 }
+if ($config['supercla']) {
+	$opts['fdd']['T_SUPERCLASS'] = array(
+	  'name'     => 'Superclass name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
+      'sort'     => true
+	);
+}
 $opts['fdd']['T_CLASS'] = array(
   'name'     => 'Class name',
   'select'   => 'T',
@@ -270,6 +278,22 @@ if ($config['subcla']) {
 	  'name'     => 'Subclass name',
       'select'   => 'T',
       'maxlen'   => 50,
+      'sort'     => true
+	);
+}
+if ($config['infracla']) {
+	$opts['fdd']['T_INFRACLASS'] = array(
+	  'name'     => 'Infraclass name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
+      'sort'     => true
+	);
+}
+if ($config['superord']) {
+	$opts['fdd']['T_SUPERORDER'] = array(
+	  'name'     => 'Superorder name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
       'sort'     => true
 	);
 }

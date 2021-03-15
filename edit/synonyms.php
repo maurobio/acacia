@@ -231,7 +231,7 @@ $opts['fdd']['ID'] = array(
   'sort'     => true
 );
 $opts['fdd']['T_NO'] = array(
-  'name'     => 'Taxon name',
+  'name'     => 'Accepted name',
   'select'   => 'T',
   'maxlen'   => 10,
   'sort'     => true

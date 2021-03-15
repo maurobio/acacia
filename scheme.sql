@@ -1,7 +1,7 @@
 -- ------------------------------------------------------------
 -- Description: Acacia: A Generic Conceptual Schema for Taxonomic Databases
 -- Author: M. J. Cavalcanti <maurobio@gmail.com>
--- (c) copyright 2004-2015 Mauro J. Cavalcanti
+-- (c) copyright 2004-2021 Mauro J. Cavalcanti
 -- Revision history:
 -- Version 1.00, 13-Dec-2004:
 --   * Initial release
@@ -70,6 +70,8 @@
 --   * Added attribute Bibliographic number to Resources table
 --   * Changed attribute Detail to text in Bibliography table
 --   * Changed attribute Database identifier to an auto-increment field in Metadata table
+-- Version 1.23, 15-Mar-2021:
+--   * Added more taxonomic levels (Superclass, Infraclass, Superorder) to Higher Taxa table
 -- ------------------------------------------------------------
 
 -- --------------------------------------------------------
@@ -190,8 +192,10 @@ CREATE TABLE IF NOT EXISTS `highertaxa` (
   `T_KINGDOM` varchar(50) default NULL,
   `T_PHYLUM` varchar(50) default NULL,
   `T_SUBPHYLUM` varchar(50) default NULL,
+  `T_SUPERCLASS` varchar(50) default NULL,
   `T_CLASS` varchar(50) default NULL,
-  `T_SUBCLASS` varchar(50) default NULL,
+  `T_INFRACLASS` varchar(50) default NULL,
+  `T_SUPERORDER` varchar(50) default NULL,
   `T_ORDER` varchar(50) default NULL,
   `T_SUBORDER` varchar(50) default NULL,
   `T_SUPERFAMILY` varchar(50) default NULL,
