@@ -1,4 +1,4 @@
-# Acacia
+# <img src="images\acacia-logo.jpg" alt="Acacia" style="zoom:150%;"/> Acacia
  A generic biodiversity database management system
 
 Acacia is an interactive data entry, querying, and editing system based on a generic conceptual schema for taxonomic databases. It combines the automated use of scientific names and synonyms in a species checklist with online access to geographical data and common knowledge data (morphological descriptors, genomics, ecology, vernacular names, economic uses, structured notes and conservation status) about the species. All these data can be cross-indexed to a citation list.
