@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,16 +19,17 @@
 *=================================================================================*/?>
 
 <?php include("config.php"); ?>
+<?php include("library/functions.php"); ?>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -93,66 +94,61 @@
    <tbody>
     <tr>
 	  <td><b>Full name:</b></td>
-	  <td><?php echo mysql_result($query, 0, 'M_TITLE')?></td>
+	  <td><?php echo mysqli_result($query, 0, 'M_TITLE')?></td>
 	</tr>
 	<tr>
 	  <td><b>Short name:</b></td>
-	  <td><?php echo mysql_result($query, 0, 'M_ACRONYM')?></td>
+	  <td><?php echo mysqli_result($query, 0, 'M_ACRONYM')?></td>
 	</tr>
     <tr>
       <td><b>Authors/editors:</b></td>
-      <td><?php echo mysql_result($query, 0, 'M_AUTHOR')?></td>
+      <td><?php echo mysqli_result($query, 0, 'M_AUTHOR')?></td>
     </tr>
     <tr>
       <td><b>Version:</b></td>
-      <td><?php echo mysql_result($query, 0, 'M_VERSION')?></td>
+      <td><?php echo mysqli_result($query, 0, 'M_VERSION')?></td>
     </tr>
     <tr>
       <td><b>Release date:</b></td>
-      <td><?php echo mysql_result($query, 0, 'M_DATE')?></td>
+      <td><?php echo mysqli_result($query, 0, 'M_DATE')?></td>
     </tr>
 	<tr>
 	  <td><b>Geographical scope:</b></td>
-	  <td><?php echo mysql_result($query, 0, 'M_SCOPE')?></td> 	
+	  <td><?php echo mysqli_result($query, 0, 'M_SCOPE')?></td> 	
 	</tr>
 	<tr>
 	  <td><b>Ecological scope:</b></td>
-	  <td><?php echo mysql_result($query, 0, 'M_ENVIRONMENT')?></td> 	
+	  <td><?php echo mysqli_result($query, 0, 'M_ENVIRONMENT')?></td> 	
 	</tr>
     <tr>
       <td><b>Taxonomic coverage:</b></td>
 	  <?php 
 		$sql = "SELECT DISTINCT T_KINGDOM, T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY FROM highertaxa";
-		$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-		$ndiv = mysql_num_rows($res);
-		//$cover = "";
+		$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+		$ndiv = mysqli_num_rows($res);
+		$cover = "";
 		if ($ndiv > 1) {
-			$sql = "SELECT DISTINCT T_KINGDOM, T_PHYLUM, T_CLASS, T_ORDER FROM highertaxa";
-			$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			$nres = mysql_num_rows($res);
-			$row = mysql_fetch_array($res);
-			if ($nres > 1) {
-				$cover = $row[0]." - ".$row[1]." - ".$row[2];
-			}
-			else {
-				$cover = $row[0]." - ".$row[1]." - ".$row[2]." - ".$row[3];
+			$sql = "SELECT DISTINCT T_PHYLUM FROM highertaxa";
+			$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($res)) {
+				$cover .= $row[0]."/";
 			}
 		}
 		else {
-			$row = mysql_fetch_array($res);
+			$row = mysqli_fetch_array($res);
 			$cover = $row[0]." - ".$row[1]." - ".$row[2]." - ".$row[3]." - ".$row[4];
-		}	
-		echo "<td>".chop($cover," - ")."</td>";
+		}
+		echo "<td>".chop($cover,'/')."</td>";
 		$sql = "UPDATE metadata SET M_COVERAGE='".$cover."'";
-		$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
       ?>
 	</tr>
     <tr>
       <td><b>Number of species:</b></td>
 	  <?php 
-		$sql = "SELECT COUNT(*) FROM taxa WHERE LOWER(T_STATUS) = 'accepted' AND T_RANK = 'Species'";
-		$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-		$value = mysql_fetch_array($res);
+		$sql = "SELECT COUNT(*) FROM taxa WHERE T_STATUS = 'Accepted' AND T_RANK = 'Species'";
+		$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+		$value = mysqli_fetch_array($res);
 		$ntax = $value[0];
       ?>
 	  <td><?php echo $ntax; ?></td>
@@ -161,13 +157,13 @@
 		if ($config['subsp']) {
 			echo "<tr>\n";
 			echo "<td><b>Number of infraspecific taxa:</b></td>\n";
-			$sql = "SELECT COUNT(*) FROM taxa WHERE LOWER(T_STATUS) = 'accepted' AND T_RANK = 'Subsp.' OR T_RANK = 'Var.'";
-			$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			$value = mysql_fetch_array($res);
+			$sql = "SELECT COUNT(*) FROM taxa WHERE T_STATUS = 'Accepted' AND T_RANK = 'Subsp.' OR T_RANK = 'Var.'";
+			$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			$value = mysqli_fetch_array($res);
 			$ninftax = $value[0];
 			$sql = "SELECT COUNT(*) FROM synonyms WHERE S_RANK = 'Subsp.'";
-			$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			$value = mysql_fetch_array($res);
+			$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			$value = mysqli_fetch_array($res);
 			$ninfsyn = $value[0];
 			echo "<td>".$ninftax."</td>\n";
 			echo "</tr>\n";
@@ -176,10 +172,9 @@
 	<tr>
 	  <td><b>Number of synonyms:</b></td>
 	  <?php
-			//$sql = "SELECT COUNT(*) FROM synonyms WHERE S_RANK = 'Species' OR S_RANK = 'Subsp.' OR S_RANK = 'Var.'";
-			$sql = "SELECT COUNT(*) FROM taxa, synonyms WHERE taxa.T_NO = synonyms.T_NO AND LOWER(taxa.T_STATUS) = 'accepted'";
-			$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			$value = mysql_fetch_array($res);
+			$sql = "SELECT COUNT(*) FROM synonyms WHERE S_RANK = 'Species' OR S_RANK = 'Subsp.' OR S_RANK = 'Var.'";
+			$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			$value = mysqli_fetch_array($res);
 			$nsyn = $value[0];
 	   ?>
 	   <td><?php echo $nsyn; ?></td>
@@ -188,9 +183,9 @@
         if ($config['common']) {
     		echo "<tr>\n";
     		echo "<td><b>Number of common names:</b></td>\n";
-        	$sql = "SELECT DISTINCT V_NAME FROM taxa, commonnames WHERE taxa.T_NO = commonnames.T_NO AND LOWER(taxa.T_STATUS) = 'accepted'";
-			$res = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			$ncomm = mysql_num_rows($res);
+        	$sql = "SELECT DISTINCT V_NAME FROM commonnames";
+			$res = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			$ncomm = mysqli_num_rows($res);
 		    echo "<td>".$ncomm."</td>\n";
     		echo "</tr>\n";
 		}
@@ -204,15 +199,15 @@
     </tr>
     <tr>
       <td><b>Abstract:</b></td>
-      <td><?php echo mysql_result($query, 0, 'M_DESCRIPTION'); ?></td>
+      <td><?php echo mysqli_result($query, 0, 'M_DESCRIPTION'); ?></td>
     </tr>
     <tr>
       <td><b>Organization:</b></td>
-      <td><?php echo mysql_result($query, 0, 'M_PUBLISHER'); ?></td>
+      <td><?php echo mysqli_result($query, 0, 'M_PUBLISHER'); ?></td>
     </tr>
     <tr>
       <td><b>Web site:</b></td>
-	  <?php $url = mysql_result($query, 0, 'M_URL'); ?>
+	  <?php $url = mysqli_result($query, 0, 'M_URL'); ?>
 	  <td><?php echo "<a href=".$url.">".$url."</a>"; ?></td>
 	</tr>
   </tbody>
@@ -220,8 +215,8 @@
 </center>
 
 <?php
-	mysql_free_result($query);
-	mysql_close($link);
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <br>

@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,16 +19,17 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
+<?php include("../library/functions.php"); ?>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysql_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -85,14 +86,14 @@
 <?php
 	$id = $_GET["ID"];
 
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 	$sql = "SELECT COUNT(D_CHARACTER), D_STATE FROM descriptors WHERE D_CHARACTER='$id' GROUP BY D_STATE";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 
 	echo "<h2>State Descriptors - ".$id."</h2>\n";
 	echo "<ul>\n";
 	echo "<table class=\"browser\">\n";
-	while($row = mysql_fetch_array($query)) {
+	while($row = mysqli_fetch_array($query)) {
 		echo "<tr><td>";
 		echo "<a href=\"browse.php?class=descriptors&field=D_STATE&filter=".$row[1]."\">";
 		echo $row[1]."</a></td> <td>(".$row[0]." taxa)</td></tr>\n";
@@ -100,8 +101,8 @@
 	echo "</table>\n";
 	echo "</ul>\n";
 	
-	mysql_free_result($query);
-	mysql_close($link);
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <hr>

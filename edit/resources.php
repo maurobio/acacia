@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,6 +20,7 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
+<?php include("../library/functions.php"); ?>
 
 <html>
 <head>
@@ -30,16 +31,16 @@
 <body>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
-	mysql_free_result($query);
-	mysql_close($link);
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <?php
@@ -76,7 +77,6 @@
 		?>
 		| <a href="highertaxa.php" title="Higher taxon membership">Higher Taxa</a>
 		| <a href="notes.php" title="Structured notes">Notes</a>
-		| <a href="pointers.php" title="Literature pointers">Pointers</a>
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
 		| Resources
@@ -125,7 +125,7 @@ $opts['db'] = $config['dbname'];
 $opts['tb'] = 'resources';
 
 // Name of field which is the unique key
-$opts['key'] = 'ID';
+$opts['key'] = 'R_NO';
 
 // Type of key field (int/real/string/date etc.)
 $opts['key_type'] = 'int';
@@ -222,8 +222,9 @@ appear in generated list. Here are some most used field options documented.
   This is useful for giving more meaning to column values. Multiple
   descriptions fields are also possible. Check documentation for this.
 */
-$opts['fdd']['ID'] = array(
-  'name'     => 'ID',
+
+$opts['fdd']['R_NO'] = array(
+  'name'     => 'Media resource number',
   'select'   => 'T',
   'options'  => 'AVCPDR', // auto increment
   'maxlen'   => 10,
@@ -236,6 +237,12 @@ $opts['fdd']['T_NO'] = array(
   'maxlen'   => 10,
   'sort'     => true
 );
+//$opts['fdd']['D_NO'] = array(
+//  'name'     => 'Descriptor name',
+//  'select'   => 'T',
+//  'maxlen'   => 10,
+//  'sort'     => true
+//);
 $opts['fdd']['R_TYPE'] = array(
   'name'     => 'Type of resource',
   'select'   => 'T',
@@ -265,7 +272,7 @@ if ($config['subsp']) {
 $opts['fdd']['T_NO']['values']['description']['divs'][0] = ' ';
 $opts['fdd']['T_NO']['values']['description']['divs'][1] = ' ';
 $opts['fdd']['T_NO']['values']['orderby'] = 'T_GENUS, T_SPECIES, T_SUBSP';
-$opts['fdd']['R_TYPE']['values'] = array('Image', 'Audio', 'Video');
+$opts['fdd']['R_TYPE']['values'] = array('Audio', 'Illustration', 'Map', 'Photo', 'Video');
 $opts['fdd']['R_RESOURCE']['js']['required'] = true;
 $opts['fdd']['R_RESOURCE']['js']['hint'] = 'Filename of media resource field is required.';
 $opts['fdd']['R_CAPTION']['js']['required'] = true;

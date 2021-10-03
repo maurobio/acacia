@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -28,18 +28,18 @@
 	$t_order = $_POST['order'];
 	$t_family = $_POST['family'];
 	
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	
 	// Insert new record into HigherTaxa table
-	mysql_query("INSERT INTO highertaxa (T_NO, T_KINGDOM, T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY)
+	mysqli_query("INSERT INTO highertaxa (T_NO, T_KINGDOM, T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY)
 		VALUES ($t_no, '$t_kingdom', '$t_division', '$t_class', '$t_order', '$t_family')");
 		
 	// Insert new record into Conservation Status table
-	mysql_query("INSERT INTO status (T_NO, C_STATUS, C_TREND, B_NO)
-		VALUES ($t_no, 'Not Evaluated', 'Unknown', 0)");	
+	mysqli_query("INSERT INTO status (T_NO, C_STATUS, C_TREND, B_NO)
+		VALUES ($t_no, 'Not Evaluated', 'Unknown', 234)");	
 	
-	mysql_close($link);	
+	mysqli_close($link);	
 	
 	echo "
 		<script language=\"javascript\">

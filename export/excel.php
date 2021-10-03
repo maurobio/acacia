@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -30,8 +30,8 @@
 		if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
 	}
 
-	mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
   
 	$table = $_GET['table'];
 	$sort = $_GET['sort'];
@@ -58,8 +58,8 @@
 		$sql = $sql." ORDER BY ".$sort;
 	}
 	$flag = false;
-	$result = mysql_query($sql) or die('Query failed!');
-	while($row = mysql_fetch_assoc($result)) {
+	$result = mysqli_query($link, $sql) or die('Query failed!');
+	while($row = mysqli_fetch_assoc($result)) {
 		if(!$flag) {
 			// display field/column names as first row
 			echo implode("\t", array_keys($row)) . "\r\n";
@@ -69,5 +69,5 @@
 		echo implode("\t", array_values($row)) . "\r\n";
 	}
 	fclose($out);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 ?>

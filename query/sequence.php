@@ -1,17 +1,7 @@
-<?php 
-	session_start(); 
-	if(!isset($_SESSION['filter'])) {
-		$_SESSION['filter'] = $_GET['filter'];
-	}
-	if(!isset($_SESSION['type'])) {
-		$_SESSION['type'] = $_GET['type'];
-	}
-?>
-
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -27,6 +17,16 @@
 *   You should have received a copy of the GNU General Public License             *
 *   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
 *=================================================================================*/?>
+
+<?php 
+	session_start(); 
+	if(!isset($_SESSION['filter'])) {
+		$_SESSION['filter'] = $_GET['filter'];
+	}
+	if(!isset($_SESSION['type'])) {
+		$_SESSION['type'] = $_GET['type'];
+	}
+?>
 
 <?php
 
@@ -419,22 +419,23 @@ function protein_aminoacids_chemical_group($amino_seq){
 ?>
 
 <?php include("../config.php"); ?>
+<?php include("../library/functions.php"); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 		"http://www.w3.org/TR/html4/loose.dtd">
 		
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysql_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
-	$environ = mysql_result($query, 0, 'M_ENVIRONMENT');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$environ = mysqli_result($query, 0, 'M_ENVIRONMENT');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
 ?>
 
 <html>
@@ -500,11 +501,11 @@ function protein_aminoacids_chemical_group($amino_seq){
 		echo ".....      DNA sequence equals '".$filter."'";
 		echo "</h3>\n";
 		
-		$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+		$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 		mysql_select_db($config['dbname']);
 		$sql = "SELECT G_SEQUENCE FROM genome WHERE G_DESCRIPTION LIKE '%".$filter."%'";
-		$query = mysql_query($sql, $link) or die("Error: ". mysql_error());
-		$seq = mysql_result($query, 0, 'G_SEQUENCE');
+		$query = mysqli_query($link, $sql) or die("Error: ". mysqli_error());
+		$seq = mysqli_result($query, 0, 'G_SEQUENCE');
 		
 		//$seq = $_POST["seq"];
 		$action = $_POST["action"];
@@ -619,11 +620,11 @@ function protein_aminoacids_chemical_group($amino_seq){
 		echo ".....      Protein sequence equals '".$filter."'";
 		echo "</h3>\n";
 		
-		$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+		$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 		mysql_select_db($config['dbname']);
 		$sql = "SELECT G_SEQUENCE FROM genome WHERE G_DESCRIPTION LIKE '%".$filter."%'";
-		$query = mysql_query($sql, $link) or die("Error: ". mysql_error());
-		$seq = mysql_result($query, 0, 'G_SEQUENCE');
+		$query = mysqli_query($link, $sql) or die("Error: ". mysqli_error());
+		$seq = mysqli_result($query, 0, 'G_SEQUENCE');
 		
 		//$seq=$_POST["seq"];
         $pH = $_POST["pH"];

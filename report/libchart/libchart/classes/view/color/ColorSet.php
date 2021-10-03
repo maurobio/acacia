@@ -33,7 +33,8 @@
          * @param $shadowFactor Shadow factor
          * @param $colorArray Colors as an array
          */
-        public function ColorSet($colorList, $shadowFactor) {
+        //public function ColorSet($colorList, $shadowFactor) {
+		public function __construct($colorList, $shadowFactor) {
             $this->colorList = $colorList;
             $this->shadowColorList = array();
 

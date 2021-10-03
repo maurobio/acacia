@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -30,13 +30,13 @@
 		if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
 	}
 	
-	mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
   
 	$table = $_GET['table'];
 	$sort = $_GET['sort'];
 	/*$filter = $_GET['filter'];
-    $filename = $_GET['filename'];*/
+	$filename = $_GET['filename'];*/
 
 	if (!isset($filename)) {	
 		// file name for download
@@ -59,9 +59,9 @@
 		$sql = $sql." ORDER BY ".$sort;
 	}
 	$flag = false;
-	$result = mysql_query($sql) or die('Query failed!');
+	$result = mysqli_query($link, $sql) or die('Query failed!');
 	
-	while($row = mysql_fetch_assoc($result)) {
+	while($row = mysqli_fetch_assoc($result)) {
 		if(!$flag) {
 			// display field/column names as first row
 			fputcsv($out, array_keys($row), ',', '"');
@@ -71,5 +71,5 @@
 		fputcsv($out, array_values($row), ',', '"');
 	}
 	fclose($out);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 ?>

@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -21,8 +21,8 @@
 <?php
 	include("../config.php");
 	
-	mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
 
 	/*$filter = $_GET['filter'];
 	$filename = $_GET['filename'];*/
@@ -46,8 +46,8 @@
 	fprintf($out, "<Document>");
 		
 	$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-	$result = mysql_query($query) or die('Query failed!');
-	$row = mysql_fetch_array($result);
+	$result = mysqli_query($link, $query) or die('Query failed!');
+	$row = mysqli_fetch_array($result);
 	
 	// Include a default map view using the following lines
 	fprintf($out, " 
@@ -63,16 +63,16 @@
 	htmlspecialchars($row['P_LATITUDE']),
 	htmlspecialchars($row['P_LONGITUDE'])
 	);
-	mysql_free_result($result);	
+	mysqli_free_result($result);	
 	
 	$query = "SELECT * FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO";
 	if (isset($filter)) {
 		$sql = $sql." AND ".$filter;
 	}
-	$result = mysql_query($query) or die('Query failed!');
+	$result = mysqli_query($link, $query) or die('Query failed!');
 
 	// Iterate over all placemarks (rows)
-	while ($row = mysql_fetch_object($result)) {
+	while ($row = mysqli_fetch_object($result)) {
 
 		// This writes out a placemark with some data
 		if (($row->P_LONGITUDE != 0.0) && ($row->P_LATITUDE != 0.0)) {
@@ -104,7 +104,7 @@
 		}		
 	};
 	
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	fprintf($out, "\n</Document>\n</kml>");
 	fclose($out);	
 ?>

@@ -47,7 +47,8 @@
         /**
          * Creates a new ChartConfig with default options.
          */
-        public function ChartConfig() {
+        //public function ChartConfig() {
+		public function __construct() {
             $this->useMultipleColor = false;
             $this->showPointCaption = true;
             $this->sortDataPoint = true;

@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -22,14 +22,14 @@
 <?php include("../library/functions.php"); ?>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -123,9 +123,9 @@
 					else {
 						$sql = "SELECT T_NO FROM taxa WHERE T_GENUS='$parts[0]' AND T_SPECIES='$parts[1]'";
 					}
-					$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-					$t_no = mysql_result($query, 0, 'T_NO');
-					writeToKml($fn, $t_no);
+					$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+					$t_no = mysqli_result($query, 0, 'T_NO');
+					writeToKml($fn, $t_no, $link);
 				$i++;
 				}
 			?>
@@ -203,8 +203,8 @@
 </center>
 
 <?php
-	mysql_free_result($query);
-	mysql_close($link);
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <p>Powered by <a href="http://www.openlayers.org/" target="_blank">OpenLayers v. 2.0</a><br>

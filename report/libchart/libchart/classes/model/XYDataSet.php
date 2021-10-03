@@ -30,7 +30,8 @@
          * Constructor of XYDataSet.
          *
          */
-        public function XYDataSet() {
+        //public function XYDataSet() {
+		public function __construct() {
             $this->pointList = array();
         }
     

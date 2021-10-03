@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -21,8 +21,8 @@
 <?php
 	include("../config.php");
   
-	mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']);
 	  
 	$sort = $_GET['sort'];
 	/*$filter = $_GET['filter'];
@@ -48,9 +48,9 @@
 	if (isset($sort)) {
 		$sql = $sql." ORDER BY ".$sort;
 	}
-	$result = mysql_query($sql) or die('Query failed!');
+	$result = mysqli_query($link, $sql) or die('Query failed!');
 	
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$entry = $row['B_TYPE'];
 		$author = $row['B_AUTHOR'];
 		$authors = explode(',', $row['B_AUTHOR']);
@@ -201,5 +201,5 @@
 		}		
 	}
 	fclose($out);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 ?>

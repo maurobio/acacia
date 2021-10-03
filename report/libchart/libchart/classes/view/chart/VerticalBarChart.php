@@ -34,7 +34,8 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        public function VerticalBarChart($width = 600, $height = 250) {
+        //public function VerticalBarChart($width = 600, $height = 250) {
+		public function __constructor($width = 600, $height = 250) {
             parent::BarChart($width, $height);
 
             $this->emptyToFullRatio = 1 / 5;

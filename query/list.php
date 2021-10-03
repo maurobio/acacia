@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,21 +20,22 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
+<?php include("../library/functions.php"); ?>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
+	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
-	$environ = mysql_result($query, 0, 'M_ENVIRONMENT');
-	$url = mysql_result($query, 0, 'M_URL');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$environ = mysqli_result($query, 0, 'M_ENVIRONMENT');
+	$url = mysqli_result($query, 0, 'M_URL');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
 ?>
 
 <html>
@@ -103,8 +104,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(highertaxa.T_PHYLUM), highertaxa.T_PHYLUM FROM taxa, highertaxa WHERE highertaxa.T_NO = taxa.T_NO GROUP BY highertaxa.T_PHYLUM";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=highertaxa&field=T_PHYLUM&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -118,8 +119,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(highertaxa.T_CLASS), highertaxa.T_CLASS FROM taxa, highertaxa WHERE highertaxa.T_NO = taxa.T_NO GROUP BY highertaxa.T_CLASS";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=highertaxa&field=T_CLASS&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -133,8 +134,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(highertaxa.T_ORDER), highertaxa.T_ORDER FROM taxa, highertaxa WHERE highertaxa.T_NO = taxa.T_NO GROUP BY highertaxa.T_ORDER";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=highertaxa&field=T_ORDER&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -148,8 +149,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(highertaxa.T_FAMILY), highertaxa.T_FAMILY FROM taxa, highertaxa WHERE highertaxa.T_NO = taxa.T_NO GROUP BY highertaxa.T_FAMILY";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=highertaxa&field=T_FAMILY&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -163,8 +164,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(T_GENUS), (SELECT DISTINCT T_GENUS) FROM taxa GROUP BY T_GENUS";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=taxa&field=T_GENUS&filter=".$row[1]."\">";
 				echo "<i>".$row[1]."</i></a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -176,7 +177,7 @@
 		case "species":
 			echo "<h2>Accepted Names</h2>\n";
 			echo "<ul>\n";
-			$sql = "SELECT * FROM highertaxa, taxa WHERE taxa.T_NO = highertaxa.T_NO ORDER BY T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY, T_GENUS, T_SPECIES";
+			$sql = "SELECT * FROM highertaxa, taxa WHERE taxa.T_NO = highertaxa.T_NO ORDER BY T_PHYLUM, T_CLASS, T_ORDER, T_FAMILY, T_GENUS, T_SPECIES, T_SUBSP";
 			if ($config['subsp']) {
 				$sql = $sql.", T_SUBSP";
 			}
@@ -188,8 +189,8 @@
 			$ordEval = "";
 			$famCheck = "";
 			$famEval = "";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				$grpCheck = $row['T_PHYLUM'];
 				if ($grpCheck != $grpEval) {
 					$grpEval = $grpCheck;
@@ -239,9 +240,9 @@
 		case "synonym":
 			echo "<h2>Accepted Names plus Synonyms</h2>\n";
 			echo "<ul>\n";
-			$sql1 = "SELECT * FROM taxa ORDER BY T_GENUS, T_SPECIES";
-			$query1 = mysql_query($sql1, $link) or die("Error: MySQL query failed");
-			while($row1 = mysql_fetch_array($query1)) {
+			$sql1 = "SELECT * FROM taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP";
+			$query1 = mysqli_query($link, $sql1) or die("Error: MySQL query failed");
+			while($row1 = mysqli_fetch_array($query1)) {
 				if ($row1['T_STATUS'] == "Provisional") {
 					echo "?";
 				}
@@ -270,8 +271,8 @@
 
 				$id = $row1['T_NO'];
 				$sql2 = "SELECT * FROM synonyms WHERE T_NO = '$id'";
-				$query2 = mysql_query($sql2, $link) or die("Error: MySQL query failed");
-				while($row2 = mysql_fetch_array($query2)) {
+				$query2 = mysqli_query($link, $sql2) or die("Error: MySQL query failed");
+				while($row2 = mysqli_fetch_array($query2)) {
 					echo "<ul>\n";
 					$ssubgen = " ";
 					if ($config['subgen']) {
@@ -288,18 +289,18 @@
 					echo " {".$row2['S_STATUS']."}";
 					echo "</ul>\n";
 				}
-				mysql_free_result($query2);
+				mysqli_free_result($query2);
 				echo "<br>\n";
 			}
 			break;
 			
 		case "descriptor":
 			$sql = "SELECT COUNT(D_CHARACTER), (SELECT DISTINCT D_CHARACTER) FROM descriptors GROUP BY D_CHARACTER";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 			echo "<h2>Taxon Descriptors</h2>\n";
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
-			while($row = mysql_fetch_array($query)) {
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"describe.php?ID=".$row[1]."\">$row[1]</a>.</td> <td>(".$row[0]." species)</td></tr>\n";
 			}
@@ -317,8 +318,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(P_CONTINENT), (SELECT DISTINCT P_CONTINENT) FROM distribution GROUP BY P_CONTINENT";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=distribution&field=P_CONTINENT&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." records)</td></tr>\n";
@@ -332,8 +333,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(P_REGION), (SELECT DISTINCT P_REGION) FROM distribution GROUP BY P_REGION";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				if (strlen($row[1]) > 0) {
 					echo "<tr><td>";
 					echo "<a href=\"browse.php?start=0&class=distribution&field=P_REGION&filter=".$row[1]."\">";
@@ -349,8 +350,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(P_COUNTRY), (SELECT DISTINCT P_COUNTRY) FROM distribution GROUP BY P_COUNTRY";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				if (strlen($row[1]) > 0) {
 					echo "<tr><td>";
 					echo "<a href=\"browse.php?start=0&class=distribution&field=P_COUNTRY&filter=".$row[1]."\">";
@@ -366,8 +367,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(P_STATE), (SELECT DISTINCT P_STATE) FROM distribution GROUP BY P_STATE";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				if (strlen($row[1]) > 0) {
 					echo "<tr><td>";
 					echo "<a href=\"browse.php?start=0&class=distribution&field=P_STATE&filter=".$row[1]."\">";
@@ -383,8 +384,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(H_HABITAT), (SELECT DISTINCT H_HABITAT) FROM habitats GROUP BY H_HABITAT";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=habitats&field=H_HABITAT&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -398,8 +399,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(U_NAME), (SELECT DISTINCT U_NAME) FROM uses GROUP BY U_NAME";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=uses&field=U_NAME&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -413,8 +414,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(V_NAME), (SELECT DISTINCT V_NAME) FROM commonnames GROUP BY V_NAME";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=commonnames&field=V_NAME&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -428,8 +429,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(C_STATUS), (SELECT DISTINCT C_STATUS) FROM status GROUP BY C_STATUS";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"browse.php?start=0&class=status&field=C_STATUS&filter=".$row[1]."\">";
 				echo $row[1]."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -443,8 +444,8 @@
 			echo "<ul>\n";
 			echo "<table class=\"browser\">\n";
 			$sql = "SELECT COUNT(G_DESCRIPTION), (SELECT DISTINCT G_DESCRIPTION), (SELECT DISTINCT G_SEQ_TYPE) FROM genome GROUP BY G_DESCRIPTION ORDER BY G_SEQ_TYPE";
-			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-			while($row = mysql_fetch_array($query)) {
+			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
+			while($row = mysqli_fetch_array($query)) {
 				echo "<tr><td>";
 				echo "<a href=\"sequence.php?filter=".$row[1]."&type=".$row[2]."\">";
 				echo substr($row[1], 0, 128)."</a></td> <td>(".$row[0]." species)</td></tr>\n";
@@ -454,8 +455,8 @@
 			break;
 	}	
 
-	mysql_free_result($query);
-	mysql_close($link);
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <br>
