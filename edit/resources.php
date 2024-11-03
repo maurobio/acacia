@@ -1,27 +1,29 @@
 <?php include("password_protect.php"); ?>
-<?php
-/*================================================================================*
-*       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
-*                           maurobio@gmail.com                                    *
-*                                                                                 *
-*   This program is free software: you can redistribute it and/or modify          *
-*   it under the terms of the GNU General Public License as published by          *
-*   the Free Software Foundation, either version 3 of the License, or             *
-*   (at your option) any later version.                                           *
-*                                                                                 *
-*   This program is distributed in the hope that it will be useful,               *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of                *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  *
-*   GNU General Public License for more details.                                  *
-*                                                                                 *
-*   You should have received a copy of the GNU General Public License             *
-*   along with this program. If not, see <http://www.gnu.org/licenses/>.          *
-*=================================================================================*/?>
+<!--
+#=================================================================================#
+#       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
+#                 Copyright 2008-2019 Mauro J. Cavalcanti                         #
+#                           maurobio@gmail.com                                    #
+#                                                                                 #
+#   This program is free software: you can redistribute it and/or modify          #
+#   it under the terms of the GNU General Public License as published by          #
+#   the Free Software Foundation, either version 3 of the License, or             #
+#   (at your option) any later version.                                           #
+#                                                                                 #
+#   This program is distributed in the hope that it will be useful,               #
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of                #
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                  #
+#   GNU General Public License for more details.                                  #
+#                                                                                 #
+#   You should have received a copy of the GNU General Public License             #
+#   along with this program. If not, see <http://www.gnu.org/licenses/>.          #
+#=================================================================================#
+-->
 
 <?php include("../config.php"); ?>
 <?php include("../library/functions.php"); ?>
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -125,7 +127,7 @@ $opts['db'] = $config['dbname'];
 $opts['tb'] = 'resources';
 
 // Name of field which is the unique key
-$opts['key'] = 'R_NO';
+$opts['key'] = 'ID';
 
 // Type of key field (int/real/string/date etc.)
 $opts['key_type'] = 'int';
@@ -223,7 +225,7 @@ appear in generated list. Here are some most used field options documented.
   descriptions fields are also possible. Check documentation for this.
 */
 
-$opts['fdd']['R_NO'] = array(
+$opts['fdd']['ID'] = array(
   'name'     => 'Media resource number',
   'select'   => 'T',
   'options'  => 'AVCPDR', // auto increment
