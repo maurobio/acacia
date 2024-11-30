@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,15 +20,14 @@
 
 <?php
 	include("../config.php");
-	include("../library/functions.php");
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+        include("../mysql.php");
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -79,6 +78,7 @@
 			}			
 		?>
 		| Statistics
+		| <a href="../query/factsheet.php" title="Species fact sheet">Fact Sheet</a>
 		| <a href="../help/about.php" title="Get help">About</a>
 		]
 		</td>
@@ -131,7 +131,11 @@
 			}	
 		?>
 		<td><input type="checkbox" name="section" value="bibliography" disabled />Bibliography<br /></td>
-		<td><input type="checkbox" name="section" value="media" disabled />Media<br /></td>
+		<?php 
+		if ($config['media']) {
+			echo "<td><input type=\"checkbox\" name=\"section\" value=\"media\" disabled />Media<br /></td>\n";
+		}	
+		?>
 		</table>
 		<hr>
 		<p align="center"><input type="button" value="Submit" OnClick="getOption()">
@@ -142,8 +146,8 @@
 </center>
 
 <?php
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <hr>

@@ -1,7 +1,7 @@
 /*
 #=================================================================================#
 #       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2012 Mauro J. Cavalcanti                         #
+#                 Copyright 2008-2024 Mauro J. Cavalcanti                         #
 #                           maurobio@gmail.com                                    #
 #                                                                                 #
 #   This program is free software: you can redistribute it and/or modify          #
@@ -111,11 +111,7 @@ function selectOption() {
 			var dataclass = "distribution";
 			var fieldname = "P_CONTINENT";
 			break;	
-		case "region": 
-			var dataclass = "distribution";
-			var fieldname = "P_REGION";
-			break;
-		case "country": 
+		case "country":
 			var dataclass = "distribution";
 			var fieldname = "P_COUNTRY";
 			break;

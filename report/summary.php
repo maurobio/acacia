@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,22 +19,21 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 <?php include "libchart/libchart/classes/libchart.php"; ?>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$url = mysqli_result($query, 0, 'M_URL');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$url = mysql_result($query, 0, 'M_URL');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
 ?>
 
 <html>
@@ -124,59 +123,59 @@
 		}
 		echo "</td>\n";
 		$sql = "SELECT DISTINCT T_PHYLUM FROM highertaxa";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Classes:</td>\n";
 		$sql = "SELECT DISTINCT T_CLASS FROM highertaxa";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Orders:</td>\n";
 		$sql = "SELECT DISTINCT T_ORDER FROM highertaxa";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Families:</td>\n";
 		$sql = "SELECT DISTINCT T_FAMILY FROM highertaxa";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Genera:</td>\n";
 		$sql = "SELECT DISTINCT T_GENUS FROM taxa WHERE T_STATUS='Accepted'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Species:</td>\n";
 		$sql = "SELECT T_SPECIES FROM taxa WHERE T_STATUS='Accepted' AND T_RANK='Species'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$value = mysqli_num_rows($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$value = mysql_num_rows($query);
 		echo "<td>".$value."</td></tr>\n";
 
 		if($config['subsp']) {
 			echo "<tr>\n";
 			echo "<td>Subspecies:</td>\n";
 			$sql = "SELECT T_SUBSP FROM taxa WHERE T_STATUS='Accepted' AND T_RANK='Subsp.'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 
 			if (ucfirst($kingdom) == "Plantae") {
 				echo "<tr>\n";
 				echo "<td>Varieties:</td>\n";
 				$sql = "SELECT DISTINCT T_SUBSP FROM taxa WHERE T_STATUS='Accepted' AND T_RANK='Var.'";
-				$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-				$value = mysqli_num_rows($query);
+				$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+				$value = mysql_num_rows($query);
 				echo "<td>".$value."</td></tr>\n";
 			}
 		}	
@@ -191,12 +190,12 @@
 			$chart = new PieChart();
 			$dataSet = new XYDataSet();
 		}
-    	echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">NAMES</th></tr>\n";
+    	echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">NAMES</th></tr>\n";
 		echo "<tr>\n";
 		echo "<td>Accepted:</td>\n";
 		$sql = "SELECT COUNT(*) FROM taxa WHERE T_STATUS='Accepted'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -206,8 +205,8 @@
 		echo "<tr>\n";
 		echo "<td>Provisional:</td>\n";
 		$sql = "SELECT COUNT(*) FROM taxa WHERE T_STATUS='Provisional'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -217,8 +216,8 @@
 		echo "<tr>\n";
 		echo "<td>Doubtful:</td>\n";
 		$sql = "SELECT COUNT(*) FROM synonyms WHERE S_STATUS='Doubtful'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -228,8 +227,8 @@
 		echo "<tr>\n";
 		echo "<td>Misapplied:</td>\n";
 		$sql = "SELECT COUNT(*) FROM synonyms WHERE S_STATUS='Misapplied'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -239,8 +238,8 @@
 		echo "<tr>\n";
 		echo "<td>Orthographic:</td>\n";
 		$sql = "SELECT COUNT(*) FROM synonyms WHERE S_STATUS='Orthographic'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -250,8 +249,8 @@
 		echo "<tr>\n";
 		echo "<td>Synonyms:</td>\n";
 		$sql = "SELECT COUNT(*) FROM synonyms WHERE S_STATUS='Synonym'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		if ($plot) {
@@ -273,19 +272,19 @@
 	// Common
 	if (in_array("common", $sections) || in_array("all", $sections)) {
 		if ($config['common']) {
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">COMMON</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">COMMON</th></tr>\n";
 			echo "<tr>\n";
-			echo "<td>Vernacular:</td>\n";
+			echo "<td>Common Names:</td>\n";
 			$sql = "SELECT DISTINCT V_NAME FROM commonnames";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>\n";
 			echo "<td>Uses:</td>\n";
 			$sql = "SELECT DISTINCT U_NAME FROM uses";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>";
@@ -301,12 +300,12 @@
 				$chart = new PieChart();
 				$dataSet = new XYDataSet();
 			}
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">DESCRIPTORS</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">DESCRIPTORS</th></tr>\n";
 			echo "<tr>\n";
 			echo "<td>Unordered:</td>\n";
 			$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors WHERE D_CHAR_TYPE='Unordered'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Unordered", $value));
@@ -315,8 +314,8 @@
 			echo "<tr>\n";
 			echo "<td>Ordered:</td>\n";
 			$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors WHERE D_CHAR_TYPE='Ordered'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Ordered", $value));
@@ -325,8 +324,8 @@
 			echo "<tr>\n";
 			echo "<td>Discrete:</td>\n";
 			$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors WHERE D_CHAR_TYPE='Discrete'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Discrete", $value));
@@ -335,8 +334,8 @@
 			echo "<tr>\n";
 			echo "<td>Continuous:</td>\n";
 			$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors WHERE D_CHAR_TYPE='Continuous'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Continuous", $value));
@@ -345,8 +344,8 @@
 			echo "<tr>\n";
 			echo "<td>Text:</td>\n";
 			$sql = "SELECT DISTINCT D_CHARACTER FROM descriptors WHERE D_CHAR_TYPE='Text'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Text", $value));
@@ -372,12 +371,12 @@
 				$chart = new PieChart();
 				$dataSet = new XYDataSet();
 			}
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">SEQUENCES</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">SEQUENCES</th></tr>\n";
 			echo "<tr>\n";
 			echo "<td>Nucleotide:</td>\n";
 			$sql = "SELECT COUNT(*) FROM genome WHERE G_SEQ_TYPE='Nucleotide'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$count = mysqli_result($query, 0, 'COUNT(*)');
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$count = mysql_result($query, 0, 'COUNT(*)');
 			echo "<td>".$count."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Nucleotide", $count));
@@ -386,8 +385,8 @@
 			echo "<tr>\n";
 			echo "<td>Protein:</td>\n";
 			$sql = "SELECT COUNT(*) FROM genome WHERE G_SEQ_TYPE='Protein'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$count = mysqli_result($query, 0, 'COUNT(*)');
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$count = mysql_result($query, 0, 'COUNT(*)');
 			echo "<td>".$count."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Protein", $count));
@@ -409,47 +408,40 @@
 	// Geography
 	if (in_array("geography", $sections) || in_array("all", $sections)) {
 		if ($config['geog']) {
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">GEOGRAPHY</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">GEOGRAPHY</th></tr>\n";
 			echo "<tr>\n";
 			echo "<td>Continents:</td>\n";
 			$sql = "SELECT DISTINCT P_CONTINENT FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>\n";
-			echo "<td>Regions:</td>\n";
-			$sql = "SELECT DISTINCT P_REGION FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
-			echo "<td>".$value."</td></tr>\n";
-
-			echo "<tr>\n";
 			echo "<td>Countries:</td>\n";
 			$sql = "SELECT DISTINCT P_COUNTRY FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 
 			echo "<tr>\n";
 			echo "<td>States/Provinces:</td>\n";
 			$sql = "SELECT DISTINCT P_STATE FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>\n";
 			echo "<td>Localities:</td>\n";
 			$sql = "SELECT DISTINCT P_LOCALITY FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>\n";
 			echo "<td>Occurrences:</td>\n";
 			$sql = "SELECT COUNT(*) FROM distribution";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$res = mysqli_fetch_array($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$res = mysql_fetch_array($query);
 			$value = $res[0];
 			echo "<td>".$value."</td></tr>\n";
 	
@@ -463,12 +455,12 @@
 	// Ecology
 	if (in_array("ecology", $sections) || in_array("all", $sections)) {
 		if ($config['ecol']) {
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">ECOLOGY</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">ECOLOGY</th></tr>\n";
 			echo "<tr>\n";
 			echo "<td>Habitats:</td>\n";
 			$sql = "SELECT DISTINCT H_HABITAT FROM habitats";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 	
 			echo "<tr>";
@@ -484,12 +476,12 @@
 				$chart = new PieChart();
 				$dataSet = new XYDataSet();
 			}
-			echo "<tr><th colspan=\"2\" style=\"background:*d4d4d4;\">CONSERVATION</th></tr>\n";
+			echo "<tr><th colspan=\"2\" style=\"background:#d4d4d4;\">CONSERVATION</th></tr>\n";
 			echo "<tr>\n";
 			echo "<td>Not Evaluated:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Not Evaluated'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Not Evaluated", $value));
@@ -498,8 +490,8 @@
 			echo "<tr>\n";
 			echo "<td>Data Deficient:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Data Deficient'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Data Deficient", $value));
@@ -508,8 +500,8 @@
 			echo "<tr>\n";
 			echo "<td>Least Concern:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Least Concern'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Least Concern", $value));
@@ -518,8 +510,8 @@
 			echo "<tr>\n";
 			echo "<td>Near Threatened:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Near Threatened'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Near Threatened", $value));
@@ -528,8 +520,8 @@
 			echo "<tr>\n";
 			echo "<td>Vulnerable:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Vulnerable'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("vulnerable", $value));
@@ -538,8 +530,8 @@
 			echo "<tr>\n";
 			echo "<td>Endangered:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Endangered'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Endangered", $value));
@@ -548,8 +540,8 @@
 			echo "<tr>\n";
 			echo "<td>Critically Endangered:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Critically Endangered'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Critically Endangered", $value));
@@ -558,8 +550,8 @@
 			echo "<tr>\n";
 			echo "<td>Extinct in the Wild:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Extinct in the Wild'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Extinct in the Wild", $value));
@@ -568,8 +560,8 @@
 			echo "<tr>\n";
 			echo "<td>Extinct:</td>\n";
 			$sql = "SELECT C_STATUS FROM status WHERE C_STATUS='Extinct'";
-			$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-			$value = mysqli_num_rows($query);
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$value = mysql_num_rows($query);
 			echo "<td>".$value."</td></tr>\n";
 			if ($plot) {
 				$dataSet->addPoint(new Point("Extinct", $value));
@@ -590,12 +582,12 @@
 	
 	// Notes
 	if (in_array("notes", $sections) || in_array("all", $sections)) {
-		echo "<tr><th colspan=\"2\"style=\"background:*d4d4d4;\">NOTES</th></tr>\n";
+		echo "<tr><th colspan=\"2\"style=\"background:#d4d4d4;\">NOTES</th></tr>\n";
 		echo "<tr>\n";
 		echo "<td>Text notes:</td>\n";
 		$sql = "SELECT COUNT(*) FROM notes";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		
@@ -606,100 +598,100 @@
 
 	// Bibliography
 	if (in_array("bibliography", $sections) || in_array("all", $sections)) {
-		echo "<tr><th colspan=\"2\"style=\"background:*d4d4d4;\">BIBLIOGRAPHY</th></tr>\n";
+		echo "<tr><th colspan=\"2\"style=\"background:#d4d4d4;\">BIBLIOGRAPHY</th></tr>\n";
 		echo "<tr>\n";
 		echo "<td>Articles:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='article'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Books:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='book'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Booklets:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='booklets'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Conference Proceedings:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='conference' OR B_TYPE='inproceedings'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Book Chapters:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='inbook' OR B_TYPE='incollection'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query) or die("Error: MySQL query failed");
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query) or die("Error: MySQL query failed");
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Manuals:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='manual'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query) or die("Error: MySQL query failed");
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query) or die("Error: MySQL query failed");
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>M.Sc. Theses:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='masterthesis'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Ph.D. Theses:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='phdthesis'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Proceedings:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='proceedings'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Technical Reports:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='techreport'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Miscellaneous:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='misc'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query) or die("Error: MySQL query failed");
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query) or die("Error: MySQL query failed");
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 
 		echo "<tr>\n";
 		echo "<td>Unpublished:</td>\n";
 		$sql = "SELECT COUNT(*) FROM bibliography WHERE B_TYPE='unpublished'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		
@@ -707,67 +699,69 @@
 		echo "<td>&nbsp;</td>";
 		echo "<td>&nbsp;</td></tr>";
 		
-		// Literature pointers
-		echo "<tr><th colspan=\"2\"style=\"background:*d4d4d4;\">POINTERS</th></tr>\n";
-		echo "<tr>\n";
-		echo "<td>Descriptions:</td>\n";
-		$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Description'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
-		$value = $res[0];
-		echo "<td>".$value."</td></tr>\n";
+		if ($config['point']) {
+			// Literature pointers
+			echo "<tr><th colspan=\"2\"style=\"background:#d4d4d4;\">POINTERS</th></tr>\n";
+			echo "<tr>\n";
+			echo "<td>Descriptions:</td>\n";
+			$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Description'";
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$res = mysql_fetch_array($query);
+			$value = $res[0];
+			echo "<td>".$value."</td></tr>\n";
 
-		echo "<tr>\n";
-		echo "<td>Illustrations:</td>\n";
-		$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Illustration'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
-		$value = $res[0];
-		echo "<td>".$value."</td></tr>\n";
+			echo "<tr>\n";
+			echo "<td>Illustrations:</td>\n";
+			$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Illustration'";
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$res = mysql_fetch_array($query);
+			$value = $res[0];
+			echo "<td>".$value."</td></tr>\n";
 
-		echo "<tr>\n";
-		echo "<td>Maps:</td>\n";
-		$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Map'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
-		$value = $res[0];
-		echo "<td>".$value."</td></tr>\n";
+			echo "<tr>\n";
+			echo "<td>Maps:</td>\n";
+			$sql = "SELECT COUNT(*) FROM pointers WHERE L_TYPE='Map'";
+			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+			$res = mysql_fetch_array($query);
+			$value = $res[0];
+			echo "<td>".$value."</td></tr>\n";
 		
-		echo "<tr>";
-		echo "<td>&nbsp;</td>";
-		echo "<td>&nbsp;</td></tr>";
+			echo "<tr>";
+			echo "<td>&nbsp;</td>";
+			echo "<td>&nbsp;</td></tr>";
+		}
 	}
 	
 	// Media resources
 	if (in_array("media", $sections) || in_array("all", $sections)) {
-		echo "<tr><th colspan=\"2\"style=\"background:*d4d4d4;\">MEDIA</th></tr>\n";
+		echo "<tr><th colspan=\"2\"style=\"background:#d4d4d4;\">MEDIA</th></tr>\n";
 		echo "<tr>\n";
 		echo "<td>Audios:</td>\n";
 		$sql = "SELECT COUNT(*) FROM resources WHERE R_RESOURCE='Audio'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		
 		echo "<tr>\n";
 		echo "<td>Images:</td>\n";
 		$sql = "SELECT COUNT(*) FROM resources WHERE R_RESOURCE='Image'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 		
 		echo "<tr>\n";
 		echo "<td>Videos:</td>\n";
 		$sql = "SELECT COUNT(*) FROM resources WHERE R_RESOURCE='Video'";
-		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
-		$res = mysqli_fetch_array($query);
+		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+		$res = mysql_fetch_array($query);
 		$value = $res[0];
 		echo "<td>".$value."</td></tr>\n";
 	}
 
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 </tbody>

@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,6 +20,7 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <html>
 <head>
@@ -30,8 +31,7 @@
 <body>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
 	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
 	$title = mysql_result($query, 0, 'M_TITLE');
@@ -79,11 +79,15 @@
 		| Pointers
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
-		| <a href="resources.php" title="Media resources">Resources</a>
+		<?php
+			if ($config['media']) {
+				echo "| <a href=\"resources.php\" title=\"Media resources\">Resources</a>";
+			}
+        ?>
 		<?php
 			if ($config['common']) {
 				echo "| <a href=\"uses.php\" title=\Uses data\">Uses</a>";
-				echo "| <a href=\"commonnames.php\" title=\"Vernacular names\">Vernacular Names</a>";
+				echo "| <a href=\"commonnames.php\" title=\"Common names\">Common Names</a>";
 			}
 			if ($config['status']) {
 				echo "| <a href=\"status.php\" title=\"Conservation status\">Conservation</a>";
@@ -97,7 +101,13 @@
 </table>
 
 <center>
-<h3>Editor - Pointers table</h3>
+<?php
+if ($config['readonly']) {
+	echo "<h3>Browser - Pointers table</h3>";
+} else {
+	echo "<h3>Editor - Pointers table</h3>";
+}	
+?>
 </center>
 <?php
 

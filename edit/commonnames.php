@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,27 +20,26 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Vernacular Names table</title>
+	<title>Common Names table</title>
 	<link rel="stylesheet" href="../library/stylesheet.css" type="text/css">
 </head>
 <body>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	mysqli_free_result($query);
-	mysqli_close($link);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <?php
@@ -77,15 +76,24 @@
 		?>
 		| <a href="highertaxa.php" title="Higher taxon membership">Higher Taxa</a>
 		| <a href="notes.php" title="Structured notes">Notes</a>
+		<?php
+			if ($config['point']) {
+				echo "| <a href=\"pointers.php\" title=\"Literature pointers\">Pointers</a>";
+			}
+        ?>
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
-		| <a href="resources.php" title="Media resources">Resources</a>
+		<?php
+			if ($config['media']) {
+				echo "| <a href=\"resources.php\" title=\"Media resources\">Resources</a>";
+			}
+        ?>
 		<?php
 			if ($config['common']) {
 				echo "| <a href=\"uses.php\" title=\"Uses data\">Uses</a>";
 			}
 		?>	
-		| Vernacular Names
+		| Common Names
 		<?php
 			if ($config['status']) {
 				echo "| <a href=\"status.php\" title=\"Conservation status\">Conservation</a>";
@@ -99,7 +107,13 @@
 </table>
 
 <center>
-<h3>Editor - Vernacular Names table</h3>
+<?php
+if ($config['readonly']) {
+	echo "<h3>Browser - Common Names table</h3>";
+} else {
+	echo "<h3>Editor - Common Names table</h3>";
+}	
+?>
 </center>
 <?php
 
@@ -239,7 +253,7 @@ $opts['fdd']['T_NO'] = array(
   'sort'     => true
 );
 $opts['fdd']['V_NAME'] = array(
-  'name'     => 'Vernacular name',
+  'name'     => 'Common name',
   'select'   => 'T',
   'maxlen'   => 30,
   'sort'     => true
@@ -275,7 +289,7 @@ $opts['fdd']['T_NO']['values']['description']['divs'][0] = ' ';
 $opts['fdd']['T_NO']['values']['description']['divs'][1] = ' ';
 $opts['fdd']['T_NO']['values']['orderby'] = 'T_GENUS, T_SPECIES, T_SUBSP';
 $opts['fdd']['V_NAME']['js']['required'] = true;
-$opts['fdd']['V_NAME']['js']['hint'] = 'Vernacular name field is required.';
+$opts['fdd']['V_NAME']['js']['hint'] = 'Common name field is required.';
 $opts['fdd']['V_COUNTRY']['values']['table'] = 'distribution'; 
 $opts['fdd']['V_COUNTRY']['values']['column'] = 'P_COUNTRY';
 $opts['fdd']['B_NO']['js']['required'] = true;

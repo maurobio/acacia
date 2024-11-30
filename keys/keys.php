@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,10 +19,10 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <?php
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	$selected = mysql_select_db($config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
 	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
 	$title = mysql_result($query, 0, 'M_TITLE');
@@ -77,6 +77,7 @@
 			}	
 		?>		
 		| <a href="../report/stats.php" title="Database statistics">Statistics</a>
+		| <a href="../query/factsheet.php" title="Species fact sheet">Fact Sheet</a>
 		| <a href="../help/about.php" title="Get help">About</a>
 		]
 		</td>

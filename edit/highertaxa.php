@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,7 +20,7 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <html>
 <head>
@@ -31,19 +31,18 @@
 <body>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
-	mysqli_free_result($query);
-	mysqli_close($link);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <?php
@@ -80,13 +79,22 @@
 		?>
 		| Higher Taxa
 		| <a href="notes.php" title="Structured notes">Notes</a>
+		<?php
+			if ($config['point']) {
+				echo "| <a href=\"pointers.php\" title=\"Literature pointers\">Pointers</a>";
+			}
+        ?>
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
-		| <a href="resources.php" title="Media resources">Resources</a>
+		<?php
+			if ($config['media']) {
+				echo "| <a href=\"resources.php\" title=\"Media resources\">Resources</a>";
+			}
+        ?>
 		<?php
 			if ($config['common']) {
 				echo "| <a href=\"uses.php\" title=\"Uses data\">Uses</a>";
-				echo "| <a href=\"commonnames.php\" title=\"Vernacular names\">Vernacular Names</a>";
+				echo "| <a href=\"commonnames.php\" title=\"Common names\">Common Names</a>";
 			}
 			if ($config['status']) {
 				echo "| <a href=\"status.php\" title=\"Conservation status\">Conservation</a>";
@@ -100,7 +108,13 @@
 </table>
 
 <center>
-<h3>Editor - Higher Taxa table</h3>
+<?php
+if ($config['readonly']) {
+	echo "<h3>Browser - Higher Taxa table</h3>";
+} else {
+	echo "<h3>Editor - Higher Taxa table</h3>";
+}	
+?>
 </center>
 <?php
 
@@ -251,9 +265,17 @@ $opts['fdd']['T_PHYLUM'] = array(
   'maxlen'   => 50,
   'sort'     => true
 );
-if (isset($subphy)) {
+if ($config['subphy']) {
 	$opts['fdd']['T_SUBPHYLUM'] = array(
 	  'name'     => 'Subphylum name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
+      'sort'     => true
+	);
+}
+if ($config['supercla']) {
+	$opts['fdd']['T_SUPERCLASS'] = array(
+	  'name'     => 'Superclass name',
 	  'select'   => 'T',
 	  'maxlen'   => 50,
       'sort'     => true
@@ -265,11 +287,27 @@ $opts['fdd']['T_CLASS'] = array(
   'maxlen'   => 50,
   'sort'     => true
 );
-if (isset($subcla)) {
+if ($config['subcla']) {
 	$opts['fdd']['T_SUBCLASS'] = array(
 	  'name'     => 'Subclass name',
       'select'   => 'T',
       'maxlen'   => 50,
+      'sort'     => true
+	);
+}
+if ($config['infracla']) {
+	$opts['fdd']['T_INFRACLASS'] = array(
+	  'name'     => 'Infraclass name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
+      'sort'     => true
+	);
+}
+if ($config['superord']) {
+	$opts['fdd']['T_SUPERORDER'] = array(
+	  'name'     => 'Superorder name',
+	  'select'   => 'T',
+	  'maxlen'   => 50,
       'sort'     => true
 	);
 }
@@ -279,7 +317,7 @@ $opts['fdd']['T_ORDER'] = array(
   'maxlen'   => 50,
   'sort'     => true
 );
-if (isset($subord)) {
+if ($config['subord']) {
 	$opts['fdd']['T_SUBORDER'] = array(
       'name'     => 'Suborder name',
       'select'   => 'T',
@@ -293,7 +331,7 @@ $opts['fdd']['T_FAMILY'] = array(
   'maxlen'   => 50,
   'sort'     => true
 );
-if (isset($superfam)) {
+if ($config['superfam']) {
 	$opts['fdd']['T_SUPERFAMILY'] = array(
       'name'     => 'Superfamily name',
       'select'   => 'T',
@@ -301,7 +339,7 @@ if (isset($superfam)) {
       'sort'     => true
 	);
 }
-if (isset($subfam)) {
+if ($config['subfam']) {
 	$opts['fdd']['T_SUBFAMILY'] = array(
       'name'     => 'Subfamily name',
       'select'   => 'T',
@@ -309,7 +347,7 @@ if (isset($subfam)) {
       'sort'     => true
 	);
 }
-if (isset($tribe)) {
+if ($config['tribe']) {
 	$opts['fdd']['T_TRIBE'] = array(
       'name'     => 'Tribe name',
       'select'   => 'T',

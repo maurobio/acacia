@@ -19,18 +19,6 @@
 *=================================================================================*/?>
 
 <?php
-	function mysqli_result($res, $row=0, $col=0) { 
-		$numrows = mysqli_num_rows($res); 
-		if ($numrows && $row <= ($numrows-1) && $row >=0){
-			mysqli_data_seek($res, $row);
-			$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
-			if (isset($resrow[$col])){
-				return $resrow[$col];
-			}
-		}
-		return false;
-	}
-	
 	function ellipsify($string, $length, $mode="right") {
 		if ($length and strlen($string) > $length) {
 			switch ($mode) {
@@ -72,6 +60,7 @@
 	}
 	
 	function variance($nums) {
+		$temp = 0;
         $n = count($nums);
         $mean = mean($nums);
         foreach($nums as $key => $val) {
@@ -91,7 +80,7 @@
         return $gc_porcentaje;
 	}
 	
-	function writeToKml($fname, $cond, $link) {
+	function writeToKml($fname, $cond) {
 		$outfile = fopen($fname, 'w');
 		
 		// Print the head of the document
@@ -99,8 +88,8 @@
 		fprintf($outfile, "<Document>");
 		
 		$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-		$result = mysqli_query($link, $query) or die('Query failed!');
-		$row = mysqli_fetch_array($result);
+		$result = mysql_query($query) or die('Query failed!');
+		$row = mysql_fetch_array($result);
 	
 		// Include a default map view using the following lines
 		fprintf($outfile, " 
@@ -116,16 +105,16 @@
 		htmlspecialchars($row['P_LATITUDE']),
 		htmlspecialchars($row['P_LONGITUDE'])
 		);
-		mysqli_free_result($result);	
+		mysql_free_result($result);	
 	
 		$query = "SELECT * FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO";
 		if (!empty($cond)) {
 			$query = $query." AND taxa.T_NO = ".$cond;
 		}
-		$result = mysqli_query($link, $query) or die('Query failed!');
+		$result = mysql_query($query) or die('Query failed!');
 
 		// Iterate over all placemarks (rows)
-		while ($row = mysqli_fetch_object($result)) {
+		while ($row = mysql_fetch_object($result)) {
 
 			// This writes out a placemark with some data
 			if (($row->P_LONGITUDE != 0.0) && ($row->P_LATITUDE != 0.0)) {
@@ -157,7 +146,7 @@
 				}		
 			};
 		
-		mysqli_free_result($result);
+		mysql_free_result($result);
 		fprintf($outfile, "\n</Document>\n</kml>");
 		fclose($outfile);
 	}

@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,21 +19,20 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	$environ = mysqli_result($query, 0, 'M_ENVIRONMENT');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	$environ = mysql_result($query, 0, 'M_ENVIRONMENT');
 	$sql = "SELECT * FROM highertaxa";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$kingdom = mysqli_result($query, 0, 'T_KINGDOM');
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$kingdom = mysql_result($query, 0, 'T_KINGDOM');
 ?>
 
 <html>
@@ -84,6 +83,7 @@
 			}	
 		?>
 		| <a href="../report/stats.php" title="Database statistics">Statistics</a>
+		| <a href="../query/factsheet.php" title="Species fact sheet">Fact Sheet</a>
 		| <a href="../help/about.php" title="Get help">About</a>
 		]
 		</td>
@@ -119,7 +119,6 @@
 			else {
 				echo "<option value=\"continent\">Continent</option>";
 			}
-			echo "<option value=\"region\">Region</option>";
 			echo "<option value=\"country\">Country</option>";
 			echo "<option value=\"state\">State/Province</option>";
 		}
@@ -127,7 +126,7 @@
 			echo "<option value=\"habitat\">Habitat</option>";
 		}
 		if ($config['common']) {
-			echo "<option value=\"common\">Vernacular name</option>";
+			echo "<option value=\"common\">Common name</option>";
 			echo "<option value=\"use\">Use</option>";
 		}
 		if ($config['status']) {
@@ -152,8 +151,8 @@
 </center>
 
 <?php
-	mysqli_free_result($query);
-	mysqli_close($link);
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <hr>
@@ -181,7 +180,6 @@ Quick browser:<p>
 		else {
 			echo "| <a href=\"list.php?option=continent\">Oceans</a>";
 		}
-		echo "| <a href=\"list.php?option=region\">Regions</a>";
 		echo "| <a href=\"list.php?option=country\">Countries</a>";
 		echo "| <a href=\"list.php?option=state\">States</a>";
 	}
@@ -189,7 +187,7 @@ Quick browser:<p>
 		echo "| <a href=\"list.php?option=habitat\">Habitats</a>";
 	}
 	if ($config['common']) {
-		echo "| <a href=\"list.php?option=common\">Vernaculars</a>";
+		echo "| <a href=\"list.php?option=common\">Commons</a>";
 		echo "| <a href=\"list.php?option=use\">Uses</a>";
 	}
 	if ($config['status']) {

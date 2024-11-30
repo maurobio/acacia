@@ -2,7 +2,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,7 +20,7 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <html>
 <head>
@@ -31,16 +31,15 @@
 <body>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	mysqli_free_result($query);
-	mysqli_close($link);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <?php
@@ -77,16 +76,25 @@
 		?>
 		| <a href="highertaxa.php" title="Higher taxon membership">Higher Taxa</a>
 		| <a href="notes.php" title="Structured notes">Notes</a>
+		<?php
+			if ($config['point']) {
+				echo "| <a href=\"pointers.php\" title=\"Literature pointers\">Pointers</a>";
+			}
+        ?>
 		| <a href="taxa.php" title="Taxonomic editor">Taxa</a>
 		| <a href="synonyms.php" title="Nomenclatural editor">Synonyms</a>
-		| <a href="resources.php" title="Media resources">Resources</a>
+		<?php
+			if ($config['media']) {
+				echo "| <a href=\"resources.php\" title=\"Media resources\">Resources</a>";
+			}
+        ?>
 		<?php
 			if ($config['common']) {
 				echo "| <a href=\"uses.php\" title=\"Uses data\">Uses</a>";
-				echo "| <a href=\"commonnames.php\" title=\"Vernacular names\">Vernacular Names</a>";
+				echo "| <a href=\"commonnames.php\" title=\"Common names\">Common Names</a>";
 			}
 		?>
-		| Conservation Status
+		| Conservation
 		| <a href="bibliography.php" title="Edit bibliographic references">Bibliography</a>
 		| <a href="metadata.php" title="Database configuration">Metadata</a>
 		]
@@ -95,7 +103,13 @@
 </table>
 
 <center>
-<h3>Editor - Conservation Status table</h3>
+<?php
+if ($config['readonly']) {
+	echo "<h3>Browser - Conservation Status table</h3>";
+} else {
+	echo "<h3>Editor - Conservation Status table</h3>";
+}	
+?>
 </center>
 
 <?php
@@ -241,12 +255,6 @@ $opts['fdd']['C_STATUS'] = array(
   'maxlen'   => 22,
   'sort'     => true
 );
-$opts['fdd']['C_TREND'] = array(
-  'name'     => 'Population trend',
-  'select'   => 'T',
-  'maxlen'   => 12,
-  'sort'     => true
-);
 $opts['fdd']['B_NO'] = array(
   'name'     => 'Reference',
   'select'   => 'T',
@@ -267,7 +275,6 @@ $opts['fdd']['T_NO']['values']['description']['divs'][1] = ' ';
 $opts['fdd']['T_NO']['values']['orderby'] = 'T_GENUS, T_SPECIES, T_SUBSP';
 $opts['fdd']['C_STATUS']['values'] = array('Not Evaluated', 'Data Deficient', 'Least Concern', 'Near Threatened', 'Vulnerable', 
 'Endangered', 'Critically Endangered', 'Extinct in the Wild', 'Extinct');
-$opts['fdd']['C_TREND']['values'] = array('Decreasing', 'Increasing', 'Stable', 'Unknown');
 $opts['fdd']['B_NO']['js']['required'] = true;
 $opts['fdd']['B_NO']['values']['table'] = 'bibliography'; 
 $opts['fdd']['B_NO']['values']['column'] = 'B_NO';

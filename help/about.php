@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,19 +19,18 @@
 *=================================================================================*/?>
 
 <?php include("../config.php"); ?>
-<?php include("../library/functions.php"); ?>
+<?php include("../mysql.php"); ?>
 
 <?php
-	$link = mysqli_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
-	$selected = mysqli_select_db($link, $config['dbname']) or die("Could not select ".$config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
-	$title = mysqli_result($query, 0, 'M_TITLE');
-	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
-	$logo = mysqli_result($query, 0, 'M_LOGO');
-	$banner = mysqli_result($query, 0, 'M_BANNER');
-	mysqli_free_result($query);
-	mysqli_close($link);
+	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysql_result($query, 0, 'M_TITLE');
+	$pub = mysql_result($query, 0, 'M_PUBLISHER');
+	$logo = mysql_result($query, 0, 'M_LOGO');
+	$banner = mysql_result($query, 0, 'M_BANNER');
+	mysql_free_result($query);
+	mysql_close($link);
 ?>
 
 <html>
@@ -81,6 +80,7 @@
 			}	
 		?>
 		| <a href="../report/stats.php" title="Database statistics">Statistics</a>
+		| <a href="../query/factsheet.php" title="Species fact sheet">Fact Sheet</a>
 		| About
 		]
 		</td>
@@ -99,7 +99,7 @@ generic conceptual schema for taxonomic databases. It combines
 the automated use of scientific names and synonyms in a species 
 checklist with user-friendly access to geographical data and 
 common knowledge data (morphological descriptors, genomics, ecology, 
-vernacular names, economic uses, structured notes and conservation status)
+common names, economic uses, structured notes and conservation status)
 about the species. All these data can be cross-indexed to a citation list. 
 The design and standard permits rapid customization to suit any
 taxonomic group. </p>
@@ -127,7 +127,7 @@ interactive keys applet.
 <p>The &quot;Search&quot; form allows to query the database by
 Phylum/Division, Class, Order, Family, Genus, Species, Species
 epithet, Continent, Region, Country, State/Province, Habitat,
-Vernacular name, Use, Conservation status, Morphological
+Common name, Use, Conservation status, Morphological
 descriptor, or Genetic sequence.</p>
 
 <p>The &quot;Quick Browse&quot; option allows to browse through
@@ -144,7 +144,7 @@ MS-Excel format or comma separated values text files (CSV).</p>
 <p>This option allows to look at and search data
 for each data class used in the database (Descriptors,
 Distribution, Habitats, Higher Taxa, Notes, Taxa, Synonyms,
-Resources, Uses, Vernacular Names, Conservation Status, Genome, 
+Resources, Uses, Common Names, Conservation Status, Genome, 
 Bibliography, Metadata), as well as to add or edit data relating to a particular
 named species (if the database has not been installed in
 read-only mode), using the <a href="http://www.phpmyedit.org/">phpMyEdit</a>
@@ -189,12 +189,13 @@ href="http://earth.google.com/">Google Earth</a>.</p>
 <p>This option displays statistical information
 about the currently selected database, including the number of
 taxa and taxonomic names, descriptors and descriptors types,
-genetic sequences, conservation categories, bibliography, and data dictionaries entries.</p>
+genetic sequences, conservation categories, bibliography, and data dictionaries entries.
+Charts are created using the <a href="http://naku.dohcrew.com/libchart/pages/introduction/">LibChart</a> PHP library.</p>
 
 <h3>Copyright</h3>
 
 <p><em>Acacia Biodiversity Database Management System</em>
-Copyright &copy; 2004-2014 Mauro J. Cavalcanti. The source
+Copyright &copy; 2004-2015 Mauro J. Cavalcanti. The source
 code is available <a href="http://code.google.com/p/acacia/">here</a> under the 
 <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public Licence 3</a>.</p>
 

@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -72,9 +72,8 @@
 				}
 			}	
 		?>
-		| Maps
 		| <a href="../report/stats.php" title="Database statistics">Statistics</a>
-		| <a href="../query/factsheet.php" title="Species fact sheet">Fact Sheet</a>
+		| Fact Sheet
 		| <a href="../help/about.php" title="Get help">About</a>
 		]
 		</td>
@@ -82,43 +81,37 @@
 </table>
 
 <center>
-<h3>Mapper</h3>
+<h3>Species Fact Sheet</h3>
 <table class="browser" border="0"><td>
 <form action="#" method="POST" name="searchform" id="searchform">
-	<fieldset>
-	<legend>Species (# records)</legend>
-    <p><select multiple="multiple" size="6" name="searchname">
+	<label form="species">Select Species:</label>
+	<!--p><select name="searchname"-->
+	<p><select id="searchname">
 	<?php
-		//$sql = "SELECT CONCAT(taxa.T_GENUS, ' ', taxa.T_SPECIES, ' ', taxa.T_SUBSP) AS species, COUNT(*) FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO GROUP BY species ORDER BY species";
-		$sql = "SELECT taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP, COUNT(*) FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO GROUP BY taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP ORDER BY taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP";
+		//$sql = "SELECT CONCAT(taxa.T_GENUS, ' ', taxa.T_SPECIES, ' ', taxa.T_SUBSP) AS species FROM taxa ORDER BY species";
+		$sql = "SELECT taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP FROM taxa ORDER BY taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP";
 		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
 		$num_rows = mysql_num_rows($query);
 		if ($num_rows > 0) {
 			while($row = mysql_fetch_array($query)) {
 				//echo "<option value=\"name\">".$row['species'];
 				echo "<option value=\"name\">".$row[0].' '.$row[1].' '.$row[2];
-				if ($row['COUNT(*)'] > 1) {
-					echo " (".$row['COUNT(*)']." records) ";
-				}
-				else {
-					echo " (".$row['COUNT(*)']." record) ";
-				}	
 				echo "</option>\n";
 			}
 		}
-		else {
-			echo "<option value=\"name\">No distribution data available</option>";
-		}
 	?>
 	</select>
-	<!-- <p><input type="checkbox" name="track" value="0">Plot individual tracks<p/> -->
-    <hr>
-    <p align="center"><input type="button" value="Submit" OnClick="displayMap()">
-    <input type="reset" value="Reset"></p>
-	</fieldset>
+    <p align="center"><input type="button" value="Submit" OnClick="FactSheet()">
  </form>
+ <script>
+	function FactSheet() {
+		var e = document.getElementById("searchname");
+		var value = e.value;
+		var text = e.options[e.selectedIndex].text;
+		location.href = "species.php?name=" + text;
+	}
+ </script>
 </td></table> 
-Hold down the Ctrl (Linux/Windows) or Command (Mac) key to select multiple species.
 </center>
 
 <?php
