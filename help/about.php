@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -111,14 +111,14 @@ DBMS are:</p>
 
 <ul>
     <li>Linux or Windows server (Apache or IIS)</li>
-    <li>PHP version 5.3 or above</li>
-    <li>MySQL 5.1 or above</li>
+    <li>PHP version 7.4 or above</li>
+    <li>MySQL 5.2 or above</li>
     <li>Internet Explorer, Firefox, Chrome, Opera or
         Safari web browsers</li>
 </ul>
 
-A Java&#8482; 2 Runtime Environment is an optional requirement for running the 
-interactive keys applet.
+JavaScript enabled is an optional requirement for running
+interactive keys and displaying distribution maps.
 
 <h3>Menu Options</h3>
 
@@ -154,7 +154,8 @@ read-only mode), using the <a href="http://www.phpmyedit.org/">phpMyEdit</a>
 spreadsheets in MS-Excel format or comma separated values text
 files (CSV). For some particular data classes, other, more specific, formats are also available.
 So, bibliographic citations can be exported to <a href="http://www.bibtex.org/">BibTeX format</a>, 
-morphological descriptive data can be exported to <a href="http://delta-intkey.com/">DELTA format</a>,
+morphological descriptive data can be exported to <a href="http://delta-intkey.com/">DELTA format</a>
+or to <a href="http://www.stingersplace.com/SLIKS/">SLIKS</a> format,
 genetic sequences data can be exported to <a href="http://zhanglab.ccmb.med.umich.edu/FASTA/">FASTA format</a>,
 and geographic distribution data can be exported to <a href="http://earth.google.com/kml/">KML format</a>.
 </p>
@@ -164,10 +165,10 @@ and geographic distribution data can be exported to <a href="http://earth.google
 <p>This option provides access to interactive
 identification keys from descriptive data coded in <a
 href="http://delta-intkey.com/">DELTA format</a>, using the 
-<a href="http://www.navikey.net/">NaviKey</a> Java applet.</p>
+<a href="http://www.stingersplace.com/SLIKS/">SLIKS</a> JavaScript program.</p>
 
 <p>To generate interactive keys, it is first required to export descriptive data
-to DELTA format by clicking the link on the bottom of the "Descriptors" table.</p>
+to SLIKS format by clicking the link on the bottom of the "Descriptors" table.</p>
 
 <h3>Maps</h3>
 
@@ -195,9 +196,16 @@ Charts are created using the <a href="http://naku.dohcrew.com/libchart/pages/int
 <h3>Copyright</h3>
 
 <p><em>Acacia Biodiversity Database Management System</em>
-Copyright &copy; 2004-2015 Mauro J. Cavalcanti. The source
+Copyright &copy; 2004-2025 Mauro J. Cavalcanti. The source
 code is available <a href="http://code.google.com/p/acacia/">here</a> under the 
 <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public Licence 3</a>.</p>
+
+<h3>Citation</h3>
+<p>Please cite ACACIA if you use it in publications. The citation is:</p>
+
+<p>
+Cavalcanti, M. J. (2023) ACACIA: a generic conceptual schema for taxonomic databases. <i>Tropical Diversity</i> 3(1): 1-6. doi:10.5281/zenodo.10911800. [<a href="http://tropicaldiversity.org/site/index.php/td/article/view/18/25">PDF</a>]
+</p>
 
 <h3>Contact</h3>
 
@@ -205,11 +213,13 @@ code is available <a href="http://code.google.com/p/acacia/">here</a> under the
 emailed directly to:</p>
 
 <p>Mauro J. Cavalcanti<br>
+Ecoinformatics Studio<br>
 E-mail: <b>maurobio (at) gmail (dot) com</b><br>
-Home page: <a href="http://sites.google.com/site/maurobio/">http://sites.google.com/site/maurobio</a></p>
-
+P.O. Box 18123<br>
+CEP 20730-970<br>
+Rio de Janeiro, RJ, BRAZIL
 <hr>
 <p align="center">
-<a class="footer" href="http://sites.google.com/site/acaciadb/" target=_blank>Powered by ACACIA</a></p>
+<a class="footer" href="http://www.biotupe.org/acaciadb/" target=_blank>Powered by ACACIA</a></p>
 </body>
 </html>

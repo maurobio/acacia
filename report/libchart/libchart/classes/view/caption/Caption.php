@@ -39,10 +39,13 @@
         /**
          * Constructor of Caption
          */
-        //public function Caption() {
-		public function __construct() {
+        public function __construct() {
             $this->labelBoxWidth = 15;
             $this->labelBoxHeight = 15;
+			
+			$this->plot = null;
+			$this->labelList = array();
+			$this->colorSet = null;
         }
         
         /**

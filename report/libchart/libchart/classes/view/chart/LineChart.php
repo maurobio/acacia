@@ -30,9 +30,8 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //public function LineChart($width = 600, $height = 250) {
-		public function __construct($width = 600, $height = 250) {
-            parent::BarChart($width, $height);
+        public function __construct($width = 600, $height = 250) {
+            parent::__construct($width, $height);
 
             $this->plot->setGraphPadding(new Padding(5, 30, 50, 50));
         }
@@ -141,7 +140,7 @@
                     $y2 = $graphArea->y2 - ($value - $minValue) * ($graphArea->y2 - $graphArea->y1) / ($this->axis->displayDelta);
 
                     // Draw line 
-                    if ($x1) {
+                    if ($x1 !== null) {	
                         $primitive->line($x1, $y1, $x2, $y2, $lineColor, 4);
                         $primitive->line($x1, $y1 - 1, $x2, $y2 - 1, $lineColorShadow, 2);
                     }

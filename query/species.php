@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -127,8 +127,7 @@
 		$sql = $sql." AND T_SUBSP='$infra'";
 	}
 
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	$query = mysql_query($sql, $link) or die("Query error: ".mysql_errno().": ".mysql_error());
 
 	$nrows = mysql_num_rows($query);
@@ -742,6 +741,6 @@
 ?>
 <hr>
 <p align="center">
-<a class="footer" href="http://sites.google.com/site/acaciadb/" target=_blank>Powered by ACACIA</a></p>
+<a class="footer" href="http://www.biotupe.org/acaciadb/" target=_blank>Powered by ACACIA</a></p>
 </body>
 </html>

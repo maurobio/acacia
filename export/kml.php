@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,10 +20,9 @@
 
 <?php
 	include("../config.php");
-        include("../mysql.php");
+    include("../mysql.php");
 	
-	mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 
 	/*$filter = $_GET['filter'];
 	$filename = $_GET['filename'];*/
@@ -47,7 +46,7 @@
 	fprintf($out, "<Document>");
 		
 	$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-	$result = mysql_query($query) or die('Query failed!');
+	$result = mysql_query($query, $link) or die('Query failed!');
 	$row = mysql_fetch_array($result);
 	
 	// Include a default map view using the following lines
@@ -70,7 +69,7 @@
 	if (isset($filter)) {
 		$sql = $sql." AND ".$filter;
 	}
-	$result = mysql_query($query) or die('Query failed!');
+	$result = mysql_query($query, $link) or die('Query failed!');
 
 	// Iterate over all placemarks (rows)
 	while ($row = mysql_fetch_object($result)) {

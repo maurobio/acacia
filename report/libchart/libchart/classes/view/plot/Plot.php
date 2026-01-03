@@ -138,6 +138,9 @@
 
         protected $backGroundColor;
         protected $textColor;
+		
+		protected $width;
+		protected $height;
 
         /**
          * Constructor of Plot.
@@ -145,8 +148,7 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //public function Plot($width, $height) {
-		public function __construct($width, $height) {
+        public function __construct($width, $height) {
             $this->width = $width;
             $this->height = $height;
 
@@ -348,7 +350,7 @@
          * @param integer Outer padding value in pixels
          */
         public function getOuterPadding() {
-            return $outerPadding;
+            return $this->outerPadding;
         }
 
         /**

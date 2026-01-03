@@ -1,7 +1,7 @@
 -- ------------------------------------------------------------
 -- Description: Acacia: A Generic Conceptual Schema for Taxonomic Databases
 -- Author: M. J. Cavalcanti <maurobio@gmail.com>
--- (c) copyright 2004-2024 Mauro J. Cavalcanti
+-- (c) copyright 2004-2025 Mauro J. Cavalcanti
 -- Revision history:
 -- Version 1.00, 13-Dec-2004:
 --   * Initial release

@@ -25,7 +25,7 @@
     abstract class BarChart extends Chart {
         protected $bound;
         protected $axis;
-        protected $hasSeveralSerie;
+        protected $hasSeveralSerie = false;
         
         /**
          * Creates a new bar chart.
@@ -33,9 +33,8 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //protected function BarChart($width, $height) {
-		protected function __constructor($width, $height) {
-            parent::Chart($width, $height);
+        protected function __construct($width, $height) {
+            parent::__construct($width, $height);
 
             // Initialize the bounds
             $this->bound = new Bound();

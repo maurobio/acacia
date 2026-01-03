@@ -23,18 +23,20 @@
      * @author Jean-Marc Trémeaux (jm.tremeaux at gmail.com)
      */
     class Text {
-        public $HORIZONTAL_LEFT_ALIGN = 1;
+		public $HORIZONTAL_LEFT_ALIGN = 1;
         public $HORIZONTAL_CENTER_ALIGN = 2;
         public $HORIZONTAL_RIGHT_ALIGN = 4;
         public $VERTICAL_TOP_ALIGN = 8;
         public $VERTICAL_CENTER_ALIGN = 16;
         public $VERTICAL_BOTTOM_ALIGN = 32;
+		
+		public static $fontCondensed;
+		public static $fontCondensedBold;
 
         /**
          * Creates a new text drawing helper.
          */
-        //public function Text() {
-		public function __construct() {
+        public function __construct() {
             $baseDir = dirname(__FILE__) . "/../../../";
         
             // Free low-res fonts based on Bitstream Vera <http://dejavu.sourceforge.net/wiki/>

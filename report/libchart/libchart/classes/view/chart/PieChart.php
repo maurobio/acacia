@@ -25,6 +25,12 @@
     class PieChart extends Chart {
         protected $pieCenterX;
         protected $pieCenterY;
+		
+		protected $pieWidth;
+		protected $pieHeight;
+		protected $pieDepth;
+		protected $total;
+		protected $percent;
     
         /**
          * Constructor of a pie chart.
@@ -32,9 +38,8 @@
          * @param integer width of the image
          * @param integer height of the image
          */
-        //public function PieChart($width = 600, $height = 250) {
-		public function __construct($width = 600, $height = 250) {
-            parent::Chart($width, $height);
+        public function __construct($width = 600, $height = 250) {
+            parent::__construct($width, $height);
             $this->plot->setGraphPadding(new Padding(15, 10, 30, 30));
         }
 
@@ -65,9 +70,9 @@
          * @return integer result of the comparison
          */
         protected function sortPie($v1, $v2) {
-            return $v1[0] == $v2[0] ? 0 :
-                $v1[0] > $v2[0] ? -1 :
-                1;
+            return ($v1[0] == $v2[0]) ? 0 :
+                (($v1[0] > $v2[0]) ? -1 :
+                1);
         }
         
         /**
@@ -90,7 +95,7 @@
 
             // Sort data points
             if ($this->config->getSortDataPoint()) {
-                usort($this->percent, array("PieChart", "sortPie"));
+                usort($this->percent, [$this, "sortPie"]);
             }
         }
 

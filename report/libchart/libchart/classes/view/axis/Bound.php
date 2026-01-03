@@ -57,7 +57,7 @@
             $serieList = null;
             if ($dataSet instanceof XYDataSet) {
                 $pointList = $dataSet->getPointList();
-                $dataSetEmpty = count($pointList) == 0;
+                $dataSetEmpty = count($serie->getPointList()) == 0;
                 
                 if (!$dataSetEmpty) {
                     // Process it as a serie
@@ -68,7 +68,7 @@
                 $serieList = $dataSet->getSerieList();
                 if (count($serieList) > 0) {
                     $serie = current($serieList);
-                    $dataSetEmpty = count($serie) == 0;
+                    $dataSetEmpty = count($serie->getPointList()) == 0;
                 }
             } else {
                 die("Error: unknown dataset type");

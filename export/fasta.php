@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,10 +20,9 @@
 
 <?php
 	include("../config.php");
-        include("../mysql.php");
+    include("../mysql.php");
   
-	mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
-	mysql_select_db($config['dbname']);
+	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
 	  
 	$sort = $_GET['sort'];
 	/*$filter = $_GET['filter'];
@@ -49,7 +48,7 @@
 	if (isset($sort)) {
 		$sql = $sql." ORDER BY ".$sort;
 	}
-	$result = mysql_query($sql) or die('Query failed!');
+	$result = mysql_query($sql, $link) or die('Query failed!');
 	
 	while($row = mysql_fetch_array($result)) {
 		$header = $row['G_DESCRIPTION'];

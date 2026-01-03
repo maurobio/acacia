@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2019 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -19,7 +19,7 @@
 *=================================================================================*/?>
 
 <?php
-	function ellipsify($string, $length, $mode="right") {
+    function ellipsify($string, $length, $mode="right") {
 		if ($length and strlen($string) > $length) {
 			switch ($mode) {
 				case "right":
@@ -60,7 +60,6 @@
 	}
 	
 	function variance($nums) {
-		$temp = 0;
         $n = count($nums);
         $mean = mean($nums);
         foreach($nums as $key => $val) {
@@ -80,7 +79,7 @@
         return $gc_porcentaje;
 	}
 	
-	function writeToKml($fname, $cond) {
+	function writeToKml($fname, $cond, $link) {
 		$outfile = fopen($fname, 'w');
 		
 		// Print the head of the document
@@ -88,7 +87,7 @@
 		fprintf($outfile, "<Document>");
 		
 		$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-		$result = mysql_query($query) or die('Query failed!');
+		$result = mysql_query($query, $link) or die('Query failed!');
 		$row = mysql_fetch_array($result);
 	
 		// Include a default map view using the following lines
@@ -111,7 +110,7 @@
 		if (!empty($cond)) {
 			$query = $query." AND taxa.T_NO = ".$cond;
 		}
-		$result = mysql_query($query) or die('Query failed!');
+		$result = mysql_query($query, $link) or die('Query failed!');
 
 		// Iterate over all placemarks (rows)
 		while ($row = mysql_fetch_object($result)) {

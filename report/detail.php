@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -346,7 +346,7 @@
 			echo "<th>Species</th>";
 			echo "<th>%</th>";
 			echo "</tr>";
-			$sql = "SELECT V_NAME, V_LANGUAGE, COUNT(*) FROM taxa, commonnames WHERE taxa.T_NO = commonnames.T_NO AND LOWER(taxa.T_STATUS) = 'accepted' GROUP BY V_NAME ORDER BY V_NAME";
+			$sql = "SELECT V_NAME, V_LANGUAGE, COUNT(*) FROM taxa, commonnames WHERE taxa.T_NO = commonnames.T_NO AND LOWER(taxa.T_STATUS) = 'accepted' GROUP BY V_NAME, V_LANGUAGE ORDER BY V_NAME";
 			$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
 			$num_rows = mysql_num_rows($query);
 			if ($num_rows > 0) {
@@ -748,6 +748,6 @@
 <br>
 <hr>
 <p align="center">
-<a class="footer" href="http://sites.google.com/site/acaciadb/" target=_blank>Powered by ACACIA</a></p>
+<a class="footer" href="http://www.biotupe.org/acaciadb/" target=_blank>Powered by ACACIA</a></p>
 </body>
 </html>

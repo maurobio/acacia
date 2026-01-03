@@ -1,7 +1,7 @@
 /*
 #=================================================================================#
 #       Acacia - A Generic Conceptual Schema for Taxonomic Databases              #
-#                 Copyright 2008-2024 Mauro J. Cavalcanti                         #
+#                 Copyright 2008-2025 Mauro J. Cavalcanti                         #
 #                           maurobio@gmail.com                                    #
 #                                                                                 #
 #   This program is free software: you can redistribute it and/or modify          #

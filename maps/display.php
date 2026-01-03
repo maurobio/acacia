@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2021 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -125,7 +125,7 @@
 					}
 					$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
 					$t_no = mysql_result($query, 0, 'T_NO');
-					writeToKml($fn, $t_no);
+					writeToKml($fn, $t_no, $link);
 				$i++;
 				}
 			?>
@@ -214,6 +214,6 @@ Download as: <a href="../export/excel.php?table=distribution&field=T_NO">Excel</
 </p>
 <hr>
 <p align="center">
-<a class="footer" href="http://sites.google.com/site/acaciadb/" target=_blank>Powered by ACACIA</a></p>
+<a class="footer" href="http://www.biotupe.org/acaciadb/" target=_blank>Powered by ACACIA</a></p>
 </body>
 </html>

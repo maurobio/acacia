@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2024 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -86,24 +86,14 @@
 
 <center>
 <h3>Interactive Key</h3>
+<h2><a href="../keys/sliks/ACACIA.html">ACACIA Demonstration Database</a></h2>
 </center>
 
-<div align="center">
-<applet code="net.metadiversity.diversity.navikey.ui.NaviKeyApplet.class" width="100%" height="600">
-    <param name = "codebase" value = "./">
-    <param name="cache_archive" value="NaviKey.jar"/>
-    <param name="configfile" value="NaviKeyConfig.xml"/>
-    Sorry, but the NaviKey applet requires a Java aware browser.
-</applet>
-<hr/>
-</div>
-
-<p>Powered by <a href="http://www.navikey.net/" target="_blank">NaviKey v. 5.0</a><br>
-To run NaviKey, <a href ="http://www.java.com/en/download/windows_automatic.jsp" target="_top">Java&#8482; 2 Runtime Environment</a> needs to be downloaded and installed first.</p>
+<p>Powered by <a href="https://www.stingersplace.com/SLIKS/" target="_blank">SLIKS</a><br>
 
 <br>
 <hr>
 <p align="center">
-<a class="footer" href="http://sites.google.com/site/acaciadb/" target=_blank>Powered by ACACIA</a></p>
+<a class="footer" href="http://www.biotupe.org/acaciadb/" target=_blank>Powered by ACACIA</a></p>
 </body>
 </html>

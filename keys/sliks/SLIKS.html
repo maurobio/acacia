@@ -1,0 +1,164 @@
+<html>
+<head>
+		<Title>Stinger's Lightweight Interactive Key Software (SLIKS)Copyright (c) 2004 Gerald F. Guala</Title>
+
+
+<SCRIPT language=JavaScript src="data.js"></SCRIPT>
+
+<script>
+
+var cr = "green";
+taxlist = new Array();
+charlist = new Array();
+chosen = new Array();
+pchose = new Array();
+
+function intellist()
+{
+charlist.length = 0
+top.menu.document.location.reload()
+{
+menu.document.write("<FORM name=keyForm>")
+var z=1;
+var x=0;
+var p=0;
+t = taxlist[0];
+{
+for (x=1; x < items[t].length-1; x++)
+{
+for (i=0; i < taxlist.length; i++)
+{v = taxlist[i] 
+{
+if ((items[v][x]  !== items[t][x]) && (items[v][x] !== "?"))
+{
+menu.document.write("<br><font size = +1 color =" + cr +"><b><i>" +x+ ". " + chars [x][0] + ":</i></b></font><br>");
+charlist[p] = (x);
+p = (p+1); 
+{
+for (z=1; z< chars[x].length; z++)
+{ 
+menu.document.write('<INPUT TYPE="checkbox" NAME="svc'+x+'s'+z +'"> '+ chars[x][z] + '<br>');
+
+}
+}break
+}
+}
+}}}
+menu.document.write("</FORM>")
+}
+}
+
+function show5()
+{
+
+var b=0;
+var z=0;
+var i=0;
+var w=1;
+var p=0;
+taxlist2 = new Array();
+for (t=0; t < charlist.length; t++)
+{
+var m = charlist[t];
+	for (z=1; z<chars[m].length; z++)
+		{
+		var y = eval("top.menu.keyForm.svc"+m+"s"+z+".checked");
+		if (y == true) 
+			{
+			chosen[i] = ("((items[w][" + m + "] == "+z+")|(items[w][" + m + "] == '?'))")
+			var i = (i+1)
+			{
+}}}}
+{
+bodyframe.document.write("<font size = -1>Taxa Matching Your Description:</font><br>");
+chosenv = chosen.concat(pchose)
+var tchose = chosenv.join(" && ")
+for (w=1; w < items.length; w++)
+{
+var il = (items[w].length - 1);	
+var g = eval(tchose)
+if (g)
+{			
+bodyframe.document.write("<input type='button' value='D' onclick = 'top.desc("+w+")'><i><b> <a href= " + items[w][il] + " target = new>" + items [w][0] + "</a></i></b><br>");
+taxlist2[p] = (w);
+p = (p+1); 
+}
+}
+bodyframe.document.write("<font size = -2> End of Selection Set</font><br><br>");
+}
+taxlist = taxlist2;	
+pchose = chosenv
+}
+
+function about()
+{
+alert("If you did not receive this program for free, a crime was committed. Please report violations to STINGER@STINGERSPLACE.COM. SLIKS version 1.1, Copyright (C) 2004, Gerald F. Guala. SLIKS is distributed under the GNU Public License and comes with ABSOLUTELY NO WARRANTY; This is free software, and you are welcome to redistribute it under certain very specific conditions. For details see the GPL.txt file that was distributed with this program or go to www.gnu.org")
+}
+
+function keymake()
+{
+charlist.length = 0
+menu.document.write(dataset)
+menu.document.write("<FORM name=keyForm>")
+var z=1;
+var x=0;
+var p=0;
+
+for (x=1; x < chars.length; x++)
+{
+menu.document.write("<br><font size = +1 color =" + cr +"><b><i>" + x + ". " + chars [x][0] + ":</i></b></font><br>");
+charlist[p] = (x);
+p = (p+1); 
+
+for (z=1; z<chars [x].length; z++)
+{
+menu.document.write('<INPUT TYPE="checkbox" NAME="svc'+x+'s'+z+'"> '+ chars[x][z] + '<br>')
+}
+}
+menu.document.write("</FORM>")
+}
+
+function desc(w)
+{
+var z=1;
+var x=1;
+bodyframe.document.write("<b><i>"+items[w][0]+"</i></b><br>")
+for (x=1; x < chars.length; x++)
+{
+var q = items[w][x]
+bodyframe.document.write("<br><b>"+ chars [x][0] + ": </b>"+ chars[x][q] )
+}
+}
+
+
+function alltaxa()
+{
+var p=0;
+var w=1;
+bodyframe.document.write("<font size = -1>All Taxa:<br></font>");
+
+for (w=1; w < items.length; w++)
+{
+var il = (items[w].length - 1);
+items.sort()
+bodyframe.document.write("<input type='button' value='D' onclick = 'top.desc("+w+")'><i><b> <a href= " + items[w][il] + " target = new>" + items [w][0] + "</a></i></b><br>")
+taxlist[p] = (w);
+p = (p+1); 
+}
+
+bodyframe.document.write("<font size = -2>End of All Taxa<br><br></font>");
+}
+</script>
+<script> self.status = "Powered by Stinger's Lightweight Interactive Key Software from WWW.STINGERSPLACE.COM"</SCRIPT>
+	</head>
+	<frameset rows="45,*">
+		<frame src="vault.html" name="vault">
+
+	<frameset cols="75%,*">
+
+		<frame src="menu.html" name="menu">
+		<frame src="mainbody.html" name="bodyframe">
+
+	</frameset>
+	</frameset>
+</html>
