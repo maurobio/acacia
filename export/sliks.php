@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2026 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -22,22 +22,22 @@
 	include("../config.php");
     include("../mysql.php");
 
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
 	
 	// SLIKS chars
 	$filename = "../keys/sliks/data.js";
 	$out = fopen($filename, 'w');
 	$sql = "SELECT DISTINCT D_CHARACTER, D_STATE, D_STATE_NO, D_NO, T_NO FROM descriptors ORDER BY D_NO, D_STATE_NO";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	fwrite($out, "var dataset = \"<h2>".$title."</h2>\"\n\n");
 	
 	// Initialize arrays to organize the data
 	$characters = [];
 
-	while ($row = mysql_fetch_assoc($query)) {
+	while ($row = mysqli_fetch_assoc($query)) {
 		$charName = $row['D_CHARACTER'];
 		$stateName = $row['D_STATE'];
 		$charId = $row['D_NO'];
@@ -89,22 +89,22 @@
 	// SLIKS items - FIXED CODE
 	// Get all characters in correct order from your original table
 	$charsQuery = "SELECT DISTINCT D_NO FROM descriptors ORDER BY D_NO";
-	$charsResult = mysql_query($charsQuery, $link) or die("Error: MySQL query failed");
+	$charsResult = mysqli_query($charsQuery, $link) or die("Error: MySQL query failed");
 
 	$characterOrder = [];
-	while ($row = mysql_fetch_assoc($charsResult)) {
+	while ($row = mysqli_fetch_assoc($charsResult)) {
 		$characterOrder[] = $row['D_NO'];
 	}
 
 	// Get species from taxa table
 	$sql = "SELECT T_NO, CONCAT(T_GENUS, ' ', T_SPECIES) as species_name FROM taxa ORDER BY T_GENUS, T_SPECIES, T_SUBSP";
-	$speciesResult = mysql_query($sql, $link) or die("Error: MySQL query failed");
+	$speciesResult = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 	
 	// Start items output
 	fwrite($out, "var items = [ [\"\"],\n");
 
 	$firstRow = true;
-	while ($speciesRow = mysql_fetch_assoc($speciesResult)) {
+	while ($speciesRow = mysqli_fetch_assoc($speciesResult)) {
 		$speciesId = $speciesRow['T_NO'];
 		$speciesName = $speciesRow['species_name']; // Now this will work
     
@@ -114,9 +114,9 @@
 		foreach ($characterOrder as $charId) {
 			// Query for this character state from descriptors table
 			$stateQuery = "SELECT D_STATE_NO FROM descriptors WHERE T_NO = $speciesId AND D_NO = $charId LIMIT 1";
-			$stateResult = mysql_query($stateQuery, $link);
+			$stateResult = mysqli_query($stateQuery, $link);
         
-			if ($stateRow = mysql_fetch_assoc($stateResult)) {
+			if ($stateRow = mysqli_fetch_assoc($stateResult)) {
 				$charStates[] = $stateRow['D_STATE_NO'];
 			} else {
 				$charStates[] = "0";
@@ -138,7 +138,7 @@
 	fwrite($out, " ];\n");
 
 	fclose($out);
-	mysql_free_result($query);
+	mysqli_free_result($query);
 ?>
 
 <script language="javascript">

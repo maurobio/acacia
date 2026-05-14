@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2026 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -87,8 +87,8 @@
 		fprintf($outfile, "<Document>");
 		
 		$query = "SELECT P_LATITUDE, P_LONGITUDE FROM distribution WHERE P_LATITUDE IS NOT NULL AND P_LONGITUDE IS NOT NULL ORDER BY P_LATITUDE";
-		$result = mysql_query($query, $link) or die('Query failed!');
-		$row = mysql_fetch_array($result);
+		$result = mysqli_query($link, $query) or die('Query failed!');
+		$row = mysqli_fetch_array($result);
 	
 		// Include a default map view using the following lines
 		fprintf($outfile, " 
@@ -104,16 +104,16 @@
 		htmlspecialchars($row['P_LATITUDE']),
 		htmlspecialchars($row['P_LONGITUDE'])
 		);
-		mysql_free_result($result);	
+		mysqli_free_result($result);	
 	
 		$query = "SELECT * FROM taxa, distribution WHERE taxa.T_NO = distribution.T_NO";
 		if (!empty($cond)) {
 			$query = $query." AND taxa.T_NO = ".$cond;
 		}
-		$result = mysql_query($query, $link) or die('Query failed!');
+		$result = mysqli_query($link, $query) or die('Query failed!');
 
 		// Iterate over all placemarks (rows)
-		while ($row = mysql_fetch_object($result)) {
+		while ($row = mysqli_fetch_object($result)) {
 
 			// This writes out a placemark with some data
 			if (($row->P_LONGITUDE != 0.0) && ($row->P_LATITUDE != 0.0)) {
@@ -145,7 +145,7 @@
 				}		
 			};
 		
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		fprintf($outfile, "\n</Document>\n</kml>");
 		fclose($outfile);
 	}

@@ -2,7 +2,7 @@
 global $config;
 $config['host'] = "localhost"; // database server
 $config['user'] = "root"; // database user
-$config['pwd'] = ""; // database password
+$config['pwd'] = "root"; // database password
 $config['dbname'] = "acacia"; // database name
 $config['readonly'] = true; // database mode (false = edit, true = browse)
 $config['morph'] = true; // morphology (descriptors) data class

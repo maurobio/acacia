@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2026 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -31,6 +31,7 @@
 //    return mysqli_query($MYSQLI_CONNECT, $sql);
 //}
 
+/*
 function mysql_connect($host, $user, $pw, $db) {
 	return mysqli_connect($host, $user, $pw, $db);
 }	
@@ -84,8 +85,9 @@ function mysql_close($link) {
 function mysql_free_result($res) {
 	return mysqli_free_result($res);
 }
+*/
 
-function mysql_result($res, $row = 0, $col = 0) { 
+function mysqli_result($res, $row = 0, $col = 0) { 
 		$numrows = mysqli_num_rows($res); 
 		if ($numrows && $row <= ($numrows - 1) && $row >= 0){
 			mysqli_data_seek($res, $row);

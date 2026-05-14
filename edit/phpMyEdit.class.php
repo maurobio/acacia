@@ -130,6 +130,7 @@ if (! function_exists('realpath')) {
 	}
 }
 
+#[\AllowDynamicProperties]
 class phpMyEdit
 {
 	// Class variables {{{

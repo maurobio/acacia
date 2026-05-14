@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2026 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -21,17 +21,17 @@
 <?php
 
 	// Referential integrity
-	mysql_query("DELETE FROM commonnames WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM descriptors WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM distribution WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM genome WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM habitats WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM highertaxa WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM notes WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM resources WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM status WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM synonyms WHERE T_NO =".$this->rec);
-	mysql_query("DELETE FROM uses WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM commonnames WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM descriptors WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM distribution WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM genome WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM habitats WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM highertaxa WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM notes WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM resources WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM status WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM synonyms WHERE T_NO =".$this->rec);
+	mysqli_query("DELETE FROM uses WHERE T_NO =".$this->rec);
 	
 	return true;
 ?>

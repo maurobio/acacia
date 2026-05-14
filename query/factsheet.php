@@ -1,7 +1,7 @@
 <?php
 /*================================================================================*
 *       Acacia - A Generic Conceptual Schema for Taxonomic Databases              *
-*                 Copyright 2008-2025 Mauro J. Cavalcanti                         *
+*                 Copyright 2008-2026 Mauro J. Cavalcanti                         *
 *                           maurobio@gmail.com                                    *
 *                                                                                 *
 *   This program is free software: you can redistribute it and/or modify          *
@@ -20,14 +20,14 @@
 
 <?php
 	include("../config.php");
-        include("../mysql.php");
-	$link = mysql_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysql_errno().": ".mysql_error());
+    include("../mysql.php");
+	$link = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysql_query($sql, $link) or die("Error: MySQL query failed"); 
-	$title = mysql_result($query, 0, 'M_TITLE');
-	$pub = mysql_result($query, 0, 'M_PUBLISHER');
-	$logo = mysql_result($query, 0, 'M_LOGO');
-	$banner = mysql_result($query, 0, 'M_BANNER');
+	$query = mysqli_query($link, $sql)($sql, $link) or die("Error: MySQL query failed"); 
+	$title = mysqli_result($query, 0, 'M_TITLE');
+	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
+	$logo = mysqli_result($query, 0, 'M_LOGO');
+	$banner = mysqli_result($query, 0, 'M_BANNER');
 ?>
 
 <html>
@@ -90,10 +90,10 @@
 	<?php
 		//$sql = "SELECT CONCAT(taxa.T_GENUS, ' ', taxa.T_SPECIES, ' ', taxa.T_SUBSP) AS species FROM taxa ORDER BY species";
 		$sql = "SELECT taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP FROM taxa ORDER BY taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP";
-		$query = mysql_query($sql, $link) or die("Error: MySQL query failed");
-		$num_rows = mysql_num_rows($query);
+		$query = mysqli_query($link, $sql)($sql, $link) or die("Error: MySQL query failed");
+		$num_rows = mysqli_num_rows($query);
 		if ($num_rows > 0) {
-			while($row = mysql_fetch_array($query)) {
+			while($row = mysqli_fetch_array($query)) {
 				//echo "<option value=\"name\">".$row['species'];
 				echo "<option value=\"name\">".$row[0].' '.$row[1].' '.$row[2];
 				echo "</option>\n";
@@ -115,8 +115,8 @@
 </center>
 
 <?php
-	mysql_free_result($query);
-	mysql_close($link);
+	mysqli_free_result($query);
+	mysqli_close($link);
 ?>
 
 <hr>
