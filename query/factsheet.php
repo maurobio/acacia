@@ -23,7 +23,7 @@
     include("../mysql.php");
 	$link = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
 	$sql = "SELECT * FROM metadata";
-	$query = mysqli_query($link, $sql)($sql, $link) or die("Error: MySQL query failed"); 
+	$query = mysqli_query($link, $sql) or die("Error: MySQL query failed"); 
 	$title = mysqli_result($query, 0, 'M_TITLE');
 	$pub = mysqli_result($query, 0, 'M_PUBLISHER');
 	$logo = mysqli_result($query, 0, 'M_LOGO');
@@ -42,12 +42,14 @@
 
 <?php
 	if (!empty($banner)) {
-		echo "<img src=\"".$banner."\" alt=\"Project banner\" width=\"991\" height=\"120\">\n";
+		$banner_image = ".."."/images/".$banner;
+		echo "<img src=\"".$banner_image."\" alt=\"Project banner\" width=\"991\" height=\"120\">\n";
 	}
 	else {
+		$logo_image = ".."."/images/".$logo;
 		echo "<table class=\"header\" width=\"100%\">\n";
 		echo "<tr>\n";
-		echo "<td width=\"10%\"> <img src=\"".$logo."\" alt=\"Project logo\" width=\"128\" height=\"80\"></td>\n";
+		echo "<td width=\"10%\"> <img src=\"".$logo_image."\" alt=\"Project logo\" width=\"128\" height=\"80\"></td>\n";
 		echo "<td width=\"50%\">".$title."<br></td>\n";
 		echo "</tr>\n";
 		echo "</table>\n";
@@ -90,7 +92,7 @@
 	<?php
 		//$sql = "SELECT CONCAT(taxa.T_GENUS, ' ', taxa.T_SPECIES, ' ', taxa.T_SUBSP) AS species FROM taxa ORDER BY species";
 		$sql = "SELECT taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP FROM taxa ORDER BY taxa.T_GENUS, taxa.T_SPECIES, taxa.T_SUBSP";
-		$query = mysqli_query($link, $sql)($sql, $link) or die("Error: MySQL query failed");
+		$query = mysqli_query($link, $sql) or die("Error: MySQL query failed");
 		$num_rows = mysqli_num_rows($query);
 		if ($num_rows > 0) {
 			while($row = mysqli_fetch_array($query)) {

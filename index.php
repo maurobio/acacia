@@ -20,6 +20,7 @@
 
 <?php include("config.php"); ?>
 <?php include("mysql.php"); ?>
+<?php include("./library/functions.php"); ?>
 
 <?php
 	$link = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['dbname']) or die("Connection error: ".mysqli_errno().": ".mysqli_error());
@@ -41,12 +42,14 @@
 
 <?php
 	if (!empty($banner)) {
-		echo "<img src=\"".$banner."\" alt=\"Project banner\" width=\"991\" height=\"120\">\n";
+		$banner_image = "."."/images/".$banner;
+		echo "<img src=\"".$banner_image."\" alt=\"Project banner\" width=\"991\" height=\"120\">\n";
 	}
 	else {
+		$logo_image = "."."/images/".$logo;
 		echo "<table class=\"header\" width=\"100%\">\n";
 		echo "<tr>\n";
-		echo "<td width=\"10%\"> <img src=\"".$logo."\" alt=\"Project logo\" width=\"128\" height=\"80\"></td>\n";
+		echo "<td width=\"10%\"> <img src=\"".$logo_image."\" alt=\"Project logo\" width=\"128\" height=\"80\"></td>\n";
 		echo "<td width=\"50%\">".$title."<br></td>\n";
 		echo "</tr>\n";
 		echo "</table>\n";
